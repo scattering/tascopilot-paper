@@ -1,0 +1,36 @@
+suite_id: full_bt7_backbone_readiness
+fixture_manifest: tests/fixtures/corpus_pilot/pilot_manifest.synthetic.yaml
+description: >
+  Metadata-only readiness checks for the full BT-7 backbone runbook. The real
+  full archive and private corpus runs happen on Stampede/Vista; this suite
+  verifies the committed synthetic corpus/evidence layer still supports the
+  retrieval pieces used by that backbone.
+min_documents: 2
+min_source_chunks: 4
+min_evidence_graph_edges: 4
+min_tas_concept_links: 2
+tasks:
+  - name: panel_j_label_retrieval
+    query: "panel j x_Mn 0.4 LuFe Mn O"
+    expected_source_ids:
+      - chunk-lu-femn-o3-figure-caption
+    top_k: 5
+  - name: bt7_psd_elastic_methods
+    query: "BT-7 PSD elastic methods source data"
+    expected_source_ids:
+      - chunk-lu-femn-o3-methods-bt7-psd
+    required_chunk_types:
+      - instrument_setup
+    top_k: 5
+  - name: textbook_fixed_final_energy
+    query: "fixed final energy triple axis spectroscopy"
+    expected_source_ids:
+      - textbook-fixed-final-energy
+    top_k: 5
+  - name: proposed_source_links_without_false_positive
+    query: "candidate source panel scan group elastic"
+    expected_source_ids:
+      - candidate_source_for_panel-7f7ab7bd0cfd
+    forbidden_source_ids:
+      - synthetic-lufemno3-3mev-line
+    top_k: 10

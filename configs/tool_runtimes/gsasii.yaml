@@ -1,0 +1,19 @@
+runtime_id: gsasii-local-conda
+mode: conda_env
+label: Portable GSAS-II runtime example; configure before use
+command: ["{python}", "-m", tas_gsasii_adapter]
+conda_env_name: gsasii
+python_executable: /path/to/gsasii/bin/python
+input_protocol: stdin_stdout_json
+output_protocol: stdin_stdout_json
+timeout_seconds: 120
+read_only: true
+network_access: false
+notes:
+  - This placeholder does not select a host environment or install GSAS-II.
+  - Configure an external runtime explicitly; missing runtimes return unavailable.
+provenance:
+  - source_type: example_config
+    source_id: gsasii-local-conda
+    source_uri: configs/tool_runtimes/gsasii.yaml
+    method: portable_submission_example

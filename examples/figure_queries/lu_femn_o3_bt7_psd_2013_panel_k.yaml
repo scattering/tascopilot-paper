@@ -1,0 +1,56 @@
+query_id: lu_femn_o3_bt7_psd_2013_panel_k
+figure_id: unknown_paper_figure
+target_panel: k
+target_panel_label: "x_Mn = 0.5"
+material_family: "LuFe_{1-x}Mn_xO3"
+user_sample_formula: "LuFe0.6Mn0.4O3"
+target_composition:
+  x_mn: 0.5
+alternate_panels:
+  - panel_id: j
+    label: "x_Mn = 0.4"
+    composition:
+      x_mn: 0.4
+instrument: BT-7
+measurement_mode: PSD
+measurement_kind: elastic
+required_energy_transfer: 0
+sample_type: powder
+dates:
+  - 2013-05-17
+  - 2013-06-01
+experimenters:
+  - Disseler
+  - Ratcliff
+  - Lynn
+  - Cheong
+q_range:
+  axis_name: Q
+  min_value: 1.10
+  max_value: 1.45
+  unit: "angstrom^-1"
+temperature_range:
+  axis_name: temperature
+  min_value: 0
+  max_value: 200
+  unit: K
+annotated_q_values:
+  - 1.24
+expected_source_families:
+  - single_file_psd_temperature_map
+  - multi_file_psd_angle_temperature_series
+excluded_source_families:
+  - single_detector_inelastic_line_scan
+  - nonzero_energy_line_scan
+expected_features:
+  - feature_type: vertical_annotation
+    value: 1.24
+    unit: "angstrom^-1"
+    tolerance: 0.03
+    notes: "Red annotated line supplied by user."
+attempt_reconstruction: false
+max_reconstruction_candidates: 5
+notes: >
+  The user-stated LuFe0.6Mn0.4O3 composition corresponds to x_Mn = 0.4,
+  while panel (k) is visually labeled x_Mn = 0.5. Search both panel (k)
+  and the likely panel (j) interpretation.

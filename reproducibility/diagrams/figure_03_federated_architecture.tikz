@@ -1,0 +1,31 @@
+\begin{tikzpicture}[scale=0.83, transform shape,
+  node distance=8mm and 12mm,
+  core/.style={draw, rounded corners=2pt, fill=blue!8, align=center, font=\footnotesize, inner sep=5pt, minimum width=37mm, minimum height=9mm},
+  mcp/.style={draw, rounded corners=2pt, fill=purple!9, align=center, font=\footnotesize, inner sep=5pt, minimum width=34mm, minimum height=15mm},
+  spoke/.style={draw, rounded corners=1.5pt, fill=gray!9, align=center, font=\scriptsize, inner sep=3pt, minimum width=29mm, minimum height=7mm},
+  data/.style={draw, rounded corners=1.5pt, fill=green!8, align=center, font=\scriptsize, inner sep=3pt, minimum width=30mm, minimum height=7mm},
+  reportbox/.style={draw, rounded corners=1.5pt, fill=yellow!12, align=center, font=\scriptsize, inner sep=3pt, minimum width=33mm, minimum height=7mm},
+  arrow/.style={-{Latex[length=2mm]}, thick}
+]
+\node[core] (core) at (0,0) {TASCopilot core\\contracts, provenance, ontology, workflows};
+\node[mcp] (mcp) at (4.6,0) {MCP / tool-service layer\\tool discovery, typed calls,\\runtime profiles, audit};
+
+\node[spoke] (readers) at (8.9,1.9) {TAS readers\\and grouping};
+\node[spoke] (reduction) at (8.9,0.95) {Reduction\\and pan-web};
+\node[spoke] (resolution) at (8.9,0) {Resolution\\calculator};
+\node[spoke] (spinw) at (8.9,-0.95) {pySpinW /\\spin waves};
+\node[spoke] (gsas) at (8.9,-1.9) {GSAS-II /\\structure factors};
+\node[spoke] (nice) at (4.6,-2.15) {NICE, TAS-AI,\\ANDiE runtimes};
+\node[data] (catalogs) at (-3.9,-1.1) {Corpus catalogs,\\data catalogs, labels};
+\node[reportbox] (reports) at (-3.9,1.1) {Reports, dashboards,\\review packets};
+
+\draw[arrow] (core) -- (mcp);
+\draw[arrow] (mcp) -- (readers);
+\draw[arrow] (mcp) -- (reduction);
+\draw[arrow] (mcp) -- (resolution);
+\draw[arrow] (mcp) -- (spinw);
+\draw[arrow] (mcp) -- (gsas);
+\draw[arrow] (mcp) -- (nice);
+\draw[arrow] (catalogs) -- (core);
+\draw[arrow] (core) -- (reports);
+\end{tikzpicture}

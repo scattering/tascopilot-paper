@@ -1,0 +1,33 @@
+\begin{tikzpicture}[scale=0.88, transform shape,
+  node distance=8mm and 7mm,
+  box/.style={draw, rounded corners=1.5pt, align=center, font=\footnotesize, inner sep=4pt, minimum width=26mm, minimum height=8mm},
+  state/.style={box, fill=blue!7},
+  fail/.style={box, fill=red!8},
+  review/.style={box, fill=yellow!14},
+  arrow/.style={-{Latex[length=2mm]}, thick}
+]
+\node[box] (input) {Untrusted input\\paper, header, log};
+\node[state, right=of input] (extract) {Typed extraction\\with spans};
+\node[state, right=of extract] (validate) {Mechanical\\validators};
+\node[review, right=of validate] (proposed) {Proposed\\claim};
+\node[review, right=of proposed] (reviewed) {Human review or\\reconstruction};
+\node[state, right=of reviewed] (accepted) {Accepted / rejected\\superseded};
+
+\node[fail, below=of validate] (missing) {Missing fields,\\validator failures};
+\node[fail, below=of proposed] (ambig) {Ambiguous or\\low-confidence evidence};
+\node[state, below=of reviewed] (labels) {Review labels\\calibrate priors};
+
+\draw[arrow] (input.east) -- (extract.west);
+\draw[arrow] (extract.east) -- (validate.west);
+\draw[arrow] (validate.east) -- (proposed.west);
+\draw[arrow] (proposed.east) -- (reviewed.west);
+\draw[arrow] (reviewed.east) -- (accepted.west);
+\draw[arrow] (validate.south) -- (missing.north);
+\draw[arrow] (proposed.south) -- (ambig.north);
+\draw[arrow] (reviewed.south) -- (labels.north);
+% Return through the open corridor beside the ambiguity box.
+\coordinate (feedback) at ($(ambig.east)!0.5!(labels.west)$);
+\coordinate (return) at ([xshift=8mm,yshift=-4mm]proposed.south);
+\draw[arrow] (labels.west) -- (feedback |- labels.west)
+  -- (feedback |- return) -- (return) -- ([xshift=8mm]proposed.south);
+\end{tikzpicture}

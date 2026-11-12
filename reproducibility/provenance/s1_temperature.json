@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "source": "SrMn2Sb2 poster analysis supplied by Jeffrey W. Lynn",
+  "author": "Jeffrey W. Lynn",
+  "received_date": "2026-11-06",
+  "source_revision": "796bfa5add6a93f0eb5407db809332c063989535",
+  "source_provenance_path": "images/srmn2sb2_temperature_provenance.json",
+  "analysis_role": "Existing supplied experimental analysis; panels unchanged; no refit performed by this package.",
+  "sample_and_transition": {
+    "source": "Jeffrey W. Lynn, update relayed by William Ratcliff",
+    "update_date": "2026-11-07",
+    "sample": "0.5 g single crystal",
+    "mass_g": 0.5,
+    "reported_neel_temperature": "114.6(6) K",
+    "reported_beta": 0.21,
+    "note": "The reported temperature uncertainty comes from the author update. The unchanged JPEG label reports 114.6 K."
+  },
+  "assets": [
+    {
+      "path": "reference_figures/s1/srmn2sb2_temperature_contour_lynn.jpg",
+      "original_filename": "SrMn2Sb2_OPcontour.jpg",
+      "sha256": "96f6fc6800c3cc6fea7131f5b3ebb0fb57ed72257a7560de3246a3e6b20d97d8",
+      "processing": "Unmodified supplied JPEG. The supplied caption specifies subtraction of the 170 K measurement as background."
+    },
+    {
+      "path": "reference_figures/s1/srmn2sb2_order_parameter_lynn.jpg",
+      "original_filename": "SrMn2Sb2_OPfit Critical.jpg",
+      "sha256": "652544156ed81c46c55658d21cfb03aab8545f6f70e7dbf7b188c05cafe237b2",
+      "processing": "Unmodified supplied JPEG. Labels report TN = 114.6 K and beta = 0.21; blue Q = (0, 0, 2), red Q = (0.05, 0.05, 2)."
+    }
+  ],
+  "availability": {
+    "numerical_panel_source_data_included": false,
+    "panel_fit_routine_included": false,
+    "panel_refit_performed": false,
+    "public_experiment_archive_urls": [
+      "https://ncnr.nist.gov/pub/ncnrdata/bt7/201804/24858/",
+      "https://ncnr.nist.gov/pub/ncnrdata/bt7/201806/24858/"
+    ],
+    "limitation": "Public experiment directories are references, not a reviewed mapping of raw files to these two supplied panels. No reconstruction or exact raw-source claim is made."
+  },
+  "sanitization": "Transport identifiers and email subjects omitted. Only author/date, scientific context, filenames, and verified asset hashes retained."
+}

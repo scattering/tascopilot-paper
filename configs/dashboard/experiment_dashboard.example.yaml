@@ -1,0 +1,49 @@
+experiment_id: example_experiment
+description: Example local experiment dashboard configuration. Copy to local_runs/ or another ignored path before adding private details.
+
+instrument_config:
+  fixed_energy: 14.7
+  fixed_energy_mode: fixed_final_energy
+  collimation:
+    pre_sample: 40
+    post_sample: 40
+  collimation_status: heuristic_prior_only
+
+resolution_proxy:
+  use_heuristic_40_40_prior: true
+  note: 40/40 is only a ballpark prior when manual collimations are absent.
+
+# Fill in real lattice/orientation only when reviewed for the experiment.
+# When lattice and instrument_config are present, the dashboard can pass
+# candidate H/K/L/E checks to tas.spurion.check_spurions through the registry.
+lattice: null
+spurion_check:
+  enabled: false
+  q_tolerance: 0.08
+  energy_tolerance: 0.5
+  hkl_max: 4
+  harmonics: 4
+  include_powder_rings: true
+  include_incoherent: true
+
+overlay_packs:
+  - bt7_common
+  - thin_film_common
+
+materials_in_beam:
+  substrate:
+    - Si
+  mount:
+    - Cu
+    - Al
+  optics:
+    - PG
+
+overlays:
+  - overlay_id: sample_peak_family
+    overlay_type: sample_reference
+    label: Sample peak family
+    material: sample
+    enabled_by_default: false
+    parameters:
+      status: requires_user_hkl_and_geometry

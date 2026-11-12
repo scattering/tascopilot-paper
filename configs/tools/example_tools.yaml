@@ -1,0 +1,644 @@
+tools:
+  - name: extract_document
+    namespace: tas.corpus
+    version: "0.1.0"
+    description: Extract capped, provenance-tagged text and chunk candidates from local-private corpus documents.
+    input_schema: {type: object, required: [path], properties: {path: {type: string}, backend: {type: string}, max_pages: {type: integer}, max_chars: {type: integer}, output_dir: {type: string}}}
+    output_schema: {type: object}
+    side_effect_level: local_files
+    availability: unavailable
+    implementation_type: manifest_only
+    required_dependencies: ["pdftotext baseline or optional structured extractor plugin such as GROBID/Docling"]
+    preconditions: ["Document path is local.", "Private source text is treated as untrusted data.", "Artifacts, if requested, are written only under an explicit output directory."]
+    postconditions: ["Extractor status, quality metrics, warnings, provenance, and optional local artifacts are returned."]
+    provenance_policy: "Record document path/hash when available, extractor backend, parser version, page/character caps, and artifact paths."
+    permissions_required: [writes_local_files]
+    enabled_by_default: true
+  - name: parse_formula
+    namespace: tas.material_identity
+    version: "0.1.0"
+    description: Parse standard chemical formulas through an optional external material-identity parser such as pymatgen.
+    input_schema: {type: object, required: [text], properties: {text: {type: string}, family: {type: string}}}
+    output_schema: {type: object}
+    side_effect_level: none
+    availability: unavailable
+    implementation_type: stub
+    required_dependencies: ["tas-material-identity plugin or optional pymatgen backend"]
+    preconditions: ["Formula text is supplied."]
+    postconditions: ["Normalized material identity is returned, or unavailable if parser backend is absent."]
+    provenance_policy: "Record source text, parser backend, parser version, and interpretation method."
+    permissions_required: [read_only]
+    enabled_by_default: true
+  - name: parse_filename_composition
+    namespace: tas.material_identity
+    version: "0.1.0"
+    description: Interpret TAS filename/sample-log composition shorthands using curated family grammars.
+    input_schema: {type: object, required: [text], properties: {text: {type: string}, family: {type: string}}}
+    output_schema: {type: object}
+    side_effect_level: none
+    availability: unavailable
+    implementation_type: manifest_only
+    required_dependencies: ["core curated family grammar; optional external validation parser"]
+    preconditions: ["A curated material family grammar exists."]
+    postconditions: ["Filename-derived material identity evidence is returned with ambiguity warnings where needed."]
+    provenance_policy: "Record source text and grammar version/path."
+    permissions_required: [read_only]
+    enabled_by_default: true
+  - name: classify_source_family
+    namespace: tas.psd
+    version: "0.1.0"
+    description: Classify TAS records as PSD temperature maps, PSD angle temperature series, elastic/inelastic line scans, or sparse unknown records.
+    input_schema: {type: object}
+    output_schema: {type: object}
+    side_effect_level: none
+    availability: unavailable
+    implementation_type: manifest_only
+    required_dependencies: ["core deterministic classifier or external PSD grouping plugin"]
+    preconditions: ["Metadata record includes detector mode, scan type, energy, temperature, or PSD channel evidence."]
+    postconditions: ["Source family classification with evidence and missing fields is returned."]
+    provenance_policy: "Record source record id and metadata fields used."
+    permissions_required: [read_only]
+    enabled_by_default: true
+  - name: read_bt7_data
+    namespace: tas.data_reader
+    version: "0.1.0"
+    description: Read BT-7 data files or runs through an external adapter.
+    input_schema: {type: object}
+    output_schema: {type: object}
+    side_effect_level: none
+    availability: unavailable
+    implementation_type: stub
+    required_dependencies: []
+    preconditions: ["External data-reader repository configured."]
+    postconditions: ["Parsed metadata and data references preserve provenance."]
+    provenance_policy: "Record input file path/checksum and adapter version."
+    permissions_required: [read_only]
+    enabled_by_default: true
+  - name: read_bt7_file
+    namespace: tas.data_reader
+    version: "0.1.0"
+    description: Read one BT-7 data file through bt7grouping if installed.
+    input_schema: {type: object, required: [path], properties: {path: {type: string}}}
+    output_schema: {type: object}
+    side_effect_level: none
+    availability: unavailable
+    implementation_type: python_entrypoint
+    required_dependencies: ["bt7grouping"]
+    preconditions: ["bt7grouping is installed with tas_copilot.tools entry point."]
+    postconditions: ["Parsed metadata and file provenance are returned."]
+    provenance_policy: "Record input path and bt7grouping version."
+    permissions_required: [read_only]
+    enabled_by_default: true
+    owner_repo: "https://github.com/scattering/bt7grouping"
+  - name: classify_tas_format
+    namespace: tas.data_reader
+    version: "0.1.0"
+    description: Classify a TAS data file format from path and optional header snippet.
+    input_schema: {type: object, required: [path], properties: {path: {type: string}, header: {type: string}}}
+    output_schema: {type: object}
+    side_effect_level: none
+    availability: unavailable
+    implementation_type: python_entrypoint
+    required_dependencies: ["tas-data-readers"]
+    preconditions: ["A local path string is supplied."]
+    postconditions: ["Detected format family, facility, instrument, and source adapter are returned."]
+    provenance_policy: "Record path, detected format family, source adapter, and legacy reader provenance."
+    permissions_required: [read_only]
+    enabled_by_default: true
+    owner_repo: "https://github.com/scattering/tas-data-readers"
+  - name: read_tas_metadata
+    namespace: tas.data_reader
+    version: "0.1.0"
+    description: Read lightweight TAS data-file metadata without parsing full data arrays.
+    input_schema: {type: object, required: [path], properties: {path: {type: string}, header: {type: string}}}
+    output_schema: {type: object}
+    side_effect_level: none
+    availability: unavailable
+    implementation_type: python_entrypoint
+    required_dependencies: ["tas-data-readers"]
+    preconditions: ["A local path string is supplied."]
+    postconditions: ["Native IDs, native format, facility, instrument, and adapter provenance are returned."]
+    provenance_policy: "Record path, detected format family, source adapter, and legacy reader provenance."
+    permissions_required: [read_only]
+    enabled_by_default: true
+    owner_repo: "https://github.com/scattering/tas-data-readers"
+  - name: scan_tas_directory
+    namespace: tas.data_reader
+    version: "0.1.0"
+    description: Scan a directory for recognized TAS data-file formats.
+    input_schema: {type: object, required: [root], properties: {root: {type: string}, max_files: {type: integer}}}
+    output_schema: {type: object}
+    side_effect_level: none
+    availability: unavailable
+    implementation_type: python_entrypoint
+    required_dependencies: ["tas-data-readers"]
+    preconditions: ["A local directory path is supplied."]
+    postconditions: ["Recognized file summaries are returned without modifying files."]
+    provenance_policy: "Record root path, detected format families, source adapter, and legacy reader provenance."
+    permissions_required: [read_only]
+    enabled_by_default: true
+    owner_repo: "https://github.com/scattering/tas-data-readers"
+  - name: read_ncnr_legacy_file
+    namespace: tas.data_reader
+    version: "0.1.0"
+    description: Read NCNR legacy TAS metadata and numeric columns through tas-data-readers.
+    input_schema: {type: object, required: [path], properties: {path: {type: string}, max_rows: {type: integer}}}
+    output_schema: {type: object}
+    side_effect_level: none
+    availability: unavailable
+    implementation_type: python_entrypoint
+    required_dependencies: ["tas-data-readers"]
+    preconditions: ["A local NCNR legacy TAS file path is supplied."]
+    postconditions: ["Metadata, column names, numeric rows, and column stats are returned without modifying files."]
+    provenance_policy: "Record path, detected format family, source adapter, and legacy reader provenance."
+    permissions_required: [read_only]
+    enabled_by_default: true
+    owner_repo: "https://github.com/scattering/tas-data-readers"
+  - name: group_bt7_scans
+    namespace: tas.scan_grouping
+    version: "0.1.0"
+    description: Scan and group BT-7 files through bt7grouping if installed.
+    input_schema: {type: object, required: [root_dirs], properties: {root_dirs: {type: array, items: {type: string}}}}
+    output_schema: {type: object}
+    side_effect_level: none
+    availability: unavailable
+    implementation_type: python_entrypoint
+    required_dependencies: ["bt7grouping"]
+    preconditions: ["bt7grouping is installed with tas_copilot.tools entry point."]
+    postconditions: ["Scan records and grouping summaries are returned without modifying files."]
+    provenance_policy: "Record root directories, grouping parameters, and bt7grouping version."
+    permissions_required: [read_only]
+    enabled_by_default: true
+    owner_repo: "https://github.com/scattering/bt7grouping"
+  - name: combine_files
+    namespace: tas.file_arithmetic
+    version: "0.1.0"
+    description: Combine, add, or subtract data files through an external utility.
+    input_schema: {type: object}
+    output_schema: {type: object}
+    side_effect_level: local_files
+    availability: unavailable
+    implementation_type: stub
+    required_dependencies: []
+    preconditions: ["Input data files exist.", "Derived output path is local."]
+    postconditions: ["Derived artifact lineage is recorded."]
+    provenance_policy: "Record all input datafile ids, parameters, and derived artifact paths."
+    permissions_required: [writes_local_files]
+    enabled_by_default: true
+  - name: add_scans
+    namespace: tas.file_arithmetic
+    version: "0.1.0"
+    description: Add compatible scan payloads through tasreduction when installed.
+    input_schema: {type: object, required: [scans], properties: {scans: {type: array}, axis_eps: {type: number}}}
+    output_schema: {type: object}
+    side_effect_level: local_files
+    availability: unavailable
+    implementation_type: python_entrypoint
+    required_dependencies: ["tasreduction"]
+    preconditions: ["tasreduction is installed with tas_copilot.tools entry point.", "At least one scan payload is supplied."]
+    postconditions: ["Derived scan payload includes treatment and lineage hints."]
+    provenance_policy: "Record input scan ids, arithmetic parameters, and tasreduction version."
+    permissions_required: [writes_local_files]
+    enabled_by_default: true
+    owner_repo: "https://github.com/scattering/tasreduction"
+  - name: subtract_background
+    namespace: tas.file_arithmetic
+    version: "0.1.0"
+    description: Subtract a background scan from a signal scan through tasreduction when installed.
+    input_schema: {type: object, required: [signal, background], properties: {signal: {type: object}, background: {type: object}}}
+    output_schema: {type: object}
+    side_effect_level: local_files
+    availability: unavailable
+    implementation_type: python_entrypoint
+    required_dependencies: ["tasreduction"]
+    preconditions: ["tasreduction is installed with tas_copilot.tools entry point.", "Signal and background scan payloads are compatible."]
+    postconditions: ["Derived scan payload includes treatment and lineage hints."]
+    provenance_policy: "Record signal/background ids, arithmetic parameters, and tasreduction version."
+    permissions_required: [writes_local_files]
+    enabled_by_default: true
+    owner_repo: "https://github.com/scattering/tasreduction"
+  - name: apply_corrections
+    namespace: tas.corrections
+    version: "0.1.0"
+    description: Apply Bose, detailed-balance, harmonic, background, or related TAS corrections.
+    input_schema: {type: object}
+    output_schema: {type: object}
+    side_effect_level: local_files
+    availability: unavailable
+    implementation_type: stub
+    required_dependencies: []
+    preconditions: ["External correction utility configured."]
+    postconditions: ["Correction output keeps source-data lineage."]
+    provenance_policy: "Record correction type, parameters, inputs, and utility version."
+    permissions_required: [writes_local_files]
+    enabled_by_default: true
+  - name: normalize_to_monitor
+    namespace: tas.corrections
+    version: "0.1.0"
+    description: Normalize one scan payload to monitor counts through tasreduction when installed.
+    input_schema: {type: object, required: [scan], properties: {scan: {type: object}, target_monitor: {type: number}}}
+    output_schema: {type: object}
+    side_effect_level: local_files
+    availability: unavailable
+    implementation_type: python_entrypoint
+    required_dependencies: ["tasreduction"]
+    preconditions: ["tasreduction is installed with tas_copilot.tools entry point.", "Scan payload includes monitor counts."]
+    postconditions: ["Derived scan payload includes treatment and lineage hints."]
+    provenance_policy: "Record input scan id, normalization parameters, and tasreduction version."
+    permissions_required: [writes_local_files]
+    enabled_by_default: true
+    owner_repo: "https://github.com/scattering/tasreduction"
+  - name: apply_detailed_balance
+    namespace: tas.corrections
+    version: "0.1.0"
+    description: Apply a detailed-balance correction through tasreduction when installed.
+    input_schema: {type: object, required: [scan], properties: {scan: {type: object}}}
+    output_schema: {type: object}
+    side_effect_level: local_files
+    availability: unavailable
+    implementation_type: python_entrypoint
+    required_dependencies: ["tasreduction"]
+    preconditions: ["tasreduction is installed with tas_copilot.tools entry point.", "Scan metadata includes E and Temp arrays."]
+    postconditions: ["Derived scan payload includes treatment and lineage hints."]
+    provenance_policy: "Record input scan id, correction parameters, and tasreduction version."
+    permissions_required: [writes_local_files]
+    enabled_by_default: true
+    owner_repo: "https://github.com/scattering/tasreduction"
+  - name: translate_ice_file
+    namespace: tas.reduction
+    version: "0.1.0"
+    description: Translate a BT-7 ICE/NICE file through tasreduction when optional readers are available.
+    input_schema: {type: object, required: [path], properties: {path: {type: string}, signal_channel: {type: string}}}
+    output_schema: {type: object}
+    side_effect_level: local_files
+    availability: unavailable
+    implementation_type: python_entrypoint
+    required_dependencies: ["tasreduction"]
+    preconditions: ["tasreduction is installed with tas_copilot.tools entry point.", "Input file is readable."]
+    postconditions: ["No source files are modified."]
+    provenance_policy: "Record input file path and tasreduction translator version."
+    permissions_required: [writes_local_files]
+    enabled_by_default: true
+    owner_repo: "https://github.com/scattering/tasreduction"
+  - name: calculate_resolution
+    namespace: tas.resolution
+    version: "0.1.0"
+    description: Fast TAS resolution calculation through rescalculator when installed.
+    input_schema: {type: object, required: [q_point, energy_transfer, instrument_config, lattice]}
+    output_schema: {type: object}
+    side_effect_level: none
+    availability: unavailable
+    implementation_type: python_entrypoint
+    required_dependencies: ["rescalculator", "icp-lattice-calculator"]
+    preconditions: ["ResolutionInput-compatible Q/E/configuration arguments."]
+    postconditions: ["ResolutionResult-compatible output."]
+    provenance_policy: "Record Q/E/configuration, adapter version, and runtime summary."
+    permissions_required: [read_only]
+    enabled_by_default: true
+    owner_repo: "https://github.com/scattering/rescalculator"
+  - name: calculate_angles
+    namespace: tas.device_angles
+    version: "0.1.0"
+    description: Calculate device angles for requested Q/E/configuration through icp-lattice-calculator when installed.
+    input_schema: {type: object, required: [q_point, energy_transfer, instrument_config, lattice]}
+    output_schema: {type: object}
+    side_effect_level: none
+    availability: unavailable
+    implementation_type: python_entrypoint
+    required_dependencies: ["icp-lattice-calculator"]
+    preconditions: ["DeviceAngleInput-compatible arguments."]
+    postconditions: ["DeviceAngleResult-compatible output."]
+    provenance_policy: "Record requested Q/E/UB/configuration and adapter version."
+    permissions_required: [read_only]
+    enabled_by_default: true
+    owner_repo: "https://github.com/scattering/rescalculator"
+  - name: calculate_ub
+    namespace: tas.ubmatrix
+    version: "0.1.0"
+    description: Calculate an orientation-aware UB-like matrix and reciprocal-lattice summary through icp-lattice-calculator when installed.
+    input_schema: {type: object, required: [lattice]}
+    output_schema: {type: object}
+    side_effect_level: none
+    availability: unavailable
+    implementation_type: python_entrypoint
+    required_dependencies: ["rescalculator", "icp-lattice-calculator"]
+    preconditions: ["Lattice parameters and two orientation vectors are supplied."]
+    postconditions: ["UBMatrix-compatible output."]
+    provenance_policy: "Record reflections, lattice parameters, and utility version."
+    permissions_required: [read_only]
+    enabled_by_default: true
+    owner_repo: "https://github.com/scattering/rescalculator"
+  - name: calculate_reciprocal_angle
+    namespace: tas.ubmatrix
+    version: "0.1.0"
+    description: Angle between two reciprocal-space (HKL) vectors from the icp-lattice-calculator metric; not constrained to a scattering plane.
+    input_schema: {type: object, required: [lattice, v1, v2]}
+    output_schema: {type: object}
+    side_effect_level: none
+    availability: unavailable
+    implementation_type: python_entrypoint
+    required_dependencies: ["rescalculator", "icp-lattice-calculator"]
+    preconditions: ["Lattice parameters and two HKL vectors are supplied."]
+    postconditions: ["No files or instrument state are modified."]
+    provenance_policy: "Record lattice, vectors, and icp-lattice-calculator provenance."
+    permissions_required: [read_only]
+    enabled_by_default: true
+    owner_repo: "https://github.com/scattering/rescalculator"
+  - name: calculate_inplane_orthogonal
+    namespace: tas.ubmatrix
+    version: "0.1.0"
+    description: In-plane perpendicular HKL direction for a vector in the (orient1, orient2) scattering plane under the reciprocal-lattice metric.
+    input_schema: {type: object, required: [lattice, v]}
+    output_schema: {type: object}
+    side_effect_level: none
+    availability: unavailable
+    implementation_type: python_entrypoint
+    required_dependencies: ["rescalculator", "icp-lattice-calculator"]
+    preconditions: ["Lattice parameters with orient1/orient2 plane vectors and one in-plane HKL vector are supplied."]
+    postconditions: ["No files or instrument state are modified."]
+    provenance_policy: "Record lattice, plane, input vector, and icp-lattice-calculator provenance."
+    permissions_required: [read_only]
+    enabled_by_default: true
+    owner_repo: "https://github.com/scattering/rescalculator"
+  - name: run_spinwave
+    namespace: tas.pyspinw
+    version: "0.1.0"
+    description: Run spin-wave calculations via a separate tas-pyspinw-adapter package that depends on the external SpinW/pySpinW Python package.
+    input_schema: {type: object}
+    output_schema: {type: object}
+    side_effect_level: simulation
+    availability: unavailable
+    implementation_type: python_entrypoint
+    required_dependencies: ["tas-pyspinw-adapter", "pyspinw from https://github.com/SpinW/pySpinW"]
+    preconditions: ["SpinWaveModelSpec-compatible input.", "Simulation only."]
+    postconditions: ["SpinWaveCalculationResult-compatible output."]
+    provenance_policy: "Record model spec, adapter version, and generated artifact refs."
+    permissions_required: [simulation_only]
+    enabled_by_default: true
+    owner_repo: "https://github.com/scattering/tas-pyspinw-adapter; upstream dependency https://github.com/SpinW/pySpinW"
+  - name: simulate_counts
+    namespace: tas.pyspinw
+    version: "0.1.0"
+    description: Estimate counts for an adaptive TAS point through an external pySpinW/SpinW count adapter.
+    input_schema: {type: object}
+    output_schema: {type: object}
+    side_effect_level: simulation
+    availability: unavailable
+    implementation_type: stub
+    required_dependencies: ["tas-pyspinw-adapter or TACC/container pySpinW runtime", "pyspinw from https://github.com/SpinW/pySpinW"]
+    preconditions: ["Simulation only.", "Point, model spec, and count time are supplied."]
+    postconditions: ["Expected counts/rate are returned with adapter provenance."]
+    provenance_policy: "Record model spec, candidate point, runtime profile, and adapter version."
+    permissions_required: [simulation_only]
+    enabled_by_default: true
+    owner_repo: "https://github.com/scattering/tas-pyspinw-adapter; upstream dependency https://github.com/SpinW/pySpinW"
+  - name: plan_spinwave
+    namespace: tas.tasai
+    version: "0.1.0"
+    description: Plan model-guided spin-wave exploration; autonomous live measurement execution is prohibited.
+    input_schema: {type: object}
+    output_schema: {type: object}
+    side_effect_level: planning
+    availability: unavailable
+    implementation_type: stub
+    required_dependencies: ["tasai external repository"]
+    preconditions: ["Planning/simulation mode only."]
+    postconditions: ["TasaiPlan-compatible suggestions only."]
+    provenance_policy: "Record planning constraints, model assumptions, and adapter version."
+    permissions_required: [planning_only]
+    enabled_by_default: true
+  - name: propose_next_point
+    namespace: tas.tasai
+    version: "0.1.0"
+    description: Propose the next adaptive TAS measurement point from current observations and model state; live execution remains outside this tool.
+    input_schema: {type: object}
+    output_schema: {type: object}
+    side_effect_level: planning
+    availability: unavailable
+    implementation_type: stub
+    required_dependencies: ["tasAI external repository", "TACC/HPC runtime for MCMC/bumps-heavy policies"]
+    preconditions: ["Planning/simulation mode only.", "Instrument software limits are supplied as read-only constraints."]
+    postconditions: ["A proposed point/count-time update is returned with uncertainty and provenance."]
+    provenance_policy: "Record policy state, observations, model assumptions, and runtime profile."
+    permissions_required: [planning_only]
+    enabled_by_default: true
+  - name: propose_next_point
+    namespace: tas.andie
+    version: "0.1.0"
+    description: Propose the next discriminating measurement point from ANDiE-style model-comparison policy state.
+    input_schema: {type: object}
+    output_schema: {type: object}
+    side_effect_level: planning
+    availability: unavailable
+    implementation_type: stub
+    required_dependencies: ["ANDiE/tasAI external policy adapter", "TACC/HPC runtime for MCMC/bumps-heavy policies"]
+    preconditions: ["Planning/simulation mode only.", "Competing model hypotheses and candidate points are supplied."]
+    postconditions: ["A proposed point/count-time update is returned with model-discrimination score and provenance."]
+    provenance_policy: "Record model hypotheses, weights, candidate grid, observations, runtime profile, and adapter version."
+    permissions_required: [planning_only]
+    enabled_by_default: true
+  - name: run_adaptive_points
+    namespace: tas.nice_bt7_sim
+    version: "0.1.0"
+    description: Execute a point-by-point adaptive replay against a local NICE BT-7 simulator using the Hoogerheide remote-task pattern.
+    input_schema: {type: object}
+    output_schema: {type: object}
+    side_effect_level: simulation
+    availability: unavailable
+    implementation_type: service
+    required_dependencies: ["local NICE BT-7 simulator", "nice.remote Python client"]
+    preconditions: ["Simulation-only target.", "Localhost NICE endpoint.", "Reviewed simulator node aliases or explicit local smoke override."]
+    postconditions: ["Replay trace, readbacks, generated files, and provenance are written as local derived artifacts."]
+    provenance_policy: "Record replay plan, node aliases, command/readback trace, generated files, and simulator/runtime version where available."
+    permissions_required: [simulation_only]
+    enabled_by_default: true
+    owner_repo: "local external NICE checkout; do not vendor into tascopilot"
+  - name: run_trajectory
+    namespace: tas.nice_bt7_sim
+    version: "0.1.0"
+    description: Execute a fixed trajectory replay against a local NICE BT-7 simulator.
+    input_schema: {type: object}
+    output_schema: {type: object}
+    side_effect_level: simulation
+    availability: unavailable
+    implementation_type: service
+    required_dependencies: ["local NICE BT-7 simulator", "nice.remote Python client"]
+    preconditions: ["Simulation-only target.", "Localhost NICE endpoint.", "Reviewed simulator node aliases or explicit local smoke override."]
+    postconditions: ["Trajectory replay trace, generated files, and provenance are written as local derived artifacts."]
+    provenance_policy: "Record replay plan, node aliases, command/readback trace, generated files, and simulator/runtime version where available."
+    permissions_required: [simulation_only]
+    enabled_by_default: true
+    owner_repo: "local external NICE checkout; do not vendor into tascopilot"
+  - name: powder_order_parameter
+    namespace: tas.andie
+    version: "0.1.0"
+    description: Powder order-parameter analysis or planning through ANDiE.
+    input_schema: {type: object}
+    output_schema: {type: object}
+    side_effect_level: planning
+    availability: unavailable
+    implementation_type: stub
+    required_dependencies: ["ANDiE external repository"]
+    preconditions: ["Powder scan set input."]
+    postconditions: ["AndieResult-compatible output."]
+    provenance_policy: "Record scan-set lineage, parameters, and adapter version."
+    permissions_required: [planning_only]
+    enabled_by_default: true
+  - name: summarize_facility
+    namespace: tas.psd_planner
+    version: "0.1.0"
+    description: Summarize TAS PSD planner facility definitions from the Python planning-boundary port.
+    input_schema: {type: object, required: [facility_text], properties: {facility_text: {type: string}, source_uri: {type: string}}}
+    output_schema: {type: object}
+    side_effect_level: planning
+    availability: unavailable
+    implementation_type: python_entrypoint
+    required_dependencies: ["tas-psd-planner"]
+    preconditions: ["Facility definition text is supplied from a trusted local archive extraction step."]
+    postconditions: ["No files, hardware, or instrument state are modified."]
+    provenance_policy: "Record source archive path, facility definition source, and port status."
+    permissions_required: [planning_only]
+    enabled_by_default: true
+    owner_repo: "https://github.com/scattering/psdplanner"
+  - name: check_accessibility
+    namespace: tas.psd_planner
+    version: "0.1.0"
+    description: Kinematic accessibility check ported from Leland ExPlanner (energy window, accessible Q window from the A4-limit table, analyzer Bragg floor, constant-Q energy-cut limits).
+    input_schema: {type: object, required: [ef_mev, mono_reflection, ana_reflection, ei_limits_pg002_mev, a4_max_limits_deg, a4_min_deg]}
+    output_schema: {type: object}
+    side_effect_level: planning
+    availability: unavailable
+    implementation_type: python_entrypoint
+    required_dependencies: ["tas-psd-planner"]
+    preconditions: ["Facility Ei/A4 limit tables are supplied explicitly, in the PG(002) Ei basis used by ExPlanner facility files."]
+    postconditions: ["No files, hardware, or instrument state are modified."]
+    provenance_policy: "Record ported MATLAB source files and parity status; planning estimates only until MATLAB fixture parity is demonstrated."
+    permissions_required: [planning_only]
+    enabled_by_default: true
+    owner_repo: "https://github.com/scattering/psdplanner"
+  - name: check_spurions
+    namespace: tas.spurion
+    version: "0.1.0"
+    description: Check TAS Q/E requests for harmonic, powder-ring, and incoherent spurion candidates through the Python tas-spurion port.
+    input_schema: {type: object, required: [q_point, energy_transfer, instrument_config, lattice]}
+    output_schema: {type: object}
+    side_effect_level: none
+    availability: unavailable
+    implementation_type: python_entrypoint
+    required_dependencies: ["tas-spurion"]
+    preconditions: ["Q/E, fixed-energy mode, and lattice/orientation are supplied."]
+    postconditions: ["SpurionCheckResult-compatible output."]
+    provenance_policy: "Record Q/E/configuration, DAVE Spurion2 source provenance, tolerances, and candidate list."
+    permissions_required: [read_only]
+    enabled_by_default: true
+    owner_repo: "https://github.com/scattering/spurion"
+  - name: check_spurions
+    namespace: tas.spurion_idl
+    version: "0.1.0"
+    description: Historical IDL spurion calculator adapter. Prefer tas.spurion Python port for the MVP.
+    input_schema: {type: object}
+    output_schema: {type: object}
+    side_effect_level: none
+    availability: unavailable
+    implementation_type: idl
+    required_dependencies: ["IDL", "external spurion calculator"]
+    preconditions: ["IDL runtime configured."]
+    postconditions: ["SpurionCheckResult-compatible output."]
+    provenance_policy: "Record Q/E/configuration and IDL utility version."
+    permissions_required: [read_only]
+    enabled_by_default: true
+  - name: map_paper_to_experiments
+    namespace: tas.paper_mapping
+    version: "0.1.0"
+    description: Map papers or source chunks to candidate BT-7 experiments through deterministic record-linkage heuristics.
+    input_schema: {type: object, required: [paper], properties: {paper: {type: object}, experiments: {type: array}, threshold: {type: number}}}
+    output_schema: {type: object}
+    side_effect_level: none
+    availability: unavailable
+    implementation_type: python_entrypoint
+    required_dependencies: ["bt7-paper-mapping"]
+    preconditions: ["Paper metadata or text and candidate experiment records are supplied."]
+    postconditions: ["PaperExperimentLink candidate records are returned with evidence and provenance."]
+    provenance_policy: "Record matched paper fields, experiment fields, score contributions, and source record identifiers."
+    permissions_required: [read_only]
+    enabled_by_default: true
+    owner_repo: "https://github.com/scattering/bt7-paper-mapping"
+  - name: channel_to_detector_angle
+    namespace: tas.psd_calibration
+    version: "0.1.0"
+    description: Reviewed PSD channel-to-detector-angle calibration boundary. Unavailable until an accepted BT-7 calibration file is registered.
+    input_schema: {type: object}
+    output_schema: {type: object}
+    side_effect_level: none
+    availability: unavailable
+    implementation_type: stub
+    required_dependencies: ["reviewed BT-7 PSD calibration"]
+    preconditions: ["Calibration must be reviewed and accepted by an instrument scientist."]
+    postconditions: ["Detector-angle axis with calibration lineage."]
+    provenance_policy: "Record calibration id, date range, detector mode, reviewer, and validation evidence."
+    permissions_required: [read_only, requires_human_approval]
+    enabled_by_default: false
+    owner_repo: "tascopilot"
+  - name: detector_angle_to_q
+    namespace: tas.psd_calibration
+    version: "0.1.0"
+    description: Reviewed detector-angle-to-Q conversion boundary. Unavailable until calibration and geometry provenance are accepted.
+    input_schema: {type: object}
+    output_schema: {type: object}
+    side_effect_level: none
+    availability: unavailable
+    implementation_type: stub
+    required_dependencies: ["reviewed BT-7 PSD calibration", "reviewed geometry metadata"]
+    preconditions: ["Accepted PSD calibration.", "Reviewed geometry metadata."]
+    postconditions: ["Q axis with calibration and geometry lineage."]
+    provenance_policy: "Record calibration id, geometry source, reviewer, and validation evidence."
+    permissions_required: [read_only, requires_human_approval]
+    enabled_by_default: false
+    owner_repo: "tascopilot"
+  - name: validate_calibration
+    namespace: tas.psd_calibration
+    version: "0.1.0"
+    description: Validate PSD calibration evidence. Stubbed until calibration file format and review criteria are defined.
+    input_schema: {type: object}
+    output_schema: {type: object}
+    side_effect_level: none
+    availability: unavailable
+    implementation_type: stub
+    required_dependencies: ["reviewed BT-7 PSD calibration"]
+    preconditions: ["Calibration evidence is supplied."]
+    postconditions: ["Validation summary and review status."]
+    provenance_policy: "Record calibration source and review evidence."
+    permissions_required: [read_only, requires_human_approval]
+    enabled_by_default: false
+    owner_repo: "tascopilot"
+  - name: describe_calibration
+    namespace: tas.psd_calibration
+    version: "0.1.0"
+    description: Describe a registered PSD calibration record. Unavailable until calibration registry exists.
+    input_schema: {type: object}
+    output_schema: {type: object}
+    side_effect_level: none
+    availability: unavailable
+    implementation_type: stub
+    required_dependencies: ["reviewed BT-7 PSD calibration"]
+    preconditions: ["Calibration id is supplied."]
+    postconditions: ["Calibration metadata is returned without conversion."]
+    provenance_policy: "Record calibration metadata source."
+    permissions_required: [read_only]
+    enabled_by_default: false
+    owner_repo: "tascopilot"
+  - name: simulate_control
+    namespace: tas.instrument_vm
+    version: "0.1.0"
+    description: Interact with instrument-control software only inside an explicitly configured VM simulation.
+    input_schema: {type: object}
+    output_schema: {type: object}
+    side_effect_level: simulation
+    availability: disabled
+    implementation_type: vm
+    required_dependencies: ["configured instrument-control VM simulator"]
+    preconditions: ["Simulation VM explicitly configured.", "No live hardware path."]
+    postconditions: ["Simulation transcript and provenance recorded."]
+    provenance_policy: "Record VM image/configuration and simulation transcript."
+    permissions_required: [simulation_only]
+    enabled_by_default: false

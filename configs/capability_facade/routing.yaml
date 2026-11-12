@@ -1,0 +1,97 @@
+# Ontology-routed capability facade over the bounded router intents.
+#
+# "LLM proposes a capability + scientific concept; this table (and the TAS
+# ontology) disposes which intent runs." Every resolved intent dispatches
+# through the same hardened MCP gateway seam as the flat tool surface -
+# this file adds routing vocabulary, never new execution paths.
+#
+# SAFETY NAMING CONSTRAINT (binding): no capability may be named or routed
+# such that instrument execution becomes expressible. Measurement is
+# PLANNED here (plan_measurement), never performed; the loader fails closed
+# on forbidden capability names and on intents unknown to the router.
+#
+# `ontology_concepts` are TASConcept ids from configs/ontology/tas_bt7_seed.yaml;
+# matching expands them to the concept's label + keywords. `phrases` are
+# literal fallbacks for surfaces the ontology does not (yet) name.
+version: 1
+capabilities:
+  plan_measurement:
+    description: >-
+      Plan what to measure next: scan plans, coverage gaps, setup scans, and
+      precedent-based planning priors. Never executes measurements.
+    routes:
+      - intent: dispersion_scan_plan
+        ontology_concepts: [dispersion_mapping, constant_energy_scan, spinwave_dispersion, spin_gap, phonon_dispersion]
+        phrases: ["scan plan", "map the dispersion", "coverage gap", "what should we measure next"]
+      - intent: scan_plan_suggestions
+        ontology_concepts: [initial_exploration_scan]
+        phrases: ["first scans", "setup scans", "alignment scans to try"]
+      - intent: precedent_experiment_planning
+        ontology_concepts: [historical_scan_similarity, collimation_string]
+        phrases: ["planning priors", "precedent", "collimation choice", "temperatures to consider"]
+  interpret:
+    description: >-
+      Interpret measured data: semantic experiment status, day summaries,
+      dashboards, assembled dispersions, alignment and order-parameter views.
+    routes:
+      - intent: experiment_story_report
+        phrases: ["experiment status", "where does the experiment stand", "story report", "group the scans"]
+      - intent: overnight_scan_summary
+        phrases: ["overnight", "last night", "morning summary"]
+      - intent: experiment_dashboard
+        phrases: ["dashboard", "linked plots"]
+      - intent: dispersion_map_report
+        ontology_concepts: [dispersion_mapping, energy_transfer]
+        phrases: ["dispersion measured so far", "e vs q map", "assembled dispersion"]
+      - intent: alignment_scans_plot
+        ontology_concepts: [elastic_rocking_scan]
+        phrases: ["alignment scans so far", "rocking curves"]
+      - intent: order_parameter_plot
+        ontology_concepts: [magnetic_order_parameter, temperature_scan]
+        phrases: ["order parameter measured so far", "intensity versus temperature"]
+      - intent: inelastic_series_report
+        ontology_concepts: [constant_q_scan, inelastic_neutron_spectroscopy]
+        phrases: ["inelastic report", "scan family overlays"]
+      - intent: alignment_evidence_index
+        phrases: ["alignment evidence", "alignment history", "alignment log"]
+      - intent: experiment_review
+        phrases: ["full review", "comprehensive review", "experiment review"]
+  model:
+    description: >-
+      Model priors and literature analogs: corpus evidence for Hamiltonians,
+      magnetic structures, and per-paper or per-figure briefs.
+    routes:
+      - intent: corpus_search
+        ontology_concepts: [magnetic_structure, spinwave_model_fitting, model_selection_spinwave, unit_cell]
+        phrases: ["literature", "papers about", "analog evidence", "exchange couplings", "hamiltonian"]
+      - intent: paper_brief
+        ontology_concepts: [evidence_channel_paper_text]
+        phrases: ["paper brief", "brief this paper", "unsupported claims"]
+      - intent: figure_brief
+        ontology_concepts: [figure_reconstruction]
+        phrases: ["figure brief", "panel"]
+      - intent: build_chunk_catalog
+        phrases: ["build chunk catalog", "chunk these documents", "prepare searchable chunks", "ingest documents"]
+      - intent: corpus_question_answer
+        phrases: ["answer from the corpus", "corpus question", "what does the literature say", "answer using the papers"]
+  plan:
+    description: >-
+      Experiment-level planning context: paper-to-experiment linkage and the
+      copilot's own readiness/status.
+    routes:
+      - intent: paper_experiment_linkage
+        ontology_concepts: [paper_experiment_mapping, scan_datafile_lineage]
+        phrases: ["source data for this paper", "link paper to experiments"]
+      - intent: copilot_status
+        phrases: ["status", "capabilities", "what can you do", "readiness"]
+  verify:
+    description: >-
+      Verify features and claims against instrument artifacts: spurion and
+      order-parameter triage.
+    routes:
+      - intent: spurion_diagnostic_survey
+        ontology_concepts: [spurion_check, multiple_scattering, harmonic_correction]
+        phrases: ["spurion", "artifact", "narrow feature", "is this peak real"]
+      - intent: order_parameter_triage
+        ontology_concepts: [order_parameter_scan, structural_transition]
+        phrases: ["order parameter candidates", "transition temperature check"]

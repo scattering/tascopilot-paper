@@ -1,0 +1,8 @@
+endpoint_id: nist_vllm
+site: user-configured endpoint
+description: Environment-only OpenAI-compatible endpoint example; no URL or credentials are supplied.
+provider: vllm
+base_url_env: NIST_VLLM_BASE_URL
+model_env: NIST_VLLM_MODEL
+model_default: null
+api_key_env: NIST_VLLM_API_KEY

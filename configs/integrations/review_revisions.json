@@ -1,0 +1,26 @@
+{
+  "bt7grouping": {
+    "repository": "https://github.com/scattering/bt7grouping",
+    "commit": "1074a55ff1a52072d5910c755431d11fa69c4685"
+  },
+  "tas-data-readers": {
+    "repository": "https://github.com/scattering/tas-data-readers",
+    "commit": "74031c467219babfc2ac103fd035a16e2929ffc0"
+  },
+  "spurion": {
+    "repository": "https://github.com/scattering/spurion",
+    "commit": "5f13af617ab69bea731ff09541982f9a27d63ef8"
+  },
+  "bt7-paper-mapping": {
+    "repository": "https://github.com/scattering/bt7-paper-mapping",
+    "commit": "c5106714a06a6b39aa6a683d408c0b7b2effa42c"
+  },
+  "psdplanner": {
+    "repository": "https://github.com/scattering/psdplanner",
+    "commit": "b84986c019ef000ddabf69dc7e7aa0d0621ac660"
+  },
+  "tas-pyspinw-adapter": {
+    "repository": "https://github.com/scattering/tas-pyspinw-adapter",
+    "commit": "a10121027d4ba4792d9d2199e9a7a1256920ddcc"
+  }
+}

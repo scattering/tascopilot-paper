@@ -1,0 +1,99 @@
+external_tools:
+  - repo_name: tascopilot
+    repo_url: https://github.com/scattering/tascopilot-paper
+    package_import: tas_copilot_core
+    required_for_default_mvp: true
+    optional: false
+    disabled_by_default: false
+    discovery: core
+    tools: []
+  - repo_name: bt7grouping
+    repo_url: https://github.com/scattering/bt7grouping
+    package_import: bt7grouping.copilot_plugin
+    required_for_default_mvp: false
+    optional: true
+    disabled_by_default: false
+    discovery: tas_copilot.tools entry point or TAS_COPILOT_PLUGIN_MODULES
+    tools:
+      - {namespace: tas.data_reader, name: read_bt7_file, permission: read_only, availability_behavior: unavailable if package absent}
+      - {namespace: tas.scan_grouping, name: group_bt7_scans, permission: read_only, availability_behavior: unavailable if package absent}
+  - repo_name: tas-data-readers
+    repo_url: https://github.com/scattering/tas-data-readers
+    package_import: tas_data_readers.copilot_plugin
+    required_for_default_mvp: false
+    optional: true
+    disabled_by_default: false
+    discovery: tas_copilot.tools entry point or TAS_COPILOT_PLUGIN_MODULES
+    tools:
+      - {namespace: tas.data_reader, name: classify_tas_format, permission: read_only, availability_behavior: unavailable if package absent}
+      - {namespace: tas.data_reader, name: read_tas_metadata, permission: read_only, availability_behavior: unavailable if package absent}
+      - {namespace: tas.data_reader, name: scan_tas_directory, permission: read_only, availability_behavior: unavailable if package absent}
+      - {namespace: tas.data_reader, name: read_ncnr_legacy_file, permission: read_only, availability_behavior: unavailable if package absent}
+  - repo_name: tasreduction
+    repo_url: https://github.com/scattering/tasreduction
+    package_import: tasreduction.copilot_plugin
+    required_for_default_mvp: false
+    optional: true
+    disabled_by_default: false
+    discovery: tas_copilot.tools entry point or TAS_COPILOT_PLUGIN_MODULES
+    tools:
+      - {namespace: tas.file_arithmetic, name: add_scans, permission: writes_local_files, availability_behavior: unavailable if package absent}
+      - {namespace: tas.file_arithmetic, name: subtract_background, permission: writes_local_files, availability_behavior: unavailable if package absent}
+      - {namespace: tas.corrections, name: normalize_to_monitor, permission: writes_local_files, availability_behavior: unavailable if package absent}
+      - {namespace: tas.corrections, name: apply_detailed_balance, permission: writes_local_files, availability_behavior: unavailable if package absent}
+      - {namespace: tas.reduction, name: translate_ice_file, permission: writes_local_files, availability_behavior: unavailable if package absent}
+  - repo_name: rescalculator
+    repo_url: https://github.com/scattering/rescalculator
+    package_import: rescalculator.copilot_plugin
+    required_for_default_mvp: false
+    optional: true
+    disabled_by_default: false
+    discovery: tas_copilot.tools entry point or TAS_COPILOT_PLUGIN_MODULES
+    tools:
+      - {namespace: tas.resolution, name: calculate_resolution, permission: read_only, availability_behavior: unavailable if package absent}
+      - {namespace: tas.device_angles, name: calculate_angles, permission: read_only, availability_behavior: unavailable if package absent}
+      - {namespace: tas.ubmatrix, name: calculate_ub, permission: read_only, availability_behavior: unavailable if package absent}
+  - repo_name: spurion
+    repo_url: https://github.com/scattering/spurion
+    package_import: tas_spurion.copilot_plugin
+    required_for_default_mvp: false
+    optional: true
+    disabled_by_default: false
+    discovery: tas_copilot.tools entry point or TAS_COPILOT_PLUGIN_MODULES
+    tools:
+      - {namespace: tas.spurion, name: check_spurions, permission: read_only, availability_behavior: unavailable if package absent}
+  - repo_name: bt7-paper-mapping
+    repo_url: https://github.com/scattering/bt7-paper-mapping
+    package_import: bt7_paper_mapping.copilot_plugin
+    required_for_default_mvp: false
+    optional: true
+    disabled_by_default: false
+    discovery: tas_copilot.tools entry point or TAS_COPILOT_PLUGIN_MODULES
+    tools:
+      - {namespace: tas.paper_mapping, name: map_paper_to_experiments, permission: read_only, availability_behavior: unavailable if package absent}
+  - repo_name: psdplanner
+    repo_url: https://github.com/scattering/psdplanner
+    package_import: tas_psd_planner.copilot_plugin
+    required_for_default_mvp: false
+    optional: true
+    disabled_by_default: false
+    discovery: tas_copilot.tools entry point or TAS_COPILOT_PLUGIN_MODULES
+    tools:
+      - {namespace: tas.psd_planner, name: summarize_facility, permission: planning_only, availability_behavior: unavailable if package absent}
+  - repo_name: pySpinW
+    repo_url: https://github.com/SpinW/pySpinW
+    package_import: pyspinw
+    required_for_default_mvp: false
+    optional: true
+    disabled_by_default: false
+    discovery: upstream dependency only; do not modify for co-pilot entry points
+    tools: []
+  - repo_name: tas-pyspinw-adapter
+    repo_url: https://github.com/scattering/tas-pyspinw-adapter
+    package_import: tas_pyspinw_adapter.copilot_plugin
+    required_for_default_mvp: false
+    optional: true
+    disabled_by_default: false
+    discovery: future tas_copilot.tools entry point or TAS_COPILOT_PLUGIN_MODULES
+    tools:
+      - {namespace: tas.pyspinw, name: run_spinwave, permission: simulation_only, availability_behavior: unavailable until adapter is installed}

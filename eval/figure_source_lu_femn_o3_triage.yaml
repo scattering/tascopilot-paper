@@ -1,0 +1,104 @@
+description: Synthetic LuFe/Mn/O figure-source triage fixture. No raw BT-7 data.
+records:
+  - datafile_id: synthetic-lufe75mn25-angle-001
+    filename: LuFe75Mn25O3_Correlations102248.bt7
+    instrument: BT-7
+    detector_mode: PSDDiff
+    scan_type: ANGLE
+    temperature_K: 2.6
+    psd_channel_axis: [0, 1, 2, 3]
+    a4: 25.0
+    metadata:
+      analyzer_detector_mode: 4 PSDDiff
+      scan_type: ANGLE
+      native_experiment_id: "18445"
+  - datafile_id: synthetic-lufe75mn25-angle-002
+    filename: LuFe75Mn25O3_Correlations102249.bt7
+    instrument: BT-7
+    detector_mode: PSDDiff
+    scan_type: ANGLE
+    temperature_K: 50.0
+    psd_channel_axis: [0, 1, 2, 3]
+    a4: 25.0
+    metadata:
+      analyzer_detector_mode: 4 PSDDiff
+      scan_type: ANGLE
+      native_experiment_id: "18445"
+  - datafile_id: synthetic-lufe75mn25-angle-003
+    filename: LuFe75Mn25O3_Correlations102250.bt7
+    instrument: BT-7
+    detector_mode: PSDDiff
+    scan_type: ANGLE
+    temperature_K: 100.0
+    psd_channel_axis: [0, 1, 2, 3]
+    a4: 25.0
+    metadata:
+      analyzer_detector_mode: 4 PSDDiff
+      scan_type: ANGLE
+      native_experiment_id: "18445"
+  - datafile_id: synthetic-lumnfeo3-tdep-warm
+    filename: LuMnFeO3_29pt5_TdepWarm102246.bt7
+    instrument: BT-7
+    detector_mode: PSDDiff
+    scan_type: ENV
+    psd_channel_axis: [0, 1, 2, 3]
+    temperature_axis: [100.0, 125.0, 150.0]
+    intensity:
+      - [10, 20, 100, 30]
+      - [12, 25, 80, 35]
+      - [15, 30, 50, 40]
+    two_theta_axis:
+      type: constant
+      value: 29.4999
+    metadata:
+      analyzer_detector_mode: 4 PSDDiff
+      scan_type: ENV
+      native_experiment_id: "18445"
+  - datafile_id: synthetic-lumnfeo3-tdep-cool
+    filename: LuMnFeO3_29pt5_TdepCool102247.bt7
+    instrument: BT-7
+    detector_mode: PSDDiff
+    scan_type: ENV
+    psd_channel_axis: [0, 1, 2, 3]
+    temperature_axis: [101.0, 126.0, 151.0]
+    intensity:
+      - [11, 19, 95, 32]
+      - [13, 24, 77, 36]
+      - [14, 28, 52, 39]
+    two_theta_axis:
+      type: constant
+      value: 29.4999
+    metadata:
+      analyzer_detector_mode: 4 PSDDiff
+      scan_type: ENV
+      native_experiment_id: "18445"
+  - datafile_id: synthetic-lufemno3-3mev-line
+    filename: LuFeMnO3_Tdep_3meV102311.bt7
+    instrument: BT-7
+    detector_mode: SingDetHFoc
+    scan_type: VECTOR
+    energy_transfer_meV: 3.0
+    temperature_K: 50.0
+    metadata:
+      analyzer_detector_mode: 3 SingDetHFoc
+      scan_type: VECTOR
+      native_experiment_id: "18445"
+  - datafile_id: synthetic-lufe60mn40-psd
+    filename: LuFe60Mn40O3_Correlations102400.bt7
+    instrument: BT-7
+    detector_mode: PSDDiff
+    scan_type: ANGLE
+    temperature_K: 100.0
+    psd_channel_axis: [0, 1, 2, 3]
+    metadata:
+      analyzer_detector_mode: 4 PSDDiff
+      scan_type: ANGLE
+      native_experiment_id: "18445"
+expectations:
+  sample_panel_mismatch: true
+  ambiguous_strings:
+    - LuMnFeO3
+    - LuFeMnO3
+  rejected_for_elastic:
+    - synthetic-lufemno3-3mev-line
+  q_temperature_requires_calibration: true

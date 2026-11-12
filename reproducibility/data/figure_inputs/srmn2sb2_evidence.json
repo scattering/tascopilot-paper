@@ -1,0 +1,774 @@
+{
+  "fact_counts": [
+    {
+      "paper_id": "paper-camn2sb2-bridges-powder",
+      "type_specific_status": "correct",
+      "magnetic": false,
+      "verdict": "positive",
+      "count": 3
+    },
+    {
+      "paper_id": "paper-camn2sb2-bridges-powder",
+      "type_specific_status": "not_supported",
+      "magnetic": false,
+      "verdict": "negative",
+      "count": 3
+    },
+    {
+      "paper_id": "paper-camn2sb2-bridges-powder",
+      "type_specific_status": "not_supported",
+      "magnetic": true,
+      "verdict": "negative",
+      "count": 4
+    },
+    {
+      "paper_id": "paper-camn2sb2-bridges-powder",
+      "type_specific_status": "ocr_or_chunking_problem",
+      "magnetic": false,
+      "verdict": "negative",
+      "count": 8
+    },
+    {
+      "paper_id": "paper-camn2sb2-bridges-powder",
+      "type_specific_status": "too_vague",
+      "magnetic": false,
+      "verdict": "negative",
+      "count": 1
+    },
+    {
+      "paper_id": "paper-camn2sb2-bridges-powder",
+      "type_specific_status": "wrong_field",
+      "magnetic": false,
+      "verdict": "negative",
+      "count": 2
+    },
+    {
+      "paper_id": "paper-camn2sb2-bridges-powder",
+      "type_specific_status": "wrong_field",
+      "magnetic": true,
+      "verdict": "negative",
+      "count": 1
+    },
+    {
+      "paper_id": "paper-camn2sb2-mcnally-spinwaves",
+      "type_specific_status": "correct",
+      "magnetic": false,
+      "verdict": "positive",
+      "count": 8
+    },
+    {
+      "paper_id": "paper-camn2sb2-mcnally-spinwaves",
+      "type_specific_status": "not_supported",
+      "magnetic": false,
+      "verdict": "negative",
+      "count": 4
+    },
+    {
+      "paper_id": "paper-camn2sb2-mcnally-spinwaves",
+      "type_specific_status": "not_supported",
+      "magnetic": true,
+      "verdict": "negative",
+      "count": 1
+    },
+    {
+      "paper_id": "paper-camn2sb2-mcnally-spinwaves",
+      "type_specific_status": "ocr_or_chunking_problem",
+      "magnetic": false,
+      "verdict": "negative",
+      "count": 3
+    },
+    {
+      "paper_id": "paper-camn2sb2-mcnally-spinwaves",
+      "type_specific_status": "ocr_or_chunking_problem",
+      "magnetic": true,
+      "verdict": "negative",
+      "count": 3
+    },
+    {
+      "paper_id": "paper-camn2sb2-mcnally-spinwaves",
+      "type_specific_status": "wrong_field",
+      "magnetic": false,
+      "verdict": "negative",
+      "count": 1
+    },
+    {
+      "paper_id": "paper-camn2sb2-mcnally-spinwaves",
+      "type_specific_status": "wrong_field",
+      "magnetic": true,
+      "verdict": "negative",
+      "count": 1
+    }
+  ],
+  "edge_counts": {
+    "inconclusive": 1,
+    "negative": 5,
+    "positive": 1
+  },
+  "findpeaks": [
+    {
+      "filename": "fpx840982.bt7",
+      "hkl": "0 0 2",
+      "planned_two_theta_deg": 35.5374,
+      "x": [
+        33.5374,
+        33.7374,
+        33.9374,
+        34.1374,
+        34.3374,
+        34.5374,
+        34.7374,
+        34.9374,
+        35.1374,
+        35.3374,
+        35.5374,
+        35.7374
+      ],
+      "rate": [
+        10.0,
+        5.0,
+        13.0,
+        12.0,
+        28.0,
+        105.0,
+        317.0,
+        528.0,
+        803.0,
+        981.0,
+        1086.0,
+        801.0
+      ],
+      "rate_error": [
+        3.1622776601683795,
+        2.23606797749979,
+        3.605551275463989,
+        3.4641016151377544,
+        5.291502622129181,
+        10.246950765959598,
+        17.804493814764857,
+        22.978250586152114,
+        28.337254630609507,
+        31.32091952673165,
+        32.95451410656816,
+        28.30194339616981
+      ],
+      "display_error": [
+        0.0029253262351233854,
+        0.0020685180180386588,
+        0.0033353850836854667,
+        0.0032045343340774786,
+        0.004895007050998318,
+        0.009479140394042181,
+        0.016470392058061847,
+        0.0212564760278928,
+        0.02621392657780713,
+        0.028974023613997826,
+        0.030485211939471013,
+        0.02618126123604978
+      ],
+      "source": "NCNR_BT7_archive/201804/24858/data/fpx840982.bt7"
+    },
+    {
+      "filename": "fpx841000.bt7",
+      "hkl": "1 1 0",
+      "planned_two_theta_deg": 62.0009,
+      "x": [
+        60.0038,
+        60.2038,
+        60.4038,
+        60.6038,
+        60.8038,
+        61.0038,
+        61.2038,
+        61.4038,
+        61.6038,
+        61.8038,
+        62.0038,
+        62.2038,
+        62.4038,
+        62.6038,
+        62.8038,
+        63.0038,
+        63.2038,
+        63.4038,
+        63.6038,
+        63.8038,
+        64.0038
+      ],
+      "rate": [
+        151.0,
+        244.0,
+        317.0,
+        429.0,
+        731.0,
+        1240.0,
+        1839.0,
+        2582.0,
+        3171.0,
+        3388.0,
+        3462.0,
+        3004.0,
+        2333.0,
+        1658.0,
+        1073.0,
+        588.0,
+        249.0,
+        146.0,
+        82.0,
+        34.0,
+        8.0
+      ],
+      "rate_error": [
+        12.288205727444508,
+        15.620499351813308,
+        17.804493814764857,
+        20.71231517720798,
+        27.03701166919155,
+        35.21363372331802,
+        42.883563284783136,
+        50.813384063650005,
+        56.31163290120435,
+        58.20652884342099,
+        58.8387627334226,
+        54.80875842417888,
+        48.30113870293329,
+        40.718546143004666,
+        32.7566787083184,
+        24.24871130596428,
+        15.7797338380595,
+        12.083045973594572,
+        9.055385138137417,
+        5.830951894845301,
+        2.8284271247461903
+      ],
+      "display_error": [
+        0.0035576739222479754,
+        0.004522437565666852,
+        0.0051547463273783605,
+        0.005996617017141858,
+        0.007827739336766516,
+        0.01019503002991257,
+        0.012415623417713705,
+        0.014711460354270412,
+        0.016303310046671786,
+        0.01685191917875535,
+        0.01703496315385715,
+        0.015868198733114906,
+        0.013984116590310737,
+        0.011788808958600076,
+        0.009483693893549043,
+        0.007020472294720406,
+        0.004568539038233786,
+        0.003498276193860617,
+        0.0026217096520374686,
+        0.0016881736811943542,
+        0.0008188845178767198
+      ],
+      "source": "NCNR_BT7_archive/201804/24858/data/fpx841000.bt7"
+    },
+    {
+      "filename": "fpx840998.bt7",
+      "hkl": "0 0 4",
+      "planned_two_theta_deg": 75.2298,
+      "x": [
+        72.9933,
+        73.1933,
+        73.3933,
+        73.5933,
+        73.7933,
+        73.9933,
+        74.1933,
+        74.3933,
+        74.5933,
+        74.7933,
+        74.9933,
+        75.1933,
+        75.3933,
+        75.5933,
+        75.7933,
+        75.9933,
+        76.1933,
+        76.3933,
+        76.5933,
+        76.7933,
+        76.9933
+      ],
+      "rate": [
+        27.0,
+        13.0,
+        19.0,
+        89.0,
+        463.0,
+        1326.0,
+        2624.0,
+        4289.0,
+        6060.0,
+        7616.0,
+        8743.0,
+        9588.0,
+        9712.0,
+        9288.0,
+        7997.0,
+        6440.0,
+        4809.0,
+        3377.0,
+        2301.0,
+        1197.0,
+        532.0
+      ],
+      "rate_error": [
+        5.196152422706632,
+        3.605551275463989,
+        4.358898943540674,
+        9.433981132056603,
+        21.517434791350013,
+        36.41428291206625,
+        51.22499389946279,
+        65.49045732013177,
+        77.84600182411425,
+        87.26969691708571,
+        93.5040106091712,
+        97.91833331914918,
+        98.54947995803936,
+        96.37427042525407,
+        89.42594701763018,
+        80.24961059095551,
+        69.34695379034324,
+        58.111960903070546,
+        47.968739820845826,
+        34.597687784012386,
+        23.065125189341593
+      ],
+      "display_error": [
+        0.0005357410478097363,
+        0.00037174464124796263,
+        0.0004494173567935534,
+        0.0009726756502790601,
+        0.0022185209600319635,
+        0.0037544368400934374,
+        0.005281471687747478,
+        0.006752289650493017,
+        0.008026188454904038,
+        0.008997803579450018,
+        0.009640582597089515,
+        0.010095714333348715,
+        0.010160787705746918,
+        0.009936516179529236,
+        0.00922012032350038,
+        0.0082740087216162,
+        0.007149907597725873,
+        0.005991541489129864,
+        0.0049457407795490075,
+        0.00356713968285518,
+        0.0023780931219034534
+      ],
+      "source": "NCNR_BT7_archive/201804/24858/data/fpx840998.bt7"
+    }
+  ],
+  "states": {
+    "may": {
+      "summary": {
+        "event_count": 865,
+        "flagged_contradictions": 0
+      },
+      "state_epochs": [
+        {
+          "current_state_estimate": {
+            "state": "reflection_localization"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "reflection_localization"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "alignment_frame_redefined_or_reset_suspected"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "alignment_activity_observed"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "alignment_activity_observed"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "alignment_activity_observed"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "alignment_activity_observed"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "alignment_activity_observed"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "alignment_activity_observed"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "alignment_activity_observed"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "alignment_activity_observed"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "alignment_activity_observed"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "alignment_activity_observed"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "alignment_activity_observed"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "alignment_activity_observed"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "alignment_activity_observed"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "reflection_localization"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "alignment_activity_observed"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "reflection_localization"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "alignment_activity_observed"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "alignment_activity_observed"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "fine_alignment_or_sample_centering"
+          }
+        }
+      ],
+      "source": "tascopilot/local_runs/srmn2sb2_alignment_reconstruction_20260706/state_may/alignment_state_machine.json"
+    },
+    "july": {
+      "summary": {
+        "event_count": 708,
+        "flagged_contradictions": 0
+      },
+      "state_epochs": [
+        {
+          "current_state_estimate": {
+            "state": "alignment_activity_observed"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "alignment_frame_redefined_or_reset_suspected"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "alignment_frame_redefined_or_reset_suspected"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "alignment_frame_redefined_or_reset_suspected"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "alignment_activity_observed"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "reflection_localization"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "alignment_activity_observed"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "reflection_localization"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "alignment_activity_observed"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "reflection_localization"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "alignment_frame_redefined_or_reset_suspected"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "alignment_activity_observed"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "reflection_localization"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "reflection_localization"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "second_reflection_or_plane_flattening"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "alignment_activity_observed"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "reflection_localization"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "alignment_activity_observed"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "fine_alignment_or_sample_centering"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "alignment_activity_observed"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "fine_alignment_or_sample_centering"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "alignment_activity_observed"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "fine_alignment_or_sample_centering"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "alignment_activity_observed"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "fine_alignment_or_sample_centering"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "alignment_activity_observed"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "fine_alignment_or_sample_centering"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "alignment_activity_observed"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "alignment_activity_observed"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "alignment_activity_observed"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "fine_alignment_or_sample_centering"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "alignment_activity_observed"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "reflection_localization"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "alignment_activity_observed"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "alignment_activity_observed"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "alignment_activity_observed"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "alignment_activity_observed"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "alignment_activity_observed"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "alignment_activity_observed"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "reflection_localization"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "alignment_activity_observed"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "reflection_localization"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "reflection_localization"
+          }
+        },
+        {
+          "current_state_estimate": {
+            "state": "fine_alignment_or_sample_centering"
+          }
+        }
+      ],
+      "source": "tascopilot/local_runs/srmn2sb2_alignment_reconstruction_20260706/state_july/alignment_state_machine.json"
+    }
+  },
+  "days": [
+    {
+      "date": "2018-05-23",
+      "scan_count": 41,
+      "top_families": "fixed-E Q scans (Qy): 14; constant-Q E scans: 6; alignment/rocking (A3): 6; alignment/rocking (A4): 4; alignment/rocking (SmplLTilt): 2; alignment/rocking (SmplUTilt): 2"
+    },
+    {
+      "date": "2018-05-24",
+      "scan_count": 24,
+      "top_families": "constant-Q E scans: 16; fixed-E Q scans (Qy): 7; alignment/rocking (A3): 1"
+    },
+    {
+      "date": "2018-05-25",
+      "scan_count": 59,
+      "top_families": "fixed-E Q scans (Qy): 45; constant-Q E scans: 7; alignment/rocking (A3): 6; elastic Q scans (Qy): 1"
+    },
+    {
+      "date": "2018-05-26",
+      "scan_count": 79,
+      "top_families": "fixed-E Q scans (Qz): 38; fixed-E Q scans (Qy): 35; constant-Q E scans: 4; elastic Q scans (Qy): 1; elastic Q scans (Qz): 1"
+    },
+    {
+      "date": "2018-05-27",
+      "scan_count": 48,
+      "top_families": "fixed-E Q scans (Qy): 33; fixed-E Q scans (Qz): 8; constant-Q E scans: 5; elastic Q scans (Qy): 1; elastic Q scans (Qz): 1"
+    },
+    {
+      "date": "2018-07-07",
+      "scan_count": 25,
+      "top_families": "constant-Q E scans: 5; alignment/rocking (A3): 5; fixed-E Q scans (Qy): 4; alignment/rocking (A4): 3; alignment/rocking (SmplWdth): 2; alignment/rocking (SmplHght): 2"
+    },
+    {
+      "date": "2018-07-08",
+      "scan_count": 23,
+      "top_families": "fixed-E Q scans (Qy): 21; constant-Q E scans: 1; alignment/rocking (A3): 1"
+    },
+    {
+      "date": "2018-07-09",
+      "scan_count": 37,
+      "top_families": "fixed-E Q scans (Qy): 20; alignment/rocking (A4): 12; fixed-E Q scans (Qz): 5"
+    },
+    {
+      "date": "2018-07-10",
+      "scan_count": 24,
+      "top_families": "fixed-E Q scans (Qy): 14; fixed-E Q scans (Qz): 8; constant-Q E scans: 2"
+    },
+    {
+      "date": "2018-07-11",
+      "scan_count": 26,
+      "top_families": "fixed-E Q scans (Qy): 14; fixed-E Q scans (Qz): 12"
+    },
+    {
+      "date": "2018-07-12",
+      "scan_count": 23,
+      "top_families": "fixed-E Q scans (Qy): 18; alignment/rocking (A4): 3; fixed-E Q scans (Qz): 1; constant-Q E scans: 1"
+    }
+  ]
+}

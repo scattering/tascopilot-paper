@@ -1,0 +1,2 @@
+{"claim_id":"claim-panel-compositions","text":"Figure panels i, j, k have x_Mn values 0.25, 0.4, and 0.5.","claim_type":"figure_panel_label","confidence":1.0,"support":[{"source_type":"source_chunk","source_id":"chunk-lu-femn-o3-figure-caption","method":"synthetic_fixture"}]}
+{"claim_id":"claim-elastic-bt7-psd","text":"The synthetic figure represents elastic BT-7 PSD temperature-map data.","claim_type":"instrument_methods","confidence":1.0,"support":[{"source_type":"source_chunk","source_id":"chunk-lu-femn-o3-methods-bt7-psd","method":"synthetic_fixture"}]}

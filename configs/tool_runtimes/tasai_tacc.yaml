@@ -1,0 +1,11 @@
+runtime_id: tasai-tacc-remote-hpc
+mode: remote_hpc_job
+label: Portable tasAI remote-runtime contract example
+input_protocol: json_files
+output_protocol: json_files
+timeout_seconds: 7200
+read_only: true
+network_access: false
+notes:
+  - Contract example only; no host or scheduler configuration is supplied.
+  - The local runner returns unavailable for remote_hpc_job and submits nothing.

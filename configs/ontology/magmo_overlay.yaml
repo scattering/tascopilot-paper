@@ -1,0 +1,14 @@
+# Local annotations for the generated MagMO concept family. Applied by
+# scripts/generate_magmo_concepts.py after generation, so they survive an upgrade
+# of the vendored ontology. Keys: any TASConcept field; keywords/negative_keywords/
+# examples accept {add: [...], remove: [...]}.
+concepts:
+  magmo_exchange_stiffness_constant:
+    negative_keywords: ["exchange constant j", "heisenberg exchange", "j1", "j2", "jc"]
+    description: "Continuum micromagnetic exchange stiffness A (J/m), the energy cost of magnetization gradients. Not the Heisenberg exchange J (meV per bond) a neutron paper reports; the two are related through the lattice (A ~ n J S^2 / a) and, for a ferromagnet, through the magnon stiffness D = 2 A g mu_B / M_s (see the seed mapping on spinwave_dispersion)."
+  magmo_spontaneous_magnetization:
+    keywords: {add: ["saturation moment per formula unit"]}
+  magmo_magnetic_material:
+    # 'ferromagnet'/'antiferromagnet' describe magnetic ORDER (local magnetic_structure), not the
+    # MagMO material class; as keywords they tagged a quarter of the gold-panel chunks.
+    avoid_if_matches_too_broadly: true

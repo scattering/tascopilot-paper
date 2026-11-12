@@ -1,0 +1,25 @@
+suite_id: corpus_pilot_retrieval
+fixture_manifest: tests/fixtures/corpus_pilot/pilot_manifest.synthetic.yaml
+tasks:
+  - name: panel_j_xmn_label
+    query: "panel j x_Mn 0.4"
+    expected_source_ids:
+      - chunk-lu-femn-o3-figure-caption
+    top_k: 5
+  - name: bt7_psd_methods
+    query: "BT-7 PSD elastic methods"
+    expected_source_ids:
+      - chunk-lu-femn-o3-methods-bt7-psd
+    top_k: 5
+  - name: fixed_final_energy_textbook
+    query: "fixed final energy triple axis"
+    expected_source_ids:
+      - textbook-fixed-final-energy
+    top_k: 5
+  - name: candidate_source_links
+    query: "candidate source panel scan group"
+    expected_source_ids:
+      - candidate_source_for_panel-7f7ab7bd0cfd
+    forbidden_source_ids:
+      - synthetic-lufemno3-3mev-line
+    top_k: 10

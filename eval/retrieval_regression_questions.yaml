@@ -1,0 +1,26 @@
+tasks:
+  - name: find_lattice_geometry_scan
+    query: "BT-7 constant Q spin-wave lattice geometry"
+    expected_source_ids:
+      - scan-001
+    forbidden_source_ids: []
+    top_k: 5
+  - name: find_textbook_tas_resolution_chunk
+    query: "textbook TAS resolution collimation fixed final energy"
+    expected_source_ids:
+      - chunk-textbook-001
+    forbidden_source_ids: []
+    top_k: 5
+  - name: find_paper_mapping_fixture
+    query: "paper BT-7 spin-wave experiment mapping fixture"
+    expected_source_ids:
+      - paper-bt7-spinwave:exp-bt7-001
+    forbidden_source_ids: []
+    top_k: 8
+  - name: broad_bt7_does_not_return_everything
+    query: "BT-7"
+    expected_source_ids:
+      - chunk-bt7-001
+    forbidden_source_ids:
+      - scan-taipan-115523
+    top_k: 5

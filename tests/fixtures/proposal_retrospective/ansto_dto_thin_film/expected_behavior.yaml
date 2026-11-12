@@ -1,0 +1,17 @@
+fixture_id: ansto_dto_thin_film_retrospective
+expected:
+  predicted_and_observed:
+    - si_substrate_background
+    - lambda_half_higher_order
+    - temperature_sidecar_metadata
+    - film_substrate_alignment
+    - weak_signal_background_resolution
+  not_in_proposal_but_promptable:
+    - cu_mount_powder_rings
+  missed_observed_issue: []
+  safe_conclusion_terms:
+    - substrate
+    - lambda/2
+    - Cu mount
+    - temperature metadata
+    - probabilities

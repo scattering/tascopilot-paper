@@ -1,0 +1,51 @@
+\begin{tikzpicture}[>=Latex, scale=1.05, transform shape,
+  comp/.style={draw, fill=gray!25, font=\scriptsize, align=center},
+  blab/.style={font=\scriptsize, inner sep=1.5pt, align=center},
+  axlab/.style={font=\scriptsize\itshape, text=gray!45!black},
+  beam/.style={->, thick},
+  cont/.style={dashed, gray!55, shorten >=0pt}
+]
+% Illustrative W topology requested by J. W. Lynn: left/right/left turns.
+% Coordinates are drawing layout only, not measured BT-7 angles or lengths.
+\coordinate (src) at (-1.2,1.8);
+\coordinate (M)   at (1.3,0);
+\coordinate (S)   at (3.8,1.8);
+\coordinate (A)   at (6.3,0);
+\coordinate (D)   at (8.8,1.8);
+% straight-through continuations (for scattering-angle arcs)
+\coordinate (Mc) at ($(src)!1.32!(M)$);
+\coordinate (Sc) at ($(M)!1.32!(S)$);
+\coordinate (Ac) at ($(S)!1.32!(A)$);
+
+% --- undeviated-beam dashed continuations ---
+\draw[cont] (M) -- (Mc);
+\draw[cont] (S) -- (Sc);
+\draw[cont] (A) -- (Ac);
+
+% --- beams ---
+\draw[beam] (src) -- node[blab, above, sloped, pos=0.55]{white beam} (M);
+\draw[beam] (M)   -- node[blab, above left]{$\mathbf{k}_i$} (S);
+\draw[beam] (S)   -- node[blab, below left]{$\mathbf{k}_f$} (A);
+\draw[beam] (A)   -- (D);
+
+% --- scattering-angle arcs ---
+\pic[draw, angle radius=0.7cm, angle eccentricity=2.15,
+  "{\scriptsize $2\theta_M$ (A2)}"] {angle = Mc--M--S};
+\pic[draw=red!65!black, very thick, angle radius=0.7cm, angle eccentricity=2.3,
+  "{\scriptsize\color{red!65!black}$2\theta_S = \mathrm{A4}$}"] {angle = A--S--Sc};
+\pic[draw, angle radius=0.7cm, angle eccentricity=2.15,
+  "{\scriptsize $2\theta_A$ (A6)}"] {angle = Ac--A--D};
+
+% --- components ---
+\node[comp, minimum width=12mm, minimum height=10mm] (reactor) at (src) {Reactor\\source};
+% Reflecting planes bisect the incoming/outgoing propagation directions.
+\draw[very thick] ($(M)+(-0.5,0)$) -- ($(M)+(0.5,0)$);
+\draw[very thick] ($(A)+(-0.45,0)$) -- ($(A)+(0.45,0)$);
+\node[circle, draw, fill=gray!30, minimum size=4.5mm, inner sep=0pt] (sam) at (S) {};
+\node[comp, minimum width=9mm, minimum height=6mm] (det) at (D) {Det.};
+
+% --- component labels ---
+\node[blab, below=5mm] at (M) {Monochromator\\A1 rotation; sets $E_i$};
+\node[blab, above=3mm] at (S) {Sample\\A3 rotation};
+\node[blab, below=5mm] at (A) {Analyzer\\A5 rotation; sets $E_f$};
+\end{tikzpicture}

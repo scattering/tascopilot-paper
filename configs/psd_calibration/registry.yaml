@@ -1,0 +1,129 @@
+# Reviewed historical subset from the source registry.
+# Calibration values retain their recorded reviews. Unresolved feature notes
+# do not assign physical or artifact status. Calibration files are not bundled.
+psd_calibrations:
+- calibration_id: bt7-psd-201305-lufemno-anatrans200-reviewed
+  instrument: BT-7
+  detector_mode: PSDDiff
+  date_range:
+    start: '2013-05-17'
+    end: '2013-06-08'
+  status: accepted
+  reviewed_by: William Ratcliff
+  reviewed_at: '2026-05-06'
+  channel_mapping:
+    type: bt7_psd_dat_relative_a4
+    source_filename: PSD_May2013_LuFeMnO_AnaTrans200.dat
+    row_count: 48
+    relative_a4_units: degrees
+    channel_indexing: one_based_for_masks_zero_based_for_psdc_columns
+    channel_to_a4_policy: two_theta = A4 + relative_a4[channel]
+    q_formula_policy: elastic diffraction Q = 4*pi*sin(two_theta/2)/lambda
+    sign_convention: plus_relative_a4
+    mask_policy:
+      masked_one_based_channels:
+      - 48
+      basis: low channel-48 efficiency in PSD_May2013_LuFeMnO_AnaTrans200.dat and
+        artifact sensitivity across LuMnFeO3 fixed-A4 temperature scans
+    efficiency_correction: divide_counts_by_channel_efficiency
+  detector_geometry:
+    analyzer_detector_translation: 200
+    analyzer_detector_translation_units: cm
+    distance_basis: instrument-scientist historical prior for ICE-era BT-7 LuFe/Mn/O
+      PSD diffraction scans
+    source_files_do_not_expose_anatrans: true
+  validation_evidence:
+  - evidence_type: instrument_scientist_review
+    summary: AnaTrans200 is the accepted working calibration policy for the 2013 LuFe/Mn/O
+      fixed-A4 BT-7 PSD diffraction triage; ICE files do not expose AnaTrans, so this
+      record preserves the human-reviewed distance prior and mask policy.
+    score: 0.85
+  - evidence_type: local_mask_sensitivity
+    summary: The annotated-Q ghost-like feature repeatedly collapses when applying
+      the channel-48 mask under the AnaTrans200 candidate mapping across reviewed
+      LuMnFeO3 fixed-A4 warm/cool files.
+    score: 0.95
+  - evidence_type: calibration_file
+    summary: PSD_May2013_LuFeMnO_AnaTrans200.dat contains 48 channel efficiency/relative-A4
+      rows and was created near the LuFe/Mn/O 2013 BT-7 measurements.
+    score: 0.75
+  provenance:
+  - source_type: local_file_reference
+    source_id: PSD_May2013_LuFeMnO_AnaTrans200.dat
+    method: psd_calibration_registry_review
+  - source_type: local_workflow_report
+    source_id: /tmp/lu_femn_o3_pub_bridge/psd_mask_sensitivity_workflow/psd_mask_sensitivity_report.json
+    method: psd_mask_sensitivity
+  notes:
+  - Accepted as a working PSD channel-to-A4 and mask policy for the LuFe/Mn/O source-triage
+    case, not as a general BT-7 PSD calibration for all dates/materials.
+  - This record does not by itself enable Q x temperature reconstruction; the adapter
+    must still verify detector mode, date range, sign convention, lineage, and artifact/mask
+    policy.
+  - For elastic diffraction, Q from sample two-theta/A4 and wavelength is formulaic
+    after the channel-to-A4 mapping is selected.
+- calibration_id: bt7-psd-201407-na2cu2teo6-anatrans200-minus-sign-policy
+  instrument: BT-7
+  detector_mode: PSDDiff
+  date_range:
+    start: '2014-07-01'
+    end: '2014-08-31'
+  status: accepted
+  reviewed_by: William Ratcliff
+  reviewed_at: '2026-06-11'
+  channel_mapping:
+    type: bt7_psd_dat_relative_a4
+    source_filename: PSD_July2014_Na2Cu2TeO6_AnaTrans200.dat
+    row_count: 48
+    relative_a4_units: degrees
+    channel_indexing: one_based_for_masks_zero_based_for_psdc_columns
+    channel_to_a4_policy: two_theta = A4 - relative_a4[channel]
+    q_formula_policy: elastic diffraction Q = 4*pi*sin(two_theta/2)/lambda
+    sign_convention: minus_relative_a4
+    mask_policy:
+      masked_one_based_channels: []
+      basis: No accepted channel mask yet for the 2014 cycle. Interpretation of the
+        narrow stripe near Q ~ 1.25 in the x=0.4 LuFe0.6Mn0.4O3 temperature map
+        remains unresolved pending raw-data, mask-sensitivity, repeatability,
+        and background checks.
+    efficiency_correction: divide_counts_by_channel_efficiency
+  detector_geometry:
+    analyzer_detector_translation: 200
+    analyzer_detector_translation_units: cm
+    distance_basis: AnaTrans200 series calibration file from the same 201407 BT-7
+      cycle; nearest-in-time candidate to the 201407/18445 LuFe/Mn/O ENV PSD files
+    source_files_do_not_expose_anatrans: true
+  validation_evidence:
+  - evidence_type: instrument_scientist_review
+    summary: Accepted as the working channel-to-A4 sign policy for the 2014 explicit-composition
+      LuFe/Mn/O PSD ENV files (201407/18445); the minus-sign convention is required
+      to reproduce the published panel morphology for x=0.4 and x=0.5.
+    score: 0.85
+  - evidence_type: panel_morphology_match
+    summary: Under two_theta = A4 - relative_a4[channel], the x=0.4 (A4=28.0) and
+      x=0.5 (A4=28.3) 2014 PSD ENV temperature maps reproduce the published BT-7 panel
+      features (low-Q blob plus transition-region high-Q blob for x=0.4; dominant
+      low-Q blob near Q ~ 1.2 for x=0.5); the plus-sign convention does not.
+    score: 0.9
+  - evidence_type: calibration_file
+    summary: PSD_July2014_Na2Cu2TeO6_AnaTrans200.dat (created 2014-07-30 from 201407/19230
+      Na2Cu2TeO6) contains 48 efficiency/relative-A4/Ef rows; it is a nearest-candidate
+      calibration from the same cycle, not a same-material calibration.
+    score: 0.7
+  provenance:
+  - source_type: local_file_reference
+    source_id: PSD_July2014_Na2Cu2TeO6_AnaTrans200.dat
+    method: psd_calibration_registry_review
+  - source_type: local_workflow_report
+    source_id: local_runs/lu_femn_o3_sang_answer_20260609/sang_lu_femn_o3_feature_report.html
+    method: lu_femn_o3_panel_source_triage
+  notes:
+  - Accepted as a working PSD channel-to-A4 sign policy for the 2014 explicit-composition
+    LuFe/Mn/O ENV PSD files, not as a general BT-7 PSD calibration for all 2014 data.
+  - The sign convention is opposite to the accepted 2013 LuFe/Mn/O policy (plus_relative_a4);
+    do not reuse either policy across cycles without checking panel/feature morphology.
+  - The calibration file is a nearest-candidate (Na2Cu2TeO6, same cycle), not a same-material
+    calibration. Mask behavior is unreviewed; this record establishes neither
+    physical nor artifact status for the narrow x=0.4 stripe near Q ~ 1.25.
+  - Publication-grade Q maps from these files still require a mask-sensitivity review
+    for the 2014 cycle before narrow-feature claims near masked-channel positions.

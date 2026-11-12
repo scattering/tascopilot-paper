@@ -1,0 +1,18 @@
+corpus_id: corpus_pilot_synthetic_v0
+description: Synthetic pilot corpus for corpus/search/graph/source-support tests.
+documents:
+  - paper_id: paper-lu-femn-o3-synthetic
+    type: paper
+    title: Synthetic LuFe/Mn/O BT-7 Figure Source Regression Paper
+    local_path: tests/fixtures/corpus_pilot/synthetic_lu_femn_o3/README.md
+    include_in_tests: true
+    copyright_status: synthetic_fixture
+    expected_features:
+      - figure_panels
+      - methods_section
+      - bt7_instrument_setup
+      - psd_temperature_map
+fixtures:
+  - fixture_id: synthetic_lu_femn_o3
+    type: synthetic_paper_fixture
+    path: tests/fixtures/corpus_pilot/synthetic_lu_femn_o3

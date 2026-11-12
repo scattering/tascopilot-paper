@@ -1,0 +1,30 @@
+expected_behavior:
+  panel_sample_mismatch:
+    user_sample: LuFe0.6Mn0.4O3
+    parsed_x_mn: 0.4
+    target_panel: k
+    target_panel_x_mn: 0.5
+    likely_user_sample_panel: j
+  explicit_x025:
+    filename_pattern: LuFe75Mn25O3_Correlations102248.bt7
+    parsed_x_mn: 0.25
+    expected_panel: i
+    expected_source_family: multi_file_psd_angle_temperature_series
+  ambiguous_shorthands:
+    - LuMnFeO3
+    - LuFeMnO3
+  psd_temperature_map:
+    filename_pattern: LuMnFeO3_29pt5_TdepWarm102246.bt7
+    source_family: single_file_psd_temperature_map
+    scan_type: ENV
+    fixed_a4_degrees: 29.4999
+    composition_policy: ambiguous_without_external_evidence
+  false_positive_rejections:
+    - LuFeMnO3_Tdep_3meV102311.bt7
+    - LuFeMnO3_Tdep_6meV102316.bt7
+    - LuFeMnO3_Tdep_9meV102317.bt7
+  reconstruction_policy:
+    channel_temperature: allowed_with_psd_channels_and_temperatures
+    detector_angle_temperature: requires_reviewed_detector_angle_metadata
+    q_temperature: blocked_without_reviewed_psd_calibration
+    publication_like_map: blocked_without_processing_provenance

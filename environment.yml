@@ -1,0 +1,15 @@
+name: tascopilot
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - numpy
+  - numba
+  - pydantic>=2,<3
+  - pyyaml>=6
+  - pytest>=8
+  - pip:
+      - eval-type-backport>=0.2
+      - -e ./packages/tas_copilot_contracts
+      - -e ./packages/tas_copilot_core

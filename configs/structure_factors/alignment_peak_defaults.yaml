@@ -1,0 +1,51 @@
+background_materials:
+  - material_id: aluminum
+    label: Aluminum
+    role: default_common_background
+    formula: Al
+    enabled_by_default: true
+    reason: Aluminum is a common mount, cryostat, and sample-environment scattering background.
+    source: instrument_scientist_prior
+
+user_materials:
+  description: >
+    Users may add sample-environment, substrate, mount, adhesive, cryostat,
+    pressure-cell, or holder materials. These materials should be treated as
+    experiment-specific overlay/background candidates, not as global facts.
+  examples:
+    - material_id: copper_mount
+      label: Copper mount
+      formula: Cu
+      role: mount
+      enabled_by_default: false
+    - material_id: silicon_substrate
+      label: Silicon substrate
+      formula: Si
+      role: substrate
+      enabled_by_default: false
+
+out_of_plane_acceptance_prior:
+  low_q_tilt_degrees: 2.0
+  high_q_tilt_degrees: 0.5
+  interpolation: inverse_q
+  reason: >
+    Triple-axis vertical resolution can accept reflections slightly out of the
+    nominal scattering plane. At low Q, a 1-2 degree projection from the
+    scattering plane can still give signal and is often useful for alignment.
+    At higher Q, the same angular divergence corresponds to a tighter
+    reciprocal-space acceptance.
+
+multiple_scattering:
+  enabled: true
+  status: heuristic_warning
+  finite_sample_thickness_required: true
+  warning_policy: warn_not_reject
+  criteria:
+    - two_or_more_strong_bragg_points_can_lie_on_or_near_ewald_sphere
+    - candidate_reflections_are_near_accessible_incident_or_exit_wavevectors
+    - sample_or_mount_thickness_is_large_enough_to_make_secondary_scattering_plausible
+    - instrument_vertical_acceptance_or_mosaic_can_clip_nearby_out_of_plane_reflections
+  notes:
+    - Multiple-scattering checks are planning warnings, not proof of contamination.
+    - Missing sample thickness, mosaic, collimation, and exact resolution inputs lower confidence.
+    - The workflow should recommend diagnostic scans or alternate peaks when risk is elevated.

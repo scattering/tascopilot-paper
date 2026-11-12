@@ -1,0 +1,7 @@
+mappings:
+  - paper_id: paper-bt7-spinwave
+    experiment_id: exp-bt7-001
+    status: candidate
+  - paper_id: bt7-paper-data-matching-report
+    experiment_id: exp-bt7-25860
+    status: candidate

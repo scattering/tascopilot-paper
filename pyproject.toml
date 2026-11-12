@@ -1,0 +1,40 @@
+[project]
+name = "tas-copilot-workspace"
+version = "0.1.0"
+description = "Federated read-only/simulation-only TASCopilot MVP workspace."
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = [
+  "pydantic>=2,<3",
+  "eval-type-backport>=0.2",
+  "pyyaml>=6",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+plot = ["matplotlib>=3.8"]
+dashboard = [
+  "dash>=2.17",
+  "plotly>=5",
+]
+materials = [
+  "pymatgen>=2024",
+  "ase>=3.22",
+]
+chemtext = [
+  "chemdataextractor>=2; python_version < '3.12'",
+]
+web = [
+  "fastapi>=0.115",
+  "uvicorn>=0.30",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = [
+  "packages/tas_copilot_contracts/src",
+  "packages/tas_copilot_core/src",
+]
+markers = [
+  "no_plugins: core-only smoke tests that must not require external plugin repos",
+]

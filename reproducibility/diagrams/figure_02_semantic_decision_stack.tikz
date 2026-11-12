@@ -1,0 +1,29 @@
+\begin{tikzpicture}[scale=0.92, transform shape,
+  node distance=6mm and 8mm,
+  box/.style={draw, rounded corners=1.5pt, align=center, font=\footnotesize, inner sep=4pt, minimum height=8mm},
+  layer/.style={box, fill=blue!7, minimum width=38mm},
+  evidence/.style={box, fill=gray!10, minimum width=31mm},
+  warn/.style={box, fill=yellow!15, minimum width=32mm},
+  arrow/.style={-{Latex[length=2mm]}, thick}
+]
+\node[layer] (question) {User question\\or review task};
+\node[layer, right=of question] (router) {Bounded intent\\router};
+\node[layer, right=of router] (workflow) {Workflow\\constraints};
+\node[layer, right=of workflow] (answer) {Answer envelope\\with provenance};
+
+\node[evidence, below=of router] (ontology) {Curated TAS\\ontology};
+\node[evidence, below=of workflow] (graph) {Typed evidence\\graph};
+\node[evidence, below=of question] (stores) {Catalogs, papers,\\scans, labels};
+\node[warn, below=of answer] (llm) {LLM may extract\\or explain only};
+
+\draw[arrow] (question) -- (router);
+\draw[arrow] (router) -- (workflow);
+\draw[arrow] (workflow) -- (answer);
+\draw[arrow] (stores) -- (router);
+\draw[arrow] (stores) -- (graph);
+\draw[arrow] (ontology) -- (router);
+\draw[arrow] (ontology) -- (workflow);
+\draw[arrow] (graph) -- (workflow);
+\draw[arrow] (workflow) -- (llm);
+\draw[arrow] (llm) -- (answer);
+\end{tikzpicture}

@@ -1,0 +1,121 @@
+version: 0.1
+description: >
+  Canonical TAS instrument-device graph roles and facility/native aliases.
+  Preserve native names from NICE, ICE files, SICS/ANSTO logs, NeXus files,
+  and other facilities. Align them to canonical roles only when the mapping is
+  explicit enough to defend.
+
+roles:
+  q_h:
+    label: Miller index H
+    node_kind: coordinate_control
+    aliases:
+      - {alias: Q.H, source_namespace: nice_bt7, facility: NCNR, instrument: BT-7, confidence: 0.95}
+      - {alias: H, source_namespace: ice_bt7_column, facility: NCNR, instrument: BT-7, confidence: 0.75}
+      - {alias: QH, source_namespace: tas_file_column, confidence: 0.75}
+      - {alias: qh, source_namespace: nexus_or_sics, confidence: 0.75}
+  q_k:
+    label: Miller index K
+    node_kind: coordinate_control
+    aliases:
+      - {alias: Q.K, source_namespace: nice_bt7, facility: NCNR, instrument: BT-7, confidence: 0.95}
+      - {alias: K, source_namespace: ice_bt7_column, facility: NCNR, instrument: BT-7, confidence: 0.75}
+      - {alias: QK, source_namespace: tas_file_column, confidence: 0.75}
+      - {alias: qk, source_namespace: nexus_or_sics, confidence: 0.75}
+  q_l:
+    label: Miller index L
+    node_kind: coordinate_control
+    aliases:
+      - {alias: Q.L, source_namespace: nice_bt7, facility: NCNR, instrument: BT-7, confidence: 0.95}
+      - {alias: L, source_namespace: ice_bt7_column, facility: NCNR, instrument: BT-7, confidence: 0.75}
+      - {alias: QL, source_namespace: tas_file_column, confidence: 0.75}
+      - {alias: ql, source_namespace: nexus_or_sics, confidence: 0.75}
+  q_norm:
+    label: Q magnitude
+    node_kind: coordinate_control
+    aliases:
+      - {alias: Q.length, source_namespace: nice_bt7, facility: NCNR, instrument: BT-7, confidence: 0.95}
+      - {alias: Q, source_namespace: tas_file_column, confidence: 0.55, notes: ambiguous with Q vector/group labels}
+      - {alias: q, source_namespace: nexus_or_sics, confidence: 0.55, notes: ambiguous unless quantity path confirms magnitude}
+  energy_transfer:
+    label: Energy transfer
+    node_kind: coordinate_control
+    aliases:
+      - {alias: et.deltaE, source_namespace: nice_bt7, facility: NCNR, instrument: BT-7, confidence: 0.95}
+      - {alias: E, source_namespace: ice_bt7_column, facility: NCNR, instrument: BT-7, confidence: 0.8}
+      - {alias: DeltaE, source_namespace: tas_file_column, confidence: 0.8}
+      - {alias: en, source_namespace: nexus_or_sics, confidence: 0.7}
+  fixed_energy_mode:
+    label: Fixed energy mode
+    node_kind: instrument_config
+    aliases:
+      - {alias: et.fixedEnergyMode, source_namespace: nice_bt7, facility: NCNR, instrument: BT-7, confidence: 0.95}
+      - {alias: FixedE, source_namespace: ice_bt7_header, facility: NCNR, instrument: BT-7, confidence: 0.7}
+  incident_energy:
+    label: Incident energy
+    node_kind: coordinate_control
+    aliases:
+      - {alias: ei.energy, source_namespace: nice_bt7, facility: NCNR, instrument: BT-7, confidence: 0.95}
+      - {alias: Ei, source_namespace: tas_file_column, confidence: 0.8}
+  final_energy:
+    label: Final energy
+    node_kind: coordinate_control
+    aliases:
+      - {alias: ef.energy, source_namespace: nice_bt7, facility: NCNR, instrument: BT-7, confidence: 0.95}
+      - {alias: Ef, source_namespace: tas_file_column, confidence: 0.8}
+  sample_theta:
+    label: Sample theta / A3
+    node_kind: motor
+    aliases:
+      - {alias: sampleTheta.softPosition, source_namespace: nice_bt7, facility: NCNR, instrument: BT-7, confidence: 0.95}
+      - {alias: A3, source_namespace: ice_bt7_column, facility: NCNR, instrument: BT-7, confidence: 0.95}
+      - {alias: sample_theta, source_namespace: nexus_or_sics, confidence: 0.75}
+  sample_two_theta:
+    label: Sample two theta / A4
+    node_kind: motor
+    aliases:
+      - {alias: sampleTwoTheta.softPosition, source_namespace: nice_bt7, facility: NCNR, instrument: BT-7, confidence: 0.95}
+      - {alias: A4, source_namespace: ice_bt7_column, facility: NCNR, instrument: BT-7, confidence: 0.95}
+      - {alias: sample_two_theta, source_namespace: nexus_or_sics, confidence: 0.75}
+      - {alias: two_theta, source_namespace: nexus_or_sics, confidence: 0.65, notes: can refer to detector or sample scattering angle depending on facility}
+  powder_mode:
+    label: Powder coordinate mode
+    node_kind: instrument_config
+    aliases:
+      - {alias: Q.powderMode, source_namespace: nice_bt7, facility: NCNR, instrument: BT-7, confidence: 0.95}
+  roi_readback:
+    label: Live ROI count readback
+    node_kind: detector_readback
+    aliases:
+      - {alias: counter.liveROI, source_namespace: nice_bt7, facility: NCNR, instrument: BT-7, confidence: 0.95}
+      - {alias: Detector, source_namespace: ice_bt7_column, facility: NCNR, instrument: BT-7, confidence: 0.75}
+      - {alias: detector, source_namespace: tas_file_column, confidence: 0.65}
+  monitor_readback:
+    label: Monitor readback
+    node_kind: detector_readback
+    aliases:
+      - {alias: counter.liveMonitor, source_namespace: nice_bt7, facility: NCNR, instrument: BT-7, confidence: 0.95}
+      - {alias: Monitor, source_namespace: ice_bt7_column, facility: NCNR, instrument: BT-7, confidence: 0.9}
+      - {alias: monitor, source_namespace: nexus_or_sics, confidence: 0.75}
+  live_time_readback:
+    label: Live counting time
+    node_kind: detector_readback
+    aliases:
+      - {alias: counter.liveTime, source_namespace: nice_bt7, facility: NCNR, instrument: BT-7, confidence: 0.95}
+      - {alias: Time, source_namespace: ice_bt7_column, facility: NCNR, instrument: BT-7, confidence: 0.7}
+  detector_counts:
+    label: Detector counts array
+    node_kind: detector_readback
+    aliases:
+      - {alias: singleDetector.counts, source_namespace: nice_bt7, facility: NCNR, instrument: BT-7, confidence: 0.95}
+      - {alias: psDetector.counts, source_namespace: nice_bt7, facility: NCNR, instrument: BT-7, confidence: 0.95}
+      - {alias: diffDetector.counts, source_namespace: nice_bt7, facility: NCNR, instrument: BT-7, confidence: 0.95}
+      - {alias: doorDetector.counts, source_namespace: nice_bt7, facility: NCNR, instrument: BT-7, confidence: 0.95}
+      - {alias: PSDC*, source_namespace: ice_bt7_column_pattern, facility: NCNR, instrument: BT-7, confidence: 0.85}
+  analyzer_detector_distance:
+    label: Analyzer-to-detector distance
+    node_kind: instrument_config
+    aliases:
+      - {alias: anaTheta.L1, source_namespace: nice_bt7, facility: NCNR, instrument: BT-7, confidence: 0.9}
+      - {alias: AnaTrans, source_namespace: nice_bt7_or_log, facility: NCNR, instrument: BT-7, confidence: 0.65, notes: legacy ICE files may not store this; calibration matching may use date/name priors}
+

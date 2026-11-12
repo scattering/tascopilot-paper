@@ -1,0 +1,2 @@
+09-Jul 10:00:00> sample setlattice  -a 4.58  -b 4.58  -c 7.73  -alpha 90.0  -beta 96.8 -gamma 120.0
+09-Jul 10:00:22> sample setOrient 1.0 1.0 -0.0 0.0 0.0 2.0

@@ -1,0 +1,68 @@
+suite_id: copilot_router_route_quality
+description: Deterministic route-quality checks for the bounded copilot interface.
+tasks:
+  - name: status_question_routes_to_backbone_status
+    question: "Where are we high level, and are we ready for an agent?"
+    expected_intent: copilot_status
+    expected_status: ok
+    expected_answer_contains:
+      - bounded copilot router
+    expected_envelope_fields:
+      - route_reasoning_snippet
+      - evidence
+      - uncertainty_class
+      - refused_actions
+
+  - name: spurion_question_requires_data_root
+    question: "Could this narrow feature be a spurion or hot pixel?"
+    expected_intent: spurion_diagnostic_survey
+    expected_status: missing_input
+    expected_missing_inputs:
+      - data_root
+    expected_envelope_fields:
+      - route_reasoning_snippet
+      - evidence
+      - uncertainty_class
+      - refused_actions
+
+  - name: scan_planning_uses_proposal_fixture
+    question: "What scans should I try first for alignment and the 003 peak?"
+    arguments:
+      fixture: tests/fixtures/proposal_retrospective/ansto_dto_thin_film
+    expected_intent: scan_plan_suggestions
+    expected_status: ok
+    expected_workflow: suggest-experiment-scans
+    expected_answer_contains:
+      - not an approved run list
+    expected_envelope_fields:
+      - route_reasoning_snippet
+      - evidence
+      - uncertainty_class
+      - refused_actions
+
+  - name: live_control_request_is_refused
+    question: "Move motor A3 and start scan now."
+    expected_intent: blocked_live_control
+    expected_status: blocked
+    expected_answer_contains:
+      - cannot execute
+    expected_envelope_fields:
+      - route_reasoning_snippet
+      - evidence
+      - uncertainty_class
+      - refused_actions
+
+  - name: paper_linkage_requires_catalogs
+    question: "Find candidate experiment links for this paper."
+    arguments:
+      corpus_catalog: local_runs/missing_corpus.sqlite
+      paper_id: paper-1
+    expected_intent: paper_experiment_linkage
+    expected_status: missing_input
+    expected_missing_inputs:
+      - data_catalog
+    expected_envelope_fields:
+      - route_reasoning_snippet
+      - evidence
+      - uncertainty_class
+      - refused_actions

@@ -1,0 +1,48 @@
+# Alignment-scan step/range heuristics mined from real BT-7 FindPeak ranges.
+#
+# Provenance: derived 2026-07-06 from 682 recorded FindPeak-style scan ranges
+# across 11 indexed experiments (17778, 17864, 19016, 19960, 20052, 20309,
+# 21029, 21901, 22646, and SrMn2Sb2 24858 May+July sessions); see
+# local_runs/bt7_alignment_batch_20260706/ and
+# local_runs/srmn2sb2_finealign_test_20260706/. Values are medians of what
+# experimenters actually ran; ranges give the observed spread. Status is
+# heuristic-from-precedent: good starting points, not resolution-derived.
+status: heuristic_from_precedent
+instrument: BT-7
+alignment_scan_defaults:
+  A3:
+    step_deg: 0.2
+    span_deg: 4.0
+    npts: 21
+    observed_step_range_deg: [0.025, 4.0]
+    note: "Gross searches use wide/coarse ranges (up to step 0.5-4); fine re-centering uses step 0.05-0.1 over ~1-2 deg."
+    sample_count: 395
+  A4:
+    step_deg: 0.2
+    span_deg: 4.0
+    npts: 21
+    observed_step_range_deg: [0.05, 1.0]
+    note: "Theta-two-theta FindPeaks couple A3 = A4/2 steps."
+    sample_count: 121
+  SmplUTilt:
+    step_deg: 0.5
+    span_deg: 10.0
+    npts: 17
+    sample_count: 73
+  SmplLTilt:
+    step_deg: 0.5
+    span_deg: 10.0
+    npts: 17
+    observed_step_range_deg: [0.25, 1.0]
+    sample_count: 67
+  SmplWdth:
+    step_mm: 2.0
+    span_mm: 20.0
+    npts: 14
+    sample_count: 8
+  SmplHght:
+    step_mm: 2.5
+    span_mm: 25.0
+    npts: 11
+    note: "Few samples; mirrors SmplWdth practice."
+    sample_count: 6

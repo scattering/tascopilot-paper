@@ -1,0 +1,12 @@
+suite_id: lu_femn_o3_known_answer
+description: Deterministic known-answer regression for LuFe/Mn/O BT-7 source triage.
+query_file: examples/figure_queries/lu_femn_o3_elastic_psd_triage.yaml
+data_catalog: eval/figure_source_lu_femn_o3_triage.yaml
+corpus_fixture: tests/fixtures/lu_femn_o3_paper_figure
+expected_behavior_file: eval/figure_source_lu_femn_o3_expected_behavior.yaml
+metrics:
+  - panel_sample_mismatch_detected
+  - material_ambiguity_preserved
+  - inelastic_false_positive_rejected
+  - q_temperature_blocked_without_reviewed_calibration
+  - provenance_present

@@ -1,0 +1,168 @@
+concept_mappings:
+  - local_concept_id: inelastic_neutron_spectroscopy
+    retrieval_policy: metadata_filter_only
+    notes: Broad PaNET technique alignment; keep low weight for retrieval.
+    mappings:
+      - {vocabulary_id: panet, mapping_type: broadMatch, external_label: "inelastic neutron spectroscopy", external_iri: "https://purl.org/pan-science/PaNET/PaNET01199", mapping_status: proposed, confidence: 0.6, retrieval_policy: low_weight_synonym_expansion, evidence: ["PaNET technique taxonomy"], notes: "Needs expert review of exact PaNET class semantics before exactMatch."}
+  - local_concept_id: neutron_diffraction
+    retrieval_policy: metadata_filter_only
+    mappings:
+      - {vocabulary_id: panet, mapping_type: broadMatch, external_label: "neutron diffraction", external_iri: "https://purl.org/pan-science/PaNET/PaNET01199", mapping_status: proposed, confidence: 0.5, retrieval_policy: low_weight_synonym_expansion, evidence: ["PaNET technique taxonomy"], notes: "PaNET root supplied as stable reference; exact neutron diffraction class needs expert review."}
+      - {vocabulary_id: cif, mapping_type: relatedMatch, external_label: "CIF diffraction metadata", external_path: "IUCr CIF dictionaries", mapping_status: proposed, retrieval_policy: metadata_filter_only, notes: "Use CIF dictionaries for crystallographic metadata, not scan operations."}
+  - local_concept_id: triple_axis_spectroscopy
+    retrieval_policy: metadata_filter_only
+    mappings:
+      - {vocabulary_id: panet, mapping_type: broadMatch, external_label: "triple-axis spectroscopy", external_iri: "https://purl.org/pan-science/PaNET/PaNET01199", mapping_status: proposed, confidence: 0.5, retrieval_policy: low_weight_synonym_expansion, notes: "Broad technique alignment only."}
+      - {vocabulary_id: nexus, mapping_type: sourceSchema, external_label: "NXtas", external_path: "NXtas", external_iri: "https://manual.nexusformat.org/classes/applications/NXtas.html", mapping_status: reviewed, retrieval_policy: schema_alignment_only, evidence: ["NeXus NXtas application definition"]}
+  - local_concept_id: constant_q_scan
+    retrieval_policy: no_expansion
+    mappings:
+      - {vocabulary_id: nexus, mapping_type: sourceSchema, external_label: "NXtas Q-E coordinates", external_path: "NXtas/qh,qk,ql,en", external_iri: "https://manual.nexusformat.org/classes/applications/NXtas.html", mapping_status: reviewed, retrieval_policy: schema_alignment_only, evidence: ["NXtas defines qh/qk/ql/en scan fields."]}
+      - {vocabulary_id: panet, mapping_type: broadMatch, external_label: "inelastic neutron spectroscopy", external_iri: "https://purl.org/pan-science/PaNET/PaNET01199", mapping_status: proposed, retrieval_policy: low_weight_synonym_expansion, notes: "Technique broader than local scan semantics."}
+      - {vocabulary_id: qudt, mapping_type: quantityKind, external_label: "Energy", external_id: "Energy", external_iri: "http://qudt.org/vocab/quantitykind/Energy", mapping_status: reviewed, retrieval_policy: validation_only, notes: "Energy transfer is normally represented in meV."}
+  - local_concept_id: constant_energy_scan
+    retrieval_policy: no_expansion
+    mappings:
+      - {vocabulary_id: nexus, mapping_type: sourceSchema, external_label: "NXtas Q-E coordinates", external_path: "NXtas/qh,qk,ql,en", external_iri: "https://manual.nexusformat.org/classes/applications/NXtas.html", mapping_status: reviewed, retrieval_policy: schema_alignment_only}
+      - {vocabulary_id: panet, mapping_type: broadMatch, external_label: "inelastic neutron spectroscopy", external_iri: "https://purl.org/pan-science/PaNET/PaNET01199", mapping_status: proposed, retrieval_policy: low_weight_synonym_expansion, notes: "Technique broader than local scan semantics."}
+  - local_concept_id: fixed_final_energy_mode
+    retrieval_policy: no_expansion
+    mappings:
+      - {vocabulary_id: nexus, mapping_type: sourceSchema, external_label: "NXtas final energy", external_path: "NXtas/ENTRY/INSTRUMENT/analyser/ef", external_iri: "https://manual.nexusformat.org/classes/applications/NXtas.html", mapping_status: reviewed, retrieval_policy: schema_alignment_only}
+      - {vocabulary_id: qudt, mapping_type: quantityKind, external_label: "Energy", external_id: "Energy", external_iri: "http://qudt.org/vocab/quantitykind/Energy", mapping_status: reviewed, retrieval_policy: validation_only}
+  - local_concept_id: fixed_incident_energy_mode
+    retrieval_policy: no_expansion
+    mappings:
+      - {vocabulary_id: nexus, mapping_type: sourceSchema, external_label: "NXtas incident energy", external_path: "NXtas/ENTRY/INSTRUMENT/monochromator/ei", external_iri: "https://manual.nexusformat.org/classes/applications/NXtas.html", mapping_status: reviewed, retrieval_policy: schema_alignment_only}
+      - {vocabulary_id: qudt, mapping_type: quantityKind, external_label: "Energy", external_id: "Energy", external_iri: "http://qudt.org/vocab/quantitykind/Energy", mapping_status: reviewed, retrieval_policy: validation_only}
+  - local_concept_id: energy_transfer
+    retrieval_policy: validation_only
+    mappings:
+      - {vocabulary_id: nexus, mapping_type: sourceSchema, external_label: "NXtas energy transfer", external_path: "NXtas/en", external_iri: "https://manual.nexusformat.org/classes/applications/NXtas.html", mapping_status: reviewed, retrieval_policy: schema_alignment_only}
+      - {vocabulary_id: qudt, mapping_type: quantityKind, external_label: "Energy", external_id: "Energy", external_iri: "http://qudt.org/vocab/quantitykind/Energy", mapping_status: reviewed, retrieval_policy: validation_only}
+  - local_concept_id: q_point
+    retrieval_policy: schema_alignment_only
+    mappings:
+      - {vocabulary_id: nexus, mapping_type: sourceSchema, external_label: "NXtas reciprocal-space coordinates", external_path: "NXtas/qh,qk,ql", external_iri: "https://manual.nexusformat.org/classes/applications/NXtas.html", mapping_status: reviewed, retrieval_policy: schema_alignment_only}
+      - {vocabulary_id: qudt, mapping_type: quantityKind, external_label: "Inverse length", external_id: "InverseLength", external_iri: "http://qudt.org/vocab/quantitykind/InverseLength", mapping_status: reviewed, retrieval_policy: validation_only, notes: "RLU are sample-dependent local conventions, not plain SI reciprocal length."}
+  - local_concept_id: ub_matrix
+    retrieval_policy: metadata_filter_only
+    mappings:
+      - {vocabulary_id: nexus, mapping_type: sourceSchema, external_label: "NXtas orientation matrix", external_path: "NXtas/ENTRY/SAMPLE/orientation_matrix", external_iri: "https://manual.nexusformat.org/classes/applications/NXtas.html", mapping_status: reviewed, retrieval_policy: schema_alignment_only}
+      - {vocabulary_id: corecif, mapping_type: relatedMatch, external_label: "unit-cell metadata", external_path: "_cell.*", external_iri: "https://www.iucr.org/resources/cif/dictionaries/cif_core", mapping_status: reviewed, retrieval_policy: metadata_filter_only}
+  - local_concept_id: unit_cell
+    retrieval_policy: metadata_filter_only
+    mappings:
+      - {vocabulary_id: corecif, mapping_type: materialStructureTerm, external_label: "CIF unit-cell terms", external_path: "_cell.length_a,_cell.length_b,_cell.length_c,_cell.angle_alpha,_cell.angle_beta,_cell.angle_gamma", external_iri: "https://www.iucr.org/resources/cif/dictionaries/cif_core", mapping_status: reviewed, retrieval_policy: metadata_filter_only}
+      - {vocabulary_id: nexus, mapping_type: sourceSchema, external_label: "NXtas sample unit cell fields", external_path: "NXtas/ENTRY/SAMPLE/unit_cell", external_iri: "https://manual.nexusformat.org/classes/applications/NXtas.html", mapping_status: reviewed, retrieval_policy: schema_alignment_only}
+      - {vocabulary_id: magmo, mapping_type: closeMatch, external_label: "CellVolume", external_iri: "https://w3id.org/emmo/domain/magnetic-materials#EMMO_2b7f8b13-d0c3-590c-9851-ca89ce5b7395", mapping_status: proposed, confidence: 0.7, retrieval_policy: validation_only, evidence: ["MagMO 0.0.5 class CellVolume"], notes: "MagMO copies nine crystallography classes from EMMO domain-crystallography; CIF stays canonical, this is a cross-reference."}
+      - {vocabulary_id: magmo, mapping_type: closeMatch, external_label: "LatticeConstantA", external_iri: "https://w3id.org/emmo/domain/magnetic-materials#EMMO_ef314f95-f3b5-5cb7-ac56-7bfc54f0d955", mapping_status: proposed, confidence: 0.7, retrieval_policy: validation_only, evidence: ["MagMO 0.0.5 class LatticeConstantA"], notes: "One of six MagMO lattice-constant classes (A, B, C, Alpha, Beta, Gamma); CIF _cell_length_a etc. remain canonical."}
+  - local_concept_id: magnetic_structure
+    retrieval_policy: metadata_filter_only
+    mappings:
+      - {vocabulary_id: magcif, mapping_type: materialStructureTerm, external_label: "magCIF magnetic structure terms", external_iri: "https://www.iucr.org/resources/cif/dictionaries/cif_mag", mapping_status: proposed, retrieval_policy: metadata_filter_only, notes: "Use magCIF for magnetic structure metadata; exact dictionary tags need expert review."}
+      - {vocabulary_id: magmo, mapping_type: broadMatch, external_label: "CrystallineMagneticMaterial", external_iri: "https://w3id.org/emmo/domain/magnetic-materials#EMMO_aaa107b8-4dd9-5fc8-b135-a604a0cb38b1", mapping_status: proposed, confidence: 0.5, retrieval_policy: validation_only, evidence: ["MagMO 0.0.5 class CrystallineMagneticMaterial"], notes: "MagMO names the material, not its ordering pattern; magCIF remains the home for magnetic structure. Broad alignment only."}
+  - local_concept_id: powder_diffraction
+    retrieval_policy: metadata_filter_only
+    mappings:
+      - {vocabulary_id: panet, mapping_type: broadMatch, external_label: "neutron powder diffraction", external_iri: "https://purl.org/pan-science/PaNET/PaNET01199", mapping_status: proposed, retrieval_policy: low_weight_synonym_expansion, notes: "PaNET root supplied as stable reference; exact powder diffraction class needs review."}
+      - {vocabulary_id: cif, mapping_type: relatedMatch, external_label: "powder CIF metadata", external_path: "pdCIF", mapping_status: proposed, retrieval_policy: metadata_filter_only, notes: "No pdCIF registry entry yet; revisit when powder CIF support is added."}
+  - local_concept_id: monitor_normalization
+    retrieval_policy: no_expansion
+    mappings:
+      - {vocabulary_id: nexus, mapping_type: sourceSchema, external_label: "NXmonitor", external_path: "NXtas/ENTRY/MONITOR", external_iri: "https://manual.nexusformat.org/classes/applications/NXtas.html", mapping_status: reviewed, retrieval_policy: schema_alignment_only}
+      - {vocabulary_id: qudt, mapping_type: quantityKind, external_label: "Count rate", external_id: "CountRate", external_iri: "http://qudt.org/vocab/quantitykind/CountRate", mapping_status: reviewed, retrieval_policy: validation_only, notes: "Counts/time hints only; TAS monitor conventions remain adapter-specific."}
+  - local_concept_id: bose_correction
+    retrieval_policy: no_expansion
+    mappings:
+      - {vocabulary_id: qudt, mapping_type: quantityKind, external_label: "Energy", external_id: "Energy", external_iri: "http://qudt.org/vocab/quantitykind/Energy", mapping_status: reviewed, retrieval_policy: validation_only}
+      - {vocabulary_id: qudt, mapping_type: quantityKind, external_label: "Thermodynamic temperature", external_id: "ThermodynamicTemperature", external_iri: "http://qudt.org/vocab/quantitykind/ThermodynamicTemperature", mapping_status: reviewed, retrieval_policy: validation_only}
+  - local_concept_id: harmonic_correction
+    retrieval_policy: no_expansion
+    mappings:
+      - {vocabulary_id: nexus, mapping_type: relatedMatch, external_label: "monochromator/analyzer/filter metadata", external_path: "NXtas/monochromator,NXtas/analyzer,NXtas/filter", external_iri: "https://manual.nexusformat.org/classes/applications/NXtas.html", mapping_status: proposed, retrieval_policy: schema_alignment_only, notes: "No forced exact external ontology match."}
+  - local_concept_id: spurion_check
+    retrieval_policy: no_expansion
+    mappings:
+      - {vocabulary_id: prov_o, mapping_type: provenanceRelation, external_label: "prov:Activity", external_iri: "http://www.w3.org/ns/prov#Activity", mapping_status: reviewed, retrieval_policy: provenance_alignment_only, notes: "Spurion check is a local validation/calculation activity."}
+  - local_concept_id: tas_resolution_calc
+    retrieval_policy: no_expansion
+    mappings:
+      - {vocabulary_id: qudt, mapping_type: quantityKind, external_label: "Energy", external_id: "Energy", external_iri: "http://qudt.org/vocab/quantitykind/Energy", mapping_status: reviewed, retrieval_policy: validation_only}
+      - {vocabulary_id: qudt, mapping_type: quantityKind, external_label: "Plane Angle", external_id: "PlaneAngle", external_iri: "http://qudt.org/vocab/quantitykind/PlaneAngle", mapping_status: reviewed, retrieval_policy: validation_only}
+      - {vocabulary_id: chameo, mapping_type: characterizationTerm, external_label: "post-processing/model calculation", external_iri: "https://emmo-repo.github.io/domain-characterisation-methodology/index.html", mapping_status: proposed, retrieval_policy: no_expansion, notes: "Use for methodology documentation only."}
+  - local_concept_id: device_angle_calc
+    retrieval_policy: no_expansion
+    mappings:
+      - {vocabulary_id: sosa_ssn, mapping_type: observationTerm, external_label: "sosa:Procedure", external_iri: "http://www.w3.org/ns/sosa/Procedure", mapping_status: reviewed, retrieval_policy: no_expansion, notes: "Planning/calculation procedure only; not live actuation."}
+      - {vocabulary_id: qudt, mapping_type: quantityKind, external_label: "Plane Angle", external_id: "PlaneAngle", external_iri: "http://qudt.org/vocab/quantitykind/PlaneAngle", mapping_status: reviewed, retrieval_policy: validation_only}
+  - local_concept_id: paper_experiment_mapping
+    retrieval_policy: provenance_alignment_only
+    mappings:
+      - {vocabulary_id: prov_o, mapping_type: provenanceRelation, external_label: "prov:wasDerivedFrom", external_iri: "http://www.w3.org/ns/prov#wasDerivedFrom", mapping_status: reviewed, retrieval_policy: provenance_alignment_only}
+      - {vocabulary_id: dcat, mapping_type: catalogTerm, external_label: "dcat:Dataset", external_iri: "http://www.w3.org/ns/dcat#Dataset", mapping_status: reviewed, retrieval_policy: metadata_filter_only}
+      - {vocabulary_id: dcterms, mapping_type: catalogTerm, external_label: "dcterms:bibliographicCitation", external_iri: "http://purl.org/dc/terms/bibliographicCitation", mapping_status: reviewed, retrieval_policy: metadata_filter_only}
+  - local_concept_id: scan_datafile_lineage
+    retrieval_policy: provenance_alignment_only
+    mappings:
+      - {vocabulary_id: prov_o, mapping_type: provenanceRelation, external_label: "prov:wasGeneratedBy", external_iri: "http://www.w3.org/ns/prov#wasGeneratedBy", mapping_status: reviewed, retrieval_policy: provenance_alignment_only}
+      - {vocabulary_id: prov_o, mapping_type: provenanceRelation, external_label: "prov:wasDerivedFrom", external_iri: "http://www.w3.org/ns/prov#wasDerivedFrom", mapping_status: reviewed, retrieval_policy: provenance_alignment_only}
+      - {vocabulary_id: dcat, mapping_type: catalogTerm, external_label: "dcat:Distribution", external_iri: "http://www.w3.org/ns/dcat#Distribution", mapping_status: reviewed, retrieval_policy: metadata_filter_only}
+  - local_concept_id: derived_data_product
+    retrieval_policy: provenance_alignment_only
+    mappings:
+      - {vocabulary_id: prov_o, mapping_type: provenanceRelation, external_label: "prov:Entity", external_iri: "http://www.w3.org/ns/prov#Entity", mapping_status: reviewed, retrieval_policy: provenance_alignment_only}
+      - {vocabulary_id: dcat, mapping_type: catalogTerm, external_label: "dcat:Dataset", external_iri: "http://www.w3.org/ns/dcat#Dataset", mapping_status: reviewed, retrieval_policy: metadata_filter_only}
+  - local_concept_id: motor_trajectory
+    retrieval_policy: metadata_filter_only
+    mappings:
+      - {vocabulary_id: sosa_ssn, mapping_type: observationTerm, external_label: "sosa:Procedure", external_iri: "http://www.w3.org/ns/sosa/Procedure", mapping_status: reviewed, retrieval_policy: no_expansion, notes: "Historical/planned trajectory description only; not permission for live actuation."}
+      - {vocabulary_id: qudt, mapping_type: quantityKind, external_label: "Plane Angle", external_id: "PlaneAngle", external_iri: "http://qudt.org/vocab/quantitykind/PlaneAngle", mapping_status: reviewed, retrieval_policy: validation_only}
+      - {vocabulary_id: qudt, mapping_type: quantityKind, external_label: "Time", external_id: "Time", external_iri: "http://qudt.org/vocab/quantitykind/Time", mapping_status: reviewed, retrieval_policy: validation_only}
+  - local_concept_id: instrument_configuration
+    retrieval_policy: schema_alignment_only
+    mappings:
+      - {vocabulary_id: nexus, mapping_type: sourceSchema, external_label: "NXinstrument components", external_path: "NXtas/instrument", external_iri: "https://manual.nexusformat.org/classes/applications/NXtas.html", mapping_status: reviewed, retrieval_policy: schema_alignment_only}
+      - {vocabulary_id: chameo, mapping_type: characterizationTerm, external_label: "measurement instrument", external_iri: "https://emmo-repo.github.io/domain-characterisation-methodology/index.html", mapping_status: proposed, retrieval_policy: no_expansion, notes: "Methodology alignment only."}
+  - local_concept_id: sample_environment
+    retrieval_policy: metadata_filter_only
+    mappings:
+      - {vocabulary_id: chameo, mapping_type: characterizationTerm, external_label: "measurement parameter/sample relation", external_iri: "https://emmo-repo.github.io/domain-characterisation-methodology/index.html", mapping_status: proposed, retrieval_policy: metadata_filter_only, notes: "Keep as metadata/schema alignment."}
+      - {vocabulary_id: sosa_ssn, mapping_type: observationTerm, external_label: "sosa:Sample", external_iri: "http://www.w3.org/ns/sosa/Sample", mapping_status: reviewed, retrieval_policy: metadata_filter_only}
+  - local_concept_id: review_outcome
+    retrieval_policy: provenance_alignment_only
+    notes: Human review labels are provenance-bearing activities, not retrieval expansion terms.
+    mappings:
+      - {vocabulary_id: prov_o, mapping_type: provenanceRelation, external_label: "prov:Activity", external_iri: "http://www.w3.org/ns/prov#Activity", mapping_status: proposed, retrieval_policy: provenance_alignment_only, evidence: ["Decision ontology working note"], notes: "Review outcome records are local decision-support activities requiring provenance."}
+  - local_concept_id: claim_state_accepted
+    retrieval_policy: no_expansion
+    mappings:
+      - {vocabulary_id: prov_o, mapping_type: provenanceRelation, external_label: "prov:wasInformedBy", external_iri: "http://www.w3.org/ns/prov#wasInformedBy", mapping_status: proposed, retrieval_policy: provenance_alignment_only, evidence: ["Accepted claims should cite the review/evidence that informed acceptance."]}
+  - local_concept_id: claim_state_rejected
+    retrieval_policy: no_expansion
+    mappings:
+      - {vocabulary_id: prov_o, mapping_type: provenanceRelation, external_label: "prov:wasInvalidatedBy", external_iri: "http://www.w3.org/ns/prov#wasInvalidatedBy", mapping_status: proposed, retrieval_policy: provenance_alignment_only, evidence: ["Rejected claims should preserve the review/evidence that invalidated the candidate."]}
+  - local_concept_id: evidence_channel_reconstruction
+    retrieval_policy: metadata_filter_only
+    mappings:
+      - {vocabulary_id: sosa_ssn, mapping_type: observationTerm, external_label: "sosa:Observation", external_iri: "http://www.w3.org/ns/sosa/Observation", mapping_status: proposed, retrieval_policy: metadata_filter_only, evidence: ["Reconstruction evidence records observations about derived artifacts."]}
+  - local_concept_id: spinwave_dispersion
+    retrieval_policy: no_expansion
+    notes: "MagMO has no magnon or dispersion class. The measured magnon stiffness D (meV A^2) is the neutron-side input to MagMO's exchange stiffness through D = 2 A g mu_B / M_s; recorded as relatedMatch so a neutron result can be found from the micromagnetic side, never as a synonym."
+    mappings:
+      - {vocabulary_id: magmo, mapping_type: relatedMatch, external_label: "ExchangeStiffnessConstant", external_iri: "https://w3id.org/emmo/domain/magnetic-materials#EMMO_526ed2a5-a017-590e-8eb8-8a900f2b3b78", mapping_status: proposed, confidence: 0.6, retrieval_policy: validation_only, evidence: ["MagMO 0.0.5 class ExchangeStiffnessConstant"], notes: "D = 2 A g mu_B / M_s for a ferromagnet; units meV A^2 (D) vs J/m (A). Conversion needs M_s and g; not an identity."}
+      - {vocabulary_id: magmo, mapping_type: relatedMatch, external_label: "SpontaneousMagnetization", external_iri: "https://w3id.org/emmo/domain/magnetic-materials#EMMO_032731f8-874d-5efb-9c9d-6dafaa17ef25", mapping_status: proposed, confidence: 0.4, retrieval_policy: validation_only, evidence: ["MagMO 0.0.5 class SpontaneousMagnetization"], notes: "Enters the D-to-A conversion; not a property of the dispersion itself."}
+  - local_concept_id: spin_gap
+    retrieval_policy: no_expansion
+    notes: "A spin gap is a single-ion or exchange anisotropy D (meV) in a spin Hamiltonian; MagMO's anisotropy constants are energy densities K (J/m^3) and the anisotropy field H_K. They agree only through a model (e.g. K_u = n S^2 D / V for single-ion uniaxial), so relatedMatch."
+    mappings:
+      - {vocabulary_id: magmo, mapping_type: relatedMatch, external_label: "UniaxialAnisotropyConstant", external_iri: "https://w3id.org/emmo/domain/magnetic-materials#EMMO_49a882d1-9ce7-522b-91e7-3a460f25f5ac", mapping_status: proposed, confidence: 0.5, retrieval_policy: validation_only, evidence: ["MagMO 0.0.5 class UniaxialAnisotropyConstant"], notes: "Energy density K_u (J/m^3) vs Hamiltonian D (meV); convention conversion required."}
+      - {vocabulary_id: magmo, mapping_type: relatedMatch, external_label: "AnisotropyField", external_iri: "https://w3id.org/emmo/domain/magnetic-materials#EMMO_cd58ebab-4351-5d0d-ad45-bbddd6efead3", mapping_status: proposed, confidence: 0.4, retrieval_policy: validation_only, evidence: ["MagMO 0.0.5 class AnisotropyField"], notes: "H_K = 2 K_u / (mu_0 M_s); a gap can be expressed as g mu_B H_K only in a mean-field picture."}
+  - local_concept_id: magnetic_order_parameter
+    retrieval_policy: no_expansion
+    notes: "No MagMO target. MagMO 0.0.5 has no Curie or Neel temperature class and no order-parameter concept (the paper mentions Curie temperature; the released file does not carry it). Recorded so nobody keeps looking; revisit at the next MagMO version."
+    mappings: []
+  - local_concept_id: magnetic_bragg_peak
+    retrieval_policy: no_expansion
+    notes: "No MagMO target: MagMO has no scattering concepts. Ordered moment per ion, propagation vector and spin direction likewise stay local (magCIF for structure)."
+    mappings: []

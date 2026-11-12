@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "input": "data/figure_inputs/lsmo_comparison.json",
+  "input_sha256": "1f400b518e645644c52d1a38155dd39d7c80946dbabd79a6db4e424e7ad688af",
+  "selection": "All 40 records in live, in step order",
+  "coordinates": "H=0, K=1+dq, L=0; E in meV; requested coordinates reconstructed from archive filenames",
+  "normalization": "counts per 150000 incident-beam monitor counts",
+  "uncertainty": "150000 * sqrt(max(detector_counts, 1)) / monitor_counts; monitor treated as normalization",
+  "archive": "https://ncnr.nist.gov/pub/ncnrdata/bt7/202608/14/data/",
+  "archive_doi": "10.18434/T4201B",
+  "run": "20260911_202614",
+  "kind": "quartic",
+  "lattice_a_angstrom": 3.9005,
+  "temperature_K": 300.0,
+  "resolution_convolution": false,
+  "higher_order_monitor_correction": false,
+  "fitter": "scripts/tasai_fm_magnon.py",
+  "fitter_sha256": "54d4ad27c7a404ce5a524cbf71f43d769dc7b11a8793a2eabdc290b0901b41d5",
+  "tasai": {
+    "repository": "https://github.com/usnistgov/tasai",
+    "revision": "1f68c59bedc53972bfd4383f8ac6d10644177444",
+    "base_sha256": "8af8653f85a02aabd42a60175cf54bb7fdd692159e711e85dd7a97c479eb8901"
+  }
+}

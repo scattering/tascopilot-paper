@@ -1,0 +1,21 @@
+families:
+  lu_femn_o3:
+    label: LuFe_{1-x}Mn_xO3
+    description: Lu ferrite/manganite series with Mn fraction on the Fe/Mn site.
+    elements:
+      fixed:
+        Lu: 1
+        O: 3
+      variable_site:
+        Fe: 1-x
+        Mn: x
+    filename_patterns:
+      - regex: "LuFe(?P<fe_pct>\\d{2})Mn(?P<mn_pct>\\d{2})O3"
+        interpretation: percent_occupancy
+        x_variable: x_Mn
+      - regex: "LuFe(?P<fe_frac>0?\\.\\d+)Mn(?P<mn_frac>0?\\.\\d+)O3"
+        interpretation: fractional_occupancy
+        x_variable: x_Mn
+    ambiguous_aliases:
+      - LuFeMnO3
+      - LuMnFeO3

@@ -1,0 +1,367 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-12",
+  "status": "passed",
+  "unit_tests": {
+    "command": "python -B -m unittest discover -s tests -v",
+    "count": 42,
+    "exit_code": 0
+  },
+  "lsmo_fit_replay": {
+    "status": "passed",
+    "command": "python -B scripts/replay_lsmo_fit.py --tasai-root outputs/lsmo-fit-runtime --check --out outputs/lsmo-fit/replay_result.json",
+    "tasai_source": "Anonymous public download at the revision in lsmo_fit_config.json",
+    "unrelated_working_directory": true,
+    "runtime": {
+      "python": "3.11.16",
+      "numpy": "2.4.6",
+      "scipy": "1.17.1"
+    },
+    "reference": "results/lsmo_live_fit.json",
+    "compared": "Configuration, bounds, all five parameters, chi-squared, and all 40 predictions",
+    "missing_dependency_rejected": true,
+    "existing_output_rejected": true
+  },
+  "standalone_replay": {
+    "python": "3.11.16",
+    "platform": "macOS-27.0.1-arm64-arm-64bit",
+    "runtime": {
+      "numpy": "2.4.6",
+      "pandas": "3.0.5",
+      "scipy": "1.17.1",
+      "matplotlib": "3.10.9",
+      "Pillow": "13.0.0"
+    },
+    "package_files_verified": 61,
+    "empty_home": true,
+    "unrelated_working_directory": true,
+    "no_tas_packages": true,
+    "figures": [
+      {
+        "figure": 8,
+        "pdf": "srmn2sb2_evidence_to_analysis_jeff_review_20261103.pdf",
+        "png": "srmn2sb2_evidence_to_analysis_jeff_review_20261103.png",
+        "pdf_sha256": "8ef55a12199a58950634efbac4b92569e032f7e0ec9524688e52099acb59ec37",
+        "png_sha256": "f0fc2eecd1327fb12dd76e69eec5ea6abf159bdb96f34a89766cf01c5e2de7c4",
+        "reference_comparison": {
+          "pixel_identical": true,
+          "generated_size": [
+            1063,
+            1102
+          ],
+          "reference_size": [
+            1063,
+            1102
+          ],
+          "render_dpi": 120
+        }
+      },
+      {
+        "figure": 9,
+        "pdf": "srmn2sb2_resolution_fit.pdf",
+        "png": "srmn2sb2_resolution_fit.png",
+        "pdf_sha256": "fe3eb02c3741987013636fb9d3c5411cd0b2e61231348d67aa066dc663ed3d98",
+        "png_sha256": "7d85fff9449f54aae3217926703f63d221cc048e09f4cb9bdb728f0536262717",
+        "reference_comparison": {
+          "pixel_identical": true,
+          "generated_size": [
+            1272,
+            1056
+          ],
+          "reference_size": [
+            1272,
+            1056
+          ],
+          "render_dpi": 120
+        }
+      },
+      {
+        "figure": 10,
+        "pdf": "lsmo_live_alignment_chain_jeff_review_20261103.pdf",
+        "png": "lsmo_live_alignment_chain_jeff_review_20261103.png",
+        "pdf_sha256": "b244aa7766088d4dd25a9657910910bf826ad962484b1276124e19a5cfdbb92c",
+        "png_sha256": "8ef1f4ecdb6e2e70e567527ea0ef5bec9672dc1d950cf8d46f92ce289ea744a2",
+        "reference_comparison": {
+          "pixel_identical": true,
+          "generated_size": [
+            864,
+            888
+          ],
+          "reference_size": [
+            864,
+            888
+          ],
+          "render_dpi": 120
+        }
+      },
+      {
+        "figure": 11,
+        "pdf": "lsmo_tasai_sampling_vs_2017_map_jeff_review_20261103.pdf",
+        "png": "lsmo_tasai_sampling_vs_2017_map_jeff_review_20261103.png",
+        "pdf_sha256": "0a01d52a8217893c4a7952e5ecce61f1658d469a138e555b20913aa626a10a29",
+        "png_sha256": "016bc4bd6483dd8da19d246aeb18348521d88eb1d20a387221cb4aba99cb7720",
+        "reference_comparison": {
+          "pixel_identical": true,
+          "generated_size": [
+            840,
+            840
+          ],
+          "reference_size": [
+            840,
+            840
+          ],
+          "render_dpi": 120
+        }
+      }
+    ],
+    "status": "passed"
+  },
+  "visual_inspection": "Seven diagrams were visually inspected on 2026-11-09. Figures 3 and 4 were rebuilt and inspected again on 2026-11-12 after their labels were updated to match the manuscript (TASCopilot, ANDiE); the other five drawing sources are unchanged. On 2026-11-12 all four numerical figures reproduced reference rasters exactly at 120 dpi; the Figure 10 reference is the manuscript's regenerated image with the updated heading.",
+  "s1_panels": "Two author-supplied JPEG SHA-256 hashes verified; sanitized provenance included; no panel refit performed.",
+  "point_count_reconciliation": {
+    "csv_rows": 10522,
+    "selection": "E >= 1 meV and Monitor > 0",
+    "selected_rows": 10353,
+    "excluded_zero_energy": 148,
+    "excluded_negative_energy": 12,
+    "excluded_positive_below_1_mev": 9,
+    "q_scan_summary_total": 9152,
+    "constant_q_energy_rows": 1201,
+    "claim_scope": "Numerical reconciliation reproduces all four original map-summary counts; no new data cleaning or manuscript/figure edit."
+  },
+  "endpoint_recalculation": {
+    "executed": true,
+    "date": "2026-11-12",
+    "recipe": "ENDPOINT_RECALCULATION.md",
+    "platform": "macOS-27.0.1-arm64-arm-64bit",
+    "runtime": {
+      "python": "3.11.16",
+      "numpy": "2.4.6",
+      "scipy": "1.17.1",
+      "pandas": "3.0.5",
+      "bumps": "1.0.3"
+    },
+    "revisions": {
+      "pyspinw": "82c14f35579d309c1a1a816940920a25d3254897",
+      "rescalculator": "da9b1578e337a2353eab9279f52479436e8478b5",
+      "lattice_calculator": "8bd90d0954079534eac4461ca15367ec67504258"
+    },
+    "pyspinw_rust_extension_built": false,
+    "result": {
+      "npoints": 799,
+      "nllf": 683.5109047793304,
+      "reduced_chi_squared": 1.7638991091079494
+    },
+    "delivered": {
+      "npoints": 799,
+      "nllf": 683.569864454994,
+      "reduced_chi_squared": 1.7640512631096619
+    },
+    "relative_tolerance": 0.001,
+    "within_tolerance": true
+  },
+  "manifest_note": "Numerical replay and diagram builds verified their respective package snapshots before final verification/documentation records were updated. Final SHA256SUMS covers all final distributed files.",
+  "diagrams": {
+    "status": "built_and_visually_inspected",
+    "build": {
+      "status": "passed",
+      "source_revision": "a9173895c687129310797ec93b44e6e7b5f89dc0",
+      "shell_escape": false,
+      "dependencies": {
+        "status": "available",
+        "missing": [],
+        "package_sha256": {
+          "standalone.cls": "fe43e6a36997c58615429505ded27fded60e5de98972ccc89c1501c8f4f3655f",
+          "fontenc.sty": "9ac0a88ddda40526aa1ec403c27a6325d3723c14fa9f02918011a79f93a72ef0",
+          "stix2.sty": "40745e7edd285130c35920ce328ca09d7e9a8a2deeb3d4cffabb55451f9f9d12",
+          "anyfontsize.sty": "312bcf0245197538c0ed33dc8c92b1487196a7930df4d2b2c6e8959a31438bf3",
+          "xcolor.sty": "478888f8e8f00345fd645b6cdd6fa7db1e9efdd6f585b25c89bb3665d9029295",
+          "tikz.sty": "6e39ff4fdf9f126aff28880a7dd59fccc0e6735409d92ca455cdd2a4f2b4db53"
+        }
+      },
+      "pdflatex_version": "pdfTeX 3.141592653-2.6-1.40.29 (TeX Live 2026/Homebrew)",
+      "figures": [
+        {
+          "figure": 1,
+          "pdf": "figure_01_triple_axis_schematic.pdf",
+          "pdf_sha256": "44274eeb8b86441a94981e215168e214103ec9151d4aed7e928d7a6992a7631e",
+          "graphic_sha256": "cc6681095c4da0ecfe880403a06ddf986095f0669217e1c880858466434589ae",
+          "png": "figure_01_triple_axis_schematic.png",
+          "png_sha256": "7d4dfef618b30cf3b61a6fa8352bf7ebe3fd335c4d48492a1c1b4315fc2199d8",
+          "render_dpi": 120
+        },
+        {
+          "figure": 2,
+          "pdf": "figure_02_semantic_decision_stack.pdf",
+          "pdf_sha256": "bd32403a5e047a0af350f7b08e38f2f650373ce285c539416156de72afb0dc6f",
+          "graphic_sha256": "b5edb390c619c0a668b9a0610e1e70b1af0c97827d1731509767899f9e31afd7",
+          "png": "figure_02_semantic_decision_stack.png",
+          "png_sha256": "8ec6f41499433bb587490abea603284b62a6f3d692df083b91853e5ae879a291",
+          "render_dpi": 120
+        },
+        {
+          "figure": 3,
+          "pdf": "figure_03_federated_architecture.pdf",
+          "pdf_sha256": "abbcf6b4fc2e5eee364af11a93a64ccf5ca6805d7173156987a40967d09ba2d2",
+          "graphic_sha256": "0a922dba335084ab08883d4873529d0b47d64a51ab6f6eb79b814d4057b89887",
+          "png": "figure_03_federated_architecture.png",
+          "png_sha256": "3ed4faef534b74b92dcbbeed83a7b0fa0bd442b694785be8fa46d9d2c030234b",
+          "render_dpi": 120
+        },
+        {
+          "figure": 4,
+          "pdf": "figure_04_mcp_tool_layer.pdf",
+          "pdf_sha256": "eef5ffe24054d77d824b4e23cf3ad025dcb7bc5073f75dbc783dd21f2ca842f2",
+          "graphic_sha256": "e5ef31c1f8184da9495c54fe779ba060b83af23d89c3268d7c68b88c3e73da16",
+          "png": "figure_04_mcp_tool_layer.png",
+          "png_sha256": "8ee89579f7bfcaa875613706fee98507096f2e54a22aede7ce61e29d6e308218",
+          "render_dpi": 120
+        },
+        {
+          "figure": 5,
+          "pdf": "figure_05_claim_lifecycle.pdf",
+          "pdf_sha256": "fa7f9afbcdef87eb9c65a00f62c831fa47e4ed99abc70aacdab7a28705832f7a",
+          "graphic_sha256": "3519d2c0ee241491765151eea714f612bd1f2c96dfcf10be51aeb0cc933c6f96",
+          "png": "figure_05_claim_lifecycle.png",
+          "png_sha256": "60422257217ce4ea8f992924f0972b853d8bbad16cee4018aa0b2b18389d02ec",
+          "render_dpi": 120
+        },
+        {
+          "figure": 6,
+          "pdf": "figure_06_paper_source_linkage.pdf",
+          "pdf_sha256": "45674d152ea582ce3e75768c58b2c24516383cbb8ae8fdda506c422658654243",
+          "graphic_sha256": "c2a3614be3d1ab3037b25f22d39e196f77716aa53c4b132010811970e64db4d8",
+          "png": "figure_06_paper_source_linkage.png",
+          "png_sha256": "f4aa497aea9c11eaf3d85e8ed60f4d589c7a9a9d94a09656d7c4240fd50f6be5",
+          "render_dpi": 120
+        },
+        {
+          "figure": 7,
+          "pdf": "figure_07_reduction_dag.pdf",
+          "pdf_sha256": "3a666029e6c2cc11dd772d91c866fed573762185295900bd0caf751172a7d859",
+          "graphic_sha256": "3e1750af48b1a5cd280c5578d069919a6279a4179509fbf237271bfddd3f6b7c",
+          "png": "figure_07_reduction_dag.png",
+          "png_sha256": "e4668c028c7e224c16b4b8d3f3359b92ce0ca7f2b9c2649ce176179acda825d2",
+          "render_dpi": 120
+        }
+      ]
+    },
+    "source_style_comparison": {
+      "reference": "Independently extracted graphic blocks compiled with original USG class and 2pt preview border; no manuscript body or captions",
+      "source_revision": "a9173895c687129310797ec93b44e6e7b5f89dc0",
+      "figures": [
+        {
+          "figure": 1,
+          "source_block_equal": true,
+          "generated_size": [
+            557,
+            207
+          ],
+          "reference_size": [
+            557,
+            207
+          ],
+          "pixel_identical": false,
+          "render_dpi": 120
+        },
+        {
+          "figure": 2,
+          "source_block_equal": true,
+          "generated_size": [
+            775,
+            106
+          ],
+          "reference_size": [
+            775,
+            106
+          ],
+          "pixel_identical": true,
+          "render_dpi": 120
+        },
+        {
+          "figure": 3,
+          "source_block_equal": true,
+          "generated_size": [
+            631,
+            198
+          ],
+          "reference_size": [
+            631,
+            198
+          ],
+          "pixel_identical": true,
+          "render_dpi": 120
+        },
+        {
+          "figure": 4,
+          "source_block_equal": true,
+          "generated_size": [
+            625,
+            334
+          ],
+          "reference_size": [
+            625,
+            334
+          ],
+          "pixel_identical": true,
+          "render_dpi": 120
+        },
+        {
+          "figure": 5,
+          "source_block_equal": true,
+          "generated_size": [
+            805,
+            110
+          ],
+          "reference_size": [
+            805,
+            110
+          ],
+          "pixel_identical": true,
+          "render_dpi": 120
+        },
+        {
+          "figure": 6,
+          "source_block_equal": true,
+          "generated_size": [
+            786,
+            131
+          ],
+          "reference_size": [
+            786,
+            131
+          ],
+          "pixel_identical": true,
+          "render_dpi": 120
+        },
+        {
+          "figure": 7,
+          "source_block_equal": true,
+          "generated_size": [
+            742,
+            118
+          ],
+          "reference_size": [
+            742,
+            118
+          ],
+          "pixel_identical": true,
+          "render_dpi": 120
+        }
+      ],
+      "figure_1_detail": {
+        "generated_page_width_pt": 333.812,
+        "reference_page_width_pt": 333.824,
+        "page_height_pt": 123.912,
+        "differing_pixels": 879,
+        "total_pixels": 115299,
+        "mean_absolute_rgb_difference_0_to_255": 0.3606102394643492,
+        "assessment": "Visually checked; same drawing labels and geometry, approximately 0.012-point horizontal placement/crop difference. No graphic adjustment made. Not pixel-identical."
+      }
+    },
+    "comparison_scope": "Figure-only renders with the original USG class and a preview border, not complete manuscript pages. Original source class is not included in the package.",
+    "distributed_sources": "Seven exact plain .tikz blocks and separate metadata JSON; no manuscript .tex/.cls/.bib/.bbl files.",
+    "verification_date": "2026-11-12"
+  },
+  "source_integrity": "Original hashes retained. Six documented prose/path adaptations; all non-path reduced-data fields, predictions, parameters, and resolution samples verified unchanged. Three plot scripts are byte-identical to their sources; the Figure 10 script differs from its source in one heading string, recorded with both hashes in PROVENANCE.json."
+}

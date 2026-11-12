@@ -1,0 +1,8 @@
+suite_id: corpus_pilot_source_support
+fixture_manifest: tests/fixtures/corpus_pilot/pilot_manifest.synthetic.yaml
+expected:
+  supported_claims:
+    - claim-panel-compositions
+    - claim-elastic-bt7-psd
+  candidate_links_remain_non_definitive: true
+  no_llm_judge: true

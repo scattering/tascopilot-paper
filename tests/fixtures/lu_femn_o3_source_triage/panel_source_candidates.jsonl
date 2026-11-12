@@ -1,0 +1,1 @@
+{"panel_id":"i","candidate_id":"synthetic-lufe75mn25-angle-001","candidate_type":"scan_group","score":0.8,"status":"proposed","missing_fields":["reviewed_psd_calibration"],"provenance":[{"source_type":"fixture","source_id":"lu_femn_o3_known_answer","method":"synthetic_fixture"}]}

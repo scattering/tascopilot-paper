@@ -1,0 +1,30 @@
+\begin{tikzpicture}[scale=0.9, transform shape,
+  node distance=10mm and 8mm,
+  box/.style={draw, rounded corners=1.5pt, align=center, font=\footnotesize, inner sep=4pt, minimum width=23mm, minimum height=8mm},
+  store/.style={box, fill=gray!10},
+  decision/.style={draw, diamond, aspect=2.2, align=center, font=\footnotesize, inner sep=1pt},
+  arrow/.style={-{Latex[length=2mm]}, thick}
+]
+\node[store] (paper) {Paper corpus\\chunks};
+\node[box, right=of paper] (panel) {Figure/panel\\metadata};
+\node[box, right=of panel] (query) {Compile\\source query};
+\node[store, below=of query] (data) {TAS data\\catalog};
+\node[box, right=of query] (triage) {Source triage\\ranking};
+\node[decision, right=of triage] (review) {Reviewed\\evidence?};
+\node[box, right=12mm of review] (accepted) {Accepted or\\candidate link};
+\node[box, below=of triage] (reject) {Rejected candidates\\with reasons};
+\node[box, below=of review] (labels) {Review labels\\and priors};
+\draw[arrow] (paper.east) -- (panel.west);
+\draw[arrow] (panel.east) -- (query.west);
+\draw[arrow] (query.east) -- (triage.west);
+\draw[arrow] (data.north) -- (triage.south west);
+\draw[arrow] (triage.east) -- (review.west);
+\draw[arrow] (review.east) -- node[above,font=\scriptsize]{yes/no} (accepted.west);
+\draw[arrow] (triage.south) -- (reject.north);
+\draw[arrow] (review.south) -- (labels.north);
+% Keep the feedback return separate from the rejected-candidate branch.
+\coordinate (feedback) at ($(reject.east)!0.5!(labels.west)$);
+\coordinate (return) at ([xshift=8mm,yshift=-5mm]triage.south);
+\draw[arrow] (labels.west) -- (feedback |- labels.west)
+  -- (feedback |- return) -- (return) -- ([xshift=8mm]triage.south);
+\end{tikzpicture}

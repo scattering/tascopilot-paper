@@ -1,0 +1,258 @@
+external_vocabularies:
+  - id: panet
+    label: Photon and Neutron Experimental Techniques Ontology
+    description: Controlled vocabulary and taxonomy for photon and neutron experimental techniques.
+    role: technique_taxonomy
+    status: reference
+    canonical_url: "https://purl.org/pan-science/PaNET/PaNET01199"
+    documentation_url: "https://bioportal.bioontology.org/ontologies/PANET"
+    namespace_prefix: panet
+    namespace_iri: "http://purl.org/pan-science/PaNET/"
+    local_usage: [technique tags, synonyms, FAIR data-catalog alignment]
+    use_for: [neutron scattering technique classification, inelastic neutron spectroscopy classification, neutron diffraction classification]
+    do_not_use_for: [BT-7 operational scan semantics, instrument motor geometry, data reduction workflows]
+    retrieval_policy: alignment_only
+    import_policy: do_not_bulk_import
+    last_reviewed: "2026-05-05"
+    examples: ["inelastic neutron spectroscopy", "neutron diffraction"]
+  - id: nexus
+    label: NeXus and NXtas
+    description: NeXus data definitions, including NXtas for triple-axis spectrometer Q-E scans.
+    role: experimental_data_schema
+    status: reference
+    canonical_url: "https://manual.nexusformat.org/classes/applications/NXtas.html"
+    documentation_url: "https://github.com/nexusformat/definitions/blob/main/applications/NXtas.nxdl.xml"
+    namespace_prefix: nexus
+    namespace_iri: "https://manual.nexusformat.org/"
+    local_usage: [TAS scan field alignment, instrument component metadata, qh/qk/ql/en/ei/ef field references]
+    use_for: [Q-E scan field mapping, scan metadata validation hints, NeXus export/import planning]
+    do_not_use_for: [local retrieval concept replacement]
+    retrieval_policy: schema_reference
+    import_policy: reference_paths_only
+    last_reviewed: "2026-05-05"
+    examples: ["/entry/data/qh", "/entry/data/en"]
+  - id: nexus_ontology
+    label: NeXusOntology
+    description: OWL/RDF representation of NeXus concepts for semantic schema alignment.
+    role: experimental_data_ontology
+    status: reference
+    canonical_url: "https://github.com/nexusformat/NeXusOntology"
+    documentation_url: "https://github.com/nexusformat/NeXusOntology"
+    namespace_prefix: nexusonto
+    namespace_iri: "https://w3id.org/nexus/ontology/"
+    local_usage: [future semantic NeXus export, schema documentation]
+    use_for: [schema references, interoperability documentation]
+    do_not_use_for: [bulk retrieval graph import, scan intent inference]
+    retrieval_policy: schema_reference
+    import_policy: do_not_bulk_import
+    last_reviewed: "2026-05-05"
+    examples: ["NXtas schema alignment"]
+  - id: cif
+    label: IUCr CIF dictionaries
+    description: IUCr crystallographic information framework and dictionary collection.
+    role: crystallographic_metadata
+    status: reference
+    canonical_url: "https://www.iucr.org/resources/cif/dictionaries"
+    documentation_url: "https://www.iucr.org/resources/cif/dictionaries"
+    namespace_prefix: cif
+    namespace_iri: "https://www.iucr.org/resources/cif/dictionaries/"
+    local_usage: [crystallographic metadata alignment, structure metadata documentation]
+    use_for: [unit-cell and structure metadata alignment]
+    do_not_use_for: [TAS scan operation semantics]
+    retrieval_policy: metadata_reference
+    import_policy: curated_terms_only
+    last_reviewed: "2026-05-05"
+    examples: ["unit cell metadata"]
+  - id: corecif
+    label: CIF core dictionary
+    description: IUCr core CIF dictionary for crystal structure and unit-cell metadata.
+    role: crystallographic_metadata
+    status: reference
+    canonical_url: "https://www.iucr.org/resources/cif/dictionaries/cif_core"
+    documentation_url: "https://www.iucr.org/resources/cif/dictionaries/cif_core"
+    namespace_prefix: corecif
+    namespace_iri: "https://www.iucr.org/resources/cif/dictionaries/cif_core/"
+    local_usage: [unit-cell alignment, crystal structure fields]
+    use_for: [unit cell, lattice parameters, crystal structure metadata]
+    do_not_use_for: [instrument operation]
+    retrieval_policy: metadata_reference
+    import_policy: curated_terms_only
+    last_reviewed: "2026-05-05"
+    examples: ["_cell.length_a", "_cell.angle_alpha"]
+  - id: magcif
+    label: magCIF dictionary
+    description: IUCr magnetic CIF dictionary for magnetic structure metadata.
+    role: magnetic_structure_metadata
+    status: reference
+    canonical_url: "https://www.iucr.org/resources/cif/dictionaries/cif_mag"
+    documentation_url: "https://www.iucr.org/resources/cif/dictionaries/cif_mag"
+    namespace_prefix: magcif
+    namespace_iri: "https://www.iucr.org/resources/cif/dictionaries/cif_mag/"
+    local_usage: [magnetic structure metadata alignment]
+    use_for: [magnetic structure, magnetic symmetry metadata]
+    do_not_use_for: [TAS scan planning]
+    retrieval_policy: metadata_reference
+    import_policy: curated_terms_only
+    last_reviewed: "2026-05-05"
+    examples: ["magnetic structure terms"]
+  - id: qudt
+    label: QUDT
+    description: Quantities, units, dimensions, and data types vocabularies.
+    role: units_and_quantity_kinds
+    status: reference
+    canonical_url: "https://www.qudt.org/"
+    documentation_url: "https://www.qudt.org/pages/QUDToverviewPage.html"
+    namespace_prefix: qudt
+    namespace_iri: "http://qudt.org/schema/qudt/"
+    local_usage: [quantity kind alignment, unit validation, dimensional consistency hints]
+    use_for: [energy units, angle units, reciprocal length quantity hints]
+    do_not_use_for: [retrieval expansion by default]
+    retrieval_policy: validation_reference
+    import_policy: curated_quantity_kinds_only
+    last_reviewed: "2026-05-05"
+    examples: ["Energy", "Angle"]
+  - id: prov_o
+    label: PROV-O
+    description: W3C provenance ontology for entities, activities, agents, and derivation relations.
+    role: provenance_lineage
+    status: recommendation
+    canonical_url: "https://www.w3.org/TR/prov-o/"
+    documentation_url: "https://www.w3.org/TR/prov-o/"
+    namespace_prefix: prov
+    namespace_iri: "http://www.w3.org/ns/prov#"
+    local_usage: [tool run provenance, derivation, data lineage]
+    use_for: [wasDerivedFrom, wasGeneratedBy, Activity, Entity, Agent]
+    do_not_use_for: [ordinary paper retrieval expansion]
+    retrieval_policy: provenance_alignment
+    import_policy: curated_relations_only
+    last_reviewed: "2026-05-05"
+    examples: ["prov:wasDerivedFrom", "prov:wasGeneratedBy"]
+  - id: chameo
+    label: CHAMEO
+    description: EMMO-based characterization methodology ontology for measurement processes and post-processing.
+    role: characterization_methodology
+    status: reference
+    canonical_url: "https://emmo-repo.github.io/domain-characterisation-methodology/index.html"
+    documentation_url: "https://github.com/emmo-repo/domain-characterisation-methodology"
+    namespace_prefix: chameo
+    namespace_iri: "https://w3id.org/emmo/domain/characterisation-methodology/chameo#"
+    local_usage: [measurement process alignment, post-processing method alignment]
+    use_for: [characterization workflow documentation, sample environment and post-processing semantics]
+    do_not_use_for: [BT-7 motor geometry]
+    retrieval_policy: alignment_only
+    import_policy: do_not_bulk_import
+    last_reviewed: "2026-05-05"
+    examples: ["post-processing relation"]
+  - id: emmo
+    label: EMMO
+    description: European Materials and Modelling Ontology upper and domain ontology ecosystem.
+    role: materials_characterization_upper_ontology
+    status: reference
+    canonical_url: "https://emmo-repo.github.io/"
+    documentation_url: "https://github.com/emmo-repo"
+    namespace_prefix: emmo
+    namespace_iri: "https://w3id.org/emmo#"
+    local_usage: [future materials characterization alignment]
+    use_for: [high-level characterization interoperability]
+    do_not_use_for: [local retrieval graph nodes, operational TAS concepts]
+    retrieval_policy: alignment_only
+    import_policy: do_not_bulk_import
+    last_reviewed: "2026-05-05"
+    examples: ["measurement process"]
+  - id: mdo
+    label: Materials Design Ontology
+    description: Materials Design Ontology for material identity, composition, and structure metadata.
+    role: materials_structure_metadata
+    status: reference
+    canonical_url: "https://github.com/LiUSemWeb/Materials-Design-Ontology"
+    documentation_url: "https://github.com/LiUSemWeb/Materials-Design-Ontology"
+    namespace_prefix: mdo
+    namespace_iri: "https://w3id.org/mdo/"
+    local_usage: [future material identity and structure interoperability]
+    use_for: [composition and structure metadata alignment]
+    do_not_use_for: [TAS scan semantics]
+    retrieval_policy: metadata_reference
+    import_policy: do_not_bulk_import
+    last_reviewed: "2026-05-05"
+    examples: ["material structure metadata"]
+  - id: optimade
+    label: OPTIMADE
+    description: Open databases integration standard for materials structure data.
+    role: materials_database_interoperability
+    status: standard
+    canonical_url: "https://optimade.org/"
+    documentation_url: "https://optimade.org/"
+    namespace_prefix: optimade
+    namespace_iri: "https://optimade.org/"
+    local_usage: [future materials database interoperability]
+    use_for: [composition, structure, database query interoperability]
+    do_not_use_for: [instrument control, scan execution]
+    retrieval_policy: metadata_reference
+    import_policy: reference_paths_only
+    last_reviewed: "2026-05-05"
+    examples: ["chemical_formula_reduced"]
+  - id: sosa_ssn
+    label: SOSA/SSN
+    description: W3C ontology for sensors, observations, samples, actuations, and procedures.
+    role: observation_and_actuation
+    status: recommendation
+    canonical_url: "https://www.w3.org/TR/vocab-ssn/"
+    documentation_url: "https://www.w3.org/TR/vocab-ssn-2023/"
+    namespace_prefix: sosa
+    namespace_iri: "http://www.w3.org/ns/sosa/"
+    local_usage: [observation metadata, sensor/sample/procedure alignment, actuation documentation]
+    use_for: [observations, samples, procedures, motor trajectory semantics]
+    do_not_use_for: [approving or executing live actuation]
+    retrieval_policy: observation_alignment
+    import_policy: curated_terms_only
+    last_reviewed: "2026-05-05"
+    examples: ["sosa:Observation", "sosa:Procedure"]
+  - id: dcat
+    label: DCAT
+    description: W3C Data Catalog Vocabulary for datasets, catalogs, and distributions.
+    role: dataset_catalog_metadata
+    status: recommendation
+    canonical_url: "https://www.w3.org/TR/vocab-dcat-3/"
+    documentation_url: "https://www.w3.org/TR/vocab-dcat-3/"
+    namespace_prefix: dcat
+    namespace_iri: "http://www.w3.org/ns/dcat#"
+    local_usage: [dataset and distribution metadata, catalog interoperability]
+    use_for: [data files, derived products, distributions, catalogs]
+    do_not_use_for: [scientific scan semantics]
+    retrieval_policy: catalog_metadata
+    import_policy: curated_terms_only
+    last_reviewed: "2026-05-05"
+    examples: ["dcat:Dataset", "dcat:Distribution"]
+  - id: dcterms
+    label: DCMI Terms
+    description: Dublin Core metadata terms for documents, creators, dates, identifiers, and bibliographic metadata.
+    role: document_metadata
+    status: recommendation
+    canonical_url: "https://www.dublincore.org/specifications/dublin-core/dcmi-terms/"
+    documentation_url: "https://www.dublincore.org/specifications/dublin-core/dcmi-terms/"
+    namespace_prefix: dcterms
+    namespace_iri: "http://purl.org/dc/terms/"
+    local_usage: [paper metadata, DOI, creator, date, bibliographic citation]
+    use_for: [paper/document catalog metadata, citation metadata]
+    do_not_use_for: [instrument scan semantics]
+    retrieval_policy: document_metadata
+    import_policy: curated_terms_only
+    last_reviewed: "2026-05-05"
+    examples: ["dcterms:bibliographicCitation", "dcterms:identifier"]
+  - id: magmo
+    label: Magnetic Materials Ontology (MagMO)
+    description: EMMO domain ontology for magnetic materials from the EU MaMMoS project (intrinsic, hysteresis and microstructural properties, material classes).
+    role: magnetic_material_property_vocabulary
+    status: vendored_generated
+    canonical_url: "https://github.com/emmo-repo/domain-magnetic-materials"
+    documentation_url: "https://arxiv.org/abs/2609.11464"
+    namespace_prefix: magmo
+    namespace_iri: "https://w3id.org/emmo/domain/magnetic-materials#"
+    local_usage: [generated concept families magnetic_material_property / magnetic_material_class / crystallographic_metadata (configs/ontology/magmo_generated.yaml), paper-fact tagging, fact-type guidance]
+    use_for: [tagging extracted magnetic-material property facts (magnetization, anisotropy, coercivity, susceptibility, exchange stiffness), material and microstructure classes, cross-referencing to EMMO IRIs]
+    do_not_use_for: [neutron scattering concepts (propagation vector, ordered moment per ion, exchange J, spin gap, dispersion), transition temperatures (absent from MagMO 0.0.5), retrieval query expansion, reasoning over EMMO axioms]
+    retrieval_policy: metadata_filter_only
+    import_policy: generated_concepts_from_vendored_copy
+    license_notes: "CC BY 4.0; vendored copy and citation in configs/ontology/vendor/magmo/SOURCE.md; cite Hortschitz et al. 2026 when the generated family is used."
+    last_reviewed: "2026-09-18"
+    examples: ["SpontaneousMagnetization (Ms)", "UniaxialAnisotropyConstant", "ExchangeStiffnessConstant", "CoercivityHc", "CrystallineMagneticMaterial"]

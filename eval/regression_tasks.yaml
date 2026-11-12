@@ -1,0 +1,34 @@
+tasks:
+  - name: resolution_unavailable
+    workflow: check-resolution
+    expected_status: unavailable
+    allowed_statuses:
+      - unavailable
+      - error
+  - name: path_only_catalog_quality_warning
+    workflow: catalog-quality
+    fixture: path_only_scan
+    expected_status: warning
+  - name: path_only_geometry_safe_failure
+    workflow: check-geometry
+    fixture: path_only_scan
+    expected_status: missing_input
+  - name: complete_lattice_geometry_reaches_registry
+    workflow: check-geometry
+    fixture: complete_lattice_scan
+    expected_status: unavailable
+    allowed_statuses:
+      - unavailable
+      - success
+  - name: compatible_ub_geometry_fails_closed
+    workflow: check-geometry
+    fixture: compatible_ub_scan
+    expected_status: unavailable
+  - name: scan_brief_writes_reports
+    workflow: scan-brief
+    fixture: brief_catalog
+    expected_status: ok
+  - name: experiment_brief_writes_reports
+    workflow: experiment-brief
+    fixture: brief_catalog
+    expected_status: ok

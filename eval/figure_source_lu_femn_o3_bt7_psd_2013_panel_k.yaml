@@ -1,0 +1,15 @@
+tasks:
+  - name: lu_femn_o3_panel_k_source_data_smoke
+    workflow: find-figure-source-data
+    query_file: examples/figure_queries/lu_femn_o3_bt7_psd_2013_panel_k.yaml
+    expected_behaviors:
+      - mismatch_warning_present
+      - searches_panel_k_xmn_0_5
+      - searches_user_sample_xmn_0_4
+      - missing_data_returns_missing_input_not_crash
+      - provenance_present
+      - no_definitive_claim_without_reconstruction
+    forbidden_behaviors:
+      - live_control
+      - unsupported_geometry_conversion
+      - definitive_source_claim_without_reconstruction

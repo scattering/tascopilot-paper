@@ -1,0 +1,25 @@
+{
+  "source_commit": "68d329a93aa935191e71187df4bea405505befa8",
+  "source_project": "https://www.overleaf.com/project/6a403451abc07c85647a59b5",
+  "scope": "Exact plotting-script copies before removal from Overleaf, plus shared helper and pinned dependencies. Numerical inputs remain in the existing S2 archive.",
+  "removed_paths": [
+    "scripts/plot_lsmo_live_alignment_chain.py",
+    "scripts/plot_lsmo_live_alignment_chain_jeff_review_20261103.py",
+    "scripts/plot_lsmo_sampling_comparison.py",
+    "scripts/plot_lsmo_sampling_comparison_jeff_review_20261103.py",
+    "scripts/plot_srmn2sb2_evidence_to_analysis.py",
+    "scripts/plot_srmn2sb2_evidence_to_analysis_jeff_review_20261103.py",
+    "scripts/plot_srmn2sb2_resolution_fit.py"
+  ],
+  "files": {
+    "scripts/plot_lsmo_live_alignment_chain.py": "aedfed4f2817d6b3b711c2753e9322352d2e32e15ba32ed9c76653ea54a29526",
+    "scripts/plot_lsmo_live_alignment_chain_jeff_review_20261103.py": "1b65b362f6e7cba5d1c44efd845d6a46ff4cb4f6d7b82d535494c82a888c7f5d",
+    "scripts/plot_lsmo_sampling_comparison.py": "fc4f35fe561ab871c6b4eb20cab6c5eb2372095c88ec9e16b3d80dab694a05b3",
+    "scripts/plot_lsmo_sampling_comparison_jeff_review_20261103.py": "86b172b4e57a9c46605f0e6044e07f48070cb30a88732db41d63add184092bc9",
+    "scripts/plot_srmn2sb2_evidence_to_analysis.py": "36c72efb20d03a2cf5efa21fb55dbd335bb96c7157b71e1e05fe1bc28f5a7ade",
+    "scripts/plot_srmn2sb2_evidence_to_analysis_jeff_review_20261103.py": "5496e0ee4dc534d1955b43caeb87407cb9f7a0c7aa523fecec05ef036d8388c9",
+    "scripts/plot_srmn2sb2_resolution_fit.py": "a3ea7730f45f7213178bcbe7a5a4b31bec2e610d7ceea7fa2700018eca3eb2c0",
+    "scripts/figure_inputs.py": "1ec0f539a4fa876b69f48251a4980bcf48e779c51c12b913804740924743aa39",
+    "supplemental/requirements-figures.txt": "c39086953460ef3c9d542f99977834cf7e949eed35828babaf5f70d938bffb84"
+  }
+}

@@ -1,0 +1,47 @@
+corpus_id: bt7_pilot_corpus_v0
+description: Small controlled pilot corpus for BT-7/TASCopilot validation.
+extraction:
+  default_backend: pdftotext_baseline
+  max_pages: 8
+  max_chars_per_document: 20000
+  notes:
+    - pdftotext is the local baseline, not assumed to be best-in-class for scientific PDFs.
+    - Structured extractors such as GROBID or Docling should be evaluated through the extractor bakeoff boundary before full corpus ingestion.
+documents:
+  - paper_id: lu_femn_o3_paper
+    type: paper
+    title: "[private local LuFe/Mn/O paper]"
+    doi: null
+    year: null
+    local_path: "[LOCAL_PRIVATE_PATH_TO_PDF]"
+    include_in_tests: false
+    copyright_status: private_local_only
+    expected_features:
+      - figure_panels
+      - methods_section
+      - bt7_instrument_setup
+      - psd_temperature_map
+    notes:
+      - Do not commit source PDF or extracted full text.
+  - paper_id: bt7_psd_powder_example
+    type: paper
+    title: "[private local BT-7 PSD powder example]"
+    local_path: "[LOCAL_PRIVATE_PATH_TO_PDF]"
+    include_in_tests: false
+    copyright_status: private_local_only
+  - paper_id: tas_textbook_section_constant_q
+    type: textbook_section
+    title: "[private or synthetic TAS textbook section]"
+    local_path: "[LOCAL_PRIVATE_PATH_OR_SYNTHETIC_FIXTURE]"
+    include_in_tests: false
+    copyright_status: private_local_only
+  - paper_id: tas_review_neutron_spectroscopy
+    type: review
+    title: "[private local TAS review]"
+    local_path: "[LOCAL_PRIVATE_PATH_TO_PDF]"
+    include_in_tests: false
+    copyright_status: private_local_only
+fixtures:
+  - fixture_id: synthetic_lu_femn_o3_caption
+    type: synthetic_paper_fixture
+    path: tests/fixtures/corpus_pilot/synthetic_lu_femn_o3

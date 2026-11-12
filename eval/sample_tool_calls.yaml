@@ -1,0 +1,4 @@
+tool_calls:
+  - namespace: tas.resolution
+    name: calculate_resolution
+    arguments: {}

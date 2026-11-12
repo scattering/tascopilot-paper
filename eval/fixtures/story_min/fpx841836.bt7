@@ -1,0 +1,14 @@
+#ICE           0.4.0
+#Filename      fpx
+#Date          2018-07-09 10:00:00 EDT
+#InstrName     BT7
+#ExptID        24858
+#ScanDescr     Scan:Type=6:FixedE=1:Range=A3=31.0 0.1:Npts=5:Title=FindPeak
+#Reference     6 Time
+#Signal        9 Detector
+#Columns       QX QY QZ H K L A3 Time Monitor Detector
+1.0 1.0 0.0 1.0 1.0 0.0 30.8 1.0 1000 100
+1.0 1.0 0.0 1.0 1.0 0.0 30.9 1.0 1000 130
+1.0 1.0 0.0 1.0 1.0 0.0 31.0 1.0 1000 500
+1.0 1.0 0.0 1.0 1.0 0.0 31.1 1.0 1000 120
+1.0 1.0 0.0 1.0 1.0 0.0 31.2 1.0 1000 90

@@ -1,0 +1,7 @@
+06-Nov 16:14:59> findpeak A4 4.0 0.2 Time 1.0 Detector -bragg A3 -func Gauss
+06-Nov 16:17:09> move A3 20.138 A4 40.276
+06-Nov 16:43:22> Device [A3] will move with [A4]
+06-Nov 16:44:01> Creating file fpx_a3_a4.bt7
+06-Nov 17:01:57> sample setlattice -a 3.9 -b 3.9 -c 3.9 -alpha 90 -beta 90 -gamma 90
+06-Nov 17:10:00> findpeak SmplLTilt 2.0 0.2 Time 1.0 Detector -func Gauss
+06-Nov 18:00:00> scan runscan BkSltHght 0 50 26 Time 1.0 Detector

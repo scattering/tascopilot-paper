@@ -1,0 +1,644 @@
+{
+  "export_only": true,
+  "nllf": 683.569864454994,
+  "reduced_chi_squared": 1.7640512631096619,
+  "npoints": 799,
+  "physics": {
+    "SJ1_meV": 10.3244685972005,
+    "J2_over_J1": 0.156063620943282,
+    "SJc_meV": 0.369945977915399,
+    "D_easy_plane_meV": 0.0667337776570186
+  },
+  "scales": {
+    "L_Q002_120K_ef28_e10_841965": 0.00225055788210411,
+    "L_Q002_120K_ef28_e2_841953": 0.00397520412950826,
+    "L_Q002_120K_ef28_e3_841955": 0.00273458285046616,
+    "L_Q002_120K_ef28_e4_841957": 0.00350972250426128,
+    "L_Q002_120K_ef28_e5_841959": 0.00432015326382449,
+    "L_Q002_120K_ef28_e6_841961": 0.00342731261845438,
+    "L_Q002_120K_ef28_e7_841962": 0.00357959142565162,
+    "L_Q002_120K_ef28_e8_841963": 0.00355591743037016,
+    "L_Q002_120K_ef28_e9_841964": 0.00318044078238185,
+    "SMS_HH_Q002_e10ef14o7m_841228": 0.00965945436643742,
+    "SMS_HH_Q002_e12_ef28841085": 0.00348756734701974,
+    "SMS_HH_Q002_e2ef14o7m_841224": 0.00699044260437782,
+    "SMS_HH_Q002_e4ef14o7m_841225": 0.00915174308935229,
+    "SMS_HH_Q002_e6ef14o7m_841226": 0.0113476841221314,
+    "SMS_HH_Q002_e8ef14o7m_841227": 0.0121072551644312,
+    "SMS_HH_Q003_e10_841019": 0.0112516338637444,
+    "SMS_HH_Q003_e5_841017": 0.0120262038250283,
+    "SMS_HH_Q112_e12_ef28_841933": 0.0039882682232301,
+    "SMS_HH_Q112_e16_ef28_841935": 0.00148445301047253,
+    "SMS_HH_Q112_e8_ef28_841931": 0.00349491108561
+  },
+  "model_options": [
+    "dispersion_points_input.csv",
+    "scan_peak_fits_backgrounds.json",
+    "center005",
+    "per_scan",
+    "single_y",
+    "legacy",
+    "64",
+    "full",
+    "official_processpool"
+  ],
+  "sha256": {
+    "model": "2bc05206b30fdf77cd86d967e6efd0fa85f010cf096a56aa656b9c1e77b47e0f",
+    "data": "eba0dfab58f82c463219f7b91cc4f7478d3e99eb1ad30ec1cbafc9b5c97a2bfb",
+    "backgrounds": "5cf4da7f6c2abc9ef32e58215782e52a15842ca0fe1a0a51bf6cf0bef570511d",
+    "pars": "48232645444ac35b81862a0ba1d4594f5d8a2bd3a2af4c38ab696dd71cc3ce5f",
+    "core": "310f2a0ec514ccef7428539c621169fd241779e7c441047a613170cd2f4721bb"
+  },
+  "resolution": {
+    "normalization_policy": "per_scan",
+    "domain_policy": "single_y",
+    "domain_angles_deg": [
+      90.0
+    ],
+    "domain_fractions_fitted": false,
+    "input": "dispersion_points_input.csv",
+    "input_sha256": "eba0dfab58f82c463219f7b91cc4f7478d3e99eb1ad30ec1cbafc9b5c97a2bfb",
+    "backgrounds": "scan_peak_fits_backgrounds.json",
+    "backgrounds_sha256": "5cf4da7f6c2abc9ef32e58215782e52a15842ca0fe1a0a51bf6cf0bef570511d",
+    "selected_scan_count": 20,
+    "selected_scan_filenames": [
+      "SMS_HH_Q002_e2ef14o7m_841224",
+      "SMS_HH_Q002_e4ef14o7m_841225",
+      "SMS_HH_Q002_e6ef14o7m_841226",
+      "SMS_HH_Q002_e8ef14o7m_841227",
+      "SMS_HH_Q002_e10ef14o7m_841228",
+      "SMS_HH_Q002_e12_ef28841085",
+      "SMS_HH_Q112_e8_ef28_841931",
+      "SMS_HH_Q112_e12_ef28_841933",
+      "SMS_HH_Q112_e16_ef28_841935",
+      "SMS_HH_Q003_e5_841017",
+      "SMS_HH_Q003_e10_841019",
+      "L_Q002_120K_ef28_e2_841953",
+      "L_Q002_120K_ef28_e3_841955",
+      "L_Q002_120K_ef28_e4_841957",
+      "L_Q002_120K_ef28_e5_841959",
+      "L_Q002_120K_ef28_e6_841961",
+      "L_Q002_120K_ef28_e7_841962",
+      "L_Q002_120K_ef28_e8_841963",
+      "L_Q002_120K_ef28_e9_841964",
+      "L_Q002_120K_ef28_e10_841965"
+    ],
+    "data_point_count": 799,
+    "qmc_sample_count_per_point": 64,
+    "positive_mode_floor_mev": 0.001,
+    "total_qmc_q_count": 51136,
+    "resolution_policy": "legacy",
+    "resolution_scenarios": [
+      {
+        "qmc_sample_count_per_point": 64,
+        "sobol_seed": 20260624,
+        "fixed_ef_mev": 14.7,
+        "horizontal_collimation_arcmin": [
+          25.0,
+          40.0,
+          40.0,
+          240.0
+        ],
+        "horizontal_collimation_source": "legacy_local_analysis_assumption",
+        "resolution_configuration_complete": false,
+        "vertical_collimation_arcmin_assumed": [
+          120.0,
+          120.0,
+          120.0,
+          120.0
+        ],
+        "mono_analyzer_mosaic_arcmin_assumed": 30.0,
+        "sample_mosaic_arcmin_assumed": 30.0,
+        "covariance_repairs": 0,
+        "energy_axis": "analytic conditional Gaussian (Rao-Blackwellised)",
+        "error_model": "Poisson sqrt(Detector)/Monitor after DAVE correction",
+        "sigma_floor": 2.282309621599217e-05,
+        "sigma_floor_policy": "0.5 times the median finite positive Poisson sigma per scan",
+        "sigma_floored_point_count": 0
+      },
+      {
+        "qmc_sample_count_per_point": 64,
+        "sobol_seed": 20260624,
+        "fixed_ef_mev": 14.7,
+        "horizontal_collimation_arcmin": [
+          25.0,
+          40.0,
+          40.0,
+          240.0
+        ],
+        "horizontal_collimation_source": "legacy_local_analysis_assumption",
+        "resolution_configuration_complete": false,
+        "vertical_collimation_arcmin_assumed": [
+          120.0,
+          120.0,
+          120.0,
+          120.0
+        ],
+        "mono_analyzer_mosaic_arcmin_assumed": 30.0,
+        "sample_mosaic_arcmin_assumed": 30.0,
+        "covariance_repairs": 0,
+        "energy_axis": "analytic conditional Gaussian (Rao-Blackwellised)",
+        "error_model": "Poisson sqrt(Detector)/Monitor after DAVE correction",
+        "sigma_floor": 1.4831288299601122e-05,
+        "sigma_floor_policy": "0.5 times the median finite positive Poisson sigma per scan",
+        "sigma_floored_point_count": 0
+      },
+      {
+        "qmc_sample_count_per_point": 64,
+        "sobol_seed": 20260624,
+        "fixed_ef_mev": 14.7,
+        "horizontal_collimation_arcmin": [
+          25.0,
+          40.0,
+          40.0,
+          240.0
+        ],
+        "horizontal_collimation_source": "legacy_local_analysis_assumption",
+        "resolution_configuration_complete": false,
+        "vertical_collimation_arcmin_assumed": [
+          120.0,
+          120.0,
+          120.0,
+          120.0
+        ],
+        "mono_analyzer_mosaic_arcmin_assumed": 30.0,
+        "sample_mosaic_arcmin_assumed": 30.0,
+        "covariance_repairs": 0,
+        "energy_axis": "analytic conditional Gaussian (Rao-Blackwellised)",
+        "error_model": "Poisson sqrt(Detector)/Monitor after DAVE correction",
+        "sigma_floor": 1.3980302527423316e-05,
+        "sigma_floor_policy": "0.5 times the median finite positive Poisson sigma per scan",
+        "sigma_floored_point_count": 0
+      },
+      {
+        "qmc_sample_count_per_point": 64,
+        "sobol_seed": 20260624,
+        "fixed_ef_mev": 14.7,
+        "horizontal_collimation_arcmin": [
+          25.0,
+          40.0,
+          40.0,
+          240.0
+        ],
+        "horizontal_collimation_source": "legacy_local_analysis_assumption",
+        "resolution_configuration_complete": false,
+        "vertical_collimation_arcmin_assumed": [
+          120.0,
+          120.0,
+          120.0,
+          120.0
+        ],
+        "mono_analyzer_mosaic_arcmin_assumed": 30.0,
+        "sample_mosaic_arcmin_assumed": 30.0,
+        "covariance_repairs": 0,
+        "energy_axis": "analytic conditional Gaussian (Rao-Blackwellised)",
+        "error_model": "Poisson sqrt(Detector)/Monitor after DAVE correction",
+        "sigma_floor": 1.9018618738508776e-05,
+        "sigma_floor_policy": "0.5 times the median finite positive Poisson sigma per scan",
+        "sigma_floored_point_count": 0
+      },
+      {
+        "qmc_sample_count_per_point": 64,
+        "sobol_seed": 20260624,
+        "fixed_ef_mev": 14.7,
+        "horizontal_collimation_arcmin": [
+          25.0,
+          40.0,
+          40.0,
+          240.0
+        ],
+        "horizontal_collimation_source": "legacy_local_analysis_assumption",
+        "resolution_configuration_complete": false,
+        "vertical_collimation_arcmin_assumed": [
+          120.0,
+          120.0,
+          120.0,
+          120.0
+        ],
+        "mono_analyzer_mosaic_arcmin_assumed": 30.0,
+        "sample_mosaic_arcmin_assumed": 30.0,
+        "covariance_repairs": 0,
+        "energy_axis": "analytic conditional Gaussian (Rao-Blackwellised)",
+        "error_model": "Poisson sqrt(Detector)/Monitor after DAVE correction",
+        "sigma_floor": 1.854039822915478e-05,
+        "sigma_floor_policy": "0.5 times the median finite positive Poisson sigma per scan",
+        "sigma_floored_point_count": 0
+      },
+      {
+        "qmc_sample_count_per_point": 64,
+        "sobol_seed": 20260624,
+        "fixed_ef_mev": 28.0,
+        "horizontal_collimation_arcmin": [
+          25.0,
+          40.0,
+          40.0,
+          240.0
+        ],
+        "horizontal_collimation_source": "legacy_local_analysis_assumption",
+        "resolution_configuration_complete": false,
+        "vertical_collimation_arcmin_assumed": [
+          120.0,
+          120.0,
+          120.0,
+          120.0
+        ],
+        "mono_analyzer_mosaic_arcmin_assumed": 30.0,
+        "sample_mosaic_arcmin_assumed": 30.0,
+        "covariance_repairs": 0,
+        "energy_axis": "analytic conditional Gaussian (Rao-Blackwellised)",
+        "error_model": "Poisson sqrt(Detector)/Monitor after DAVE correction",
+        "sigma_floor": 1.2422599874998832e-05,
+        "sigma_floor_policy": "0.5 times the median finite positive Poisson sigma per scan",
+        "sigma_floored_point_count": 2
+      },
+      {
+        "qmc_sample_count_per_point": 64,
+        "sobol_seed": 20260624,
+        "fixed_ef_mev": 28.0,
+        "horizontal_collimation_arcmin": [
+          25.0,
+          40.0,
+          40.0,
+          240.0
+        ],
+        "horizontal_collimation_source": "legacy_local_analysis_assumption",
+        "resolution_configuration_complete": false,
+        "vertical_collimation_arcmin_assumed": [
+          120.0,
+          120.0,
+          120.0,
+          120.0
+        ],
+        "mono_analyzer_mosaic_arcmin_assumed": 30.0,
+        "sample_mosaic_arcmin_assumed": 30.0,
+        "covariance_repairs": 0,
+        "energy_axis": "analytic conditional Gaussian (Rao-Blackwellised)",
+        "error_model": "Poisson sqrt(Detector)/Monitor after DAVE correction",
+        "sigma_floor": 3.3671751485073696e-05,
+        "sigma_floor_policy": "0.5 times the median finite positive Poisson sigma per scan",
+        "sigma_floored_point_count": 0
+      },
+      {
+        "qmc_sample_count_per_point": 64,
+        "sobol_seed": 20260624,
+        "fixed_ef_mev": 28.0,
+        "horizontal_collimation_arcmin": [
+          25.0,
+          40.0,
+          40.0,
+          240.0
+        ],
+        "horizontal_collimation_source": "legacy_local_analysis_assumption",
+        "resolution_configuration_complete": false,
+        "vertical_collimation_arcmin_assumed": [
+          120.0,
+          120.0,
+          120.0,
+          120.0
+        ],
+        "mono_analyzer_mosaic_arcmin_assumed": 30.0,
+        "sample_mosaic_arcmin_assumed": 30.0,
+        "covariance_repairs": 0,
+        "energy_axis": "analytic conditional Gaussian (Rao-Blackwellised)",
+        "error_model": "Poisson sqrt(Detector)/Monitor after DAVE correction",
+        "sigma_floor": 2.380952380952381e-05,
+        "sigma_floor_policy": "0.5 times the median finite positive Poisson sigma per scan",
+        "sigma_floored_point_count": 0
+      },
+      {
+        "qmc_sample_count_per_point": 64,
+        "sobol_seed": 20260624,
+        "fixed_ef_mev": 28.0,
+        "horizontal_collimation_arcmin": [
+          25.0,
+          40.0,
+          40.0,
+          240.0
+        ],
+        "horizontal_collimation_source": "legacy_local_analysis_assumption",
+        "resolution_configuration_complete": false,
+        "vertical_collimation_arcmin_assumed": [
+          120.0,
+          120.0,
+          120.0,
+          120.0
+        ],
+        "mono_analyzer_mosaic_arcmin_assumed": 30.0,
+        "sample_mosaic_arcmin_assumed": 30.0,
+        "covariance_repairs": 0,
+        "energy_axis": "analytic conditional Gaussian (Rao-Blackwellised)",
+        "error_model": "Poisson sqrt(Detector)/Monitor after DAVE correction",
+        "sigma_floor": 2.9160592175990212e-05,
+        "sigma_floor_policy": "0.5 times the median finite positive Poisson sigma per scan",
+        "sigma_floored_point_count": 0
+      },
+      {
+        "qmc_sample_count_per_point": 64,
+        "sobol_seed": 20260624,
+        "fixed_ef_mev": 14.7,
+        "horizontal_collimation_arcmin": [
+          25.0,
+          40.0,
+          40.0,
+          240.0
+        ],
+        "horizontal_collimation_source": "legacy_local_analysis_assumption",
+        "resolution_configuration_complete": false,
+        "vertical_collimation_arcmin_assumed": [
+          120.0,
+          120.0,
+          120.0,
+          120.0
+        ],
+        "mono_analyzer_mosaic_arcmin_assumed": 30.0,
+        "sample_mosaic_arcmin_assumed": 30.0,
+        "covariance_repairs": 0,
+        "energy_axis": "analytic conditional Gaussian (Rao-Blackwellised)",
+        "error_model": "Poisson sqrt(Detector)/Monitor after DAVE correction",
+        "sigma_floor": 2.0304780407152262e-05,
+        "sigma_floor_policy": "0.5 times the median finite positive Poisson sigma per scan",
+        "sigma_floored_point_count": 0
+      },
+      {
+        "qmc_sample_count_per_point": 64,
+        "sobol_seed": 20260624,
+        "fixed_ef_mev": 14.7,
+        "horizontal_collimation_arcmin": [
+          25.0,
+          40.0,
+          40.0,
+          240.0
+        ],
+        "horizontal_collimation_source": "legacy_local_analysis_assumption",
+        "resolution_configuration_complete": false,
+        "vertical_collimation_arcmin_assumed": [
+          120.0,
+          120.0,
+          120.0,
+          120.0
+        ],
+        "mono_analyzer_mosaic_arcmin_assumed": 30.0,
+        "sample_mosaic_arcmin_assumed": 30.0,
+        "covariance_repairs": 0,
+        "energy_axis": "analytic conditional Gaussian (Rao-Blackwellised)",
+        "error_model": "Poisson sqrt(Detector)/Monitor after DAVE correction",
+        "sigma_floor": 1.3110041313734402e-05,
+        "sigma_floor_policy": "0.5 times the median finite positive Poisson sigma per scan",
+        "sigma_floored_point_count": 0
+      },
+      {
+        "qmc_sample_count_per_point": 64,
+        "sobol_seed": 20260624,
+        "fixed_ef_mev": 28.0,
+        "horizontal_collimation_arcmin": [
+          25.0,
+          40.0,
+          40.0,
+          240.0
+        ],
+        "horizontal_collimation_source": "legacy_local_analysis_assumption",
+        "resolution_configuration_complete": false,
+        "vertical_collimation_arcmin_assumed": [
+          120.0,
+          120.0,
+          120.0,
+          120.0
+        ],
+        "mono_analyzer_mosaic_arcmin_assumed": 30.0,
+        "sample_mosaic_arcmin_assumed": 30.0,
+        "covariance_repairs": 0,
+        "energy_axis": "analytic conditional Gaussian (Rao-Blackwellised)",
+        "error_model": "Poisson sqrt(Detector)/Monitor after DAVE correction",
+        "sigma_floor": 8.365805549975421e-05,
+        "sigma_floor_policy": "0.5 times the median finite positive Poisson sigma per scan",
+        "sigma_floored_point_count": 1
+      },
+      {
+        "qmc_sample_count_per_point": 64,
+        "sobol_seed": 20260624,
+        "fixed_ef_mev": 28.0,
+        "horizontal_collimation_arcmin": [
+          25.0,
+          40.0,
+          40.0,
+          240.0
+        ],
+        "horizontal_collimation_source": "legacy_local_analysis_assumption",
+        "resolution_configuration_complete": false,
+        "vertical_collimation_arcmin_assumed": [
+          120.0,
+          120.0,
+          120.0,
+          120.0
+        ],
+        "mono_analyzer_mosaic_arcmin_assumed": 30.0,
+        "sample_mosaic_arcmin_assumed": 30.0,
+        "covariance_repairs": 0,
+        "energy_axis": "analytic conditional Gaussian (Rao-Blackwellised)",
+        "error_model": "Poisson sqrt(Detector)/Monitor after DAVE correction",
+        "sigma_floor": 5.8088078843391305e-05,
+        "sigma_floor_policy": "0.5 times the median finite positive Poisson sigma per scan",
+        "sigma_floored_point_count": 3
+      },
+      {
+        "qmc_sample_count_per_point": 64,
+        "sobol_seed": 20260624,
+        "fixed_ef_mev": 28.0,
+        "horizontal_collimation_arcmin": [
+          25.0,
+          40.0,
+          40.0,
+          240.0
+        ],
+        "horizontal_collimation_source": "legacy_local_analysis_assumption",
+        "resolution_configuration_complete": false,
+        "vertical_collimation_arcmin_assumed": [
+          120.0,
+          120.0,
+          120.0,
+          120.0
+        ],
+        "mono_analyzer_mosaic_arcmin_assumed": 30.0,
+        "sample_mosaic_arcmin_assumed": 30.0,
+        "covariance_repairs": 0,
+        "energy_axis": "analytic conditional Gaussian (Rao-Blackwellised)",
+        "error_model": "Poisson sqrt(Detector)/Monitor after DAVE correction",
+        "sigma_floor": 3.5916345996438246e-05,
+        "sigma_floor_policy": "0.5 times the median finite positive Poisson sigma per scan",
+        "sigma_floored_point_count": 0
+      },
+      {
+        "qmc_sample_count_per_point": 64,
+        "sobol_seed": 20260624,
+        "fixed_ef_mev": 28.0,
+        "horizontal_collimation_arcmin": [
+          25.0,
+          40.0,
+          40.0,
+          240.0
+        ],
+        "horizontal_collimation_source": "legacy_local_analysis_assumption",
+        "resolution_configuration_complete": false,
+        "vertical_collimation_arcmin_assumed": [
+          120.0,
+          120.0,
+          120.0,
+          120.0
+        ],
+        "mono_analyzer_mosaic_arcmin_assumed": 30.0,
+        "sample_mosaic_arcmin_assumed": 30.0,
+        "covariance_repairs": 0,
+        "energy_axis": "analytic conditional Gaussian (Rao-Blackwellised)",
+        "error_model": "Poisson sqrt(Detector)/Monitor after DAVE correction",
+        "sigma_floor": 3.4923172264213715e-05,
+        "sigma_floor_policy": "0.5 times the median finite positive Poisson sigma per scan",
+        "sigma_floored_point_count": 0
+      },
+      {
+        "qmc_sample_count_per_point": 64,
+        "sobol_seed": 20260624,
+        "fixed_ef_mev": 28.0,
+        "horizontal_collimation_arcmin": [
+          25.0,
+          40.0,
+          40.0,
+          240.0
+        ],
+        "horizontal_collimation_source": "legacy_local_analysis_assumption",
+        "resolution_configuration_complete": false,
+        "vertical_collimation_arcmin_assumed": [
+          120.0,
+          120.0,
+          120.0,
+          120.0
+        ],
+        "mono_analyzer_mosaic_arcmin_assumed": 30.0,
+        "sample_mosaic_arcmin_assumed": 30.0,
+        "covariance_repairs": 0,
+        "energy_axis": "analytic conditional Gaussian (Rao-Blackwellised)",
+        "error_model": "Poisson sqrt(Detector)/Monitor after DAVE correction",
+        "sigma_floor": 3.373642872407418e-05,
+        "sigma_floor_policy": "0.5 times the median finite positive Poisson sigma per scan",
+        "sigma_floored_point_count": 0
+      },
+      {
+        "qmc_sample_count_per_point": 64,
+        "sobol_seed": 20260624,
+        "fixed_ef_mev": 28.0,
+        "horizontal_collimation_arcmin": [
+          25.0,
+          40.0,
+          40.0,
+          240.0
+        ],
+        "horizontal_collimation_source": "legacy_local_analysis_assumption",
+        "resolution_configuration_complete": false,
+        "vertical_collimation_arcmin_assumed": [
+          120.0,
+          120.0,
+          120.0,
+          120.0
+        ],
+        "mono_analyzer_mosaic_arcmin_assumed": 30.0,
+        "sample_mosaic_arcmin_assumed": 30.0,
+        "covariance_repairs": 0,
+        "energy_axis": "analytic conditional Gaussian (Rao-Blackwellised)",
+        "error_model": "Poisson sqrt(Detector)/Monitor after DAVE correction",
+        "sigma_floor": 3.3671751485073696e-05,
+        "sigma_floor_policy": "0.5 times the median finite positive Poisson sigma per scan",
+        "sigma_floored_point_count": 0
+      },
+      {
+        "qmc_sample_count_per_point": 64,
+        "sobol_seed": 20260624,
+        "fixed_ef_mev": 28.0,
+        "horizontal_collimation_arcmin": [
+          25.0,
+          40.0,
+          40.0,
+          240.0
+        ],
+        "horizontal_collimation_source": "legacy_local_analysis_assumption",
+        "resolution_configuration_complete": false,
+        "vertical_collimation_arcmin_assumed": [
+          120.0,
+          120.0,
+          120.0,
+          120.0
+        ],
+        "mono_analyzer_mosaic_arcmin_assumed": 30.0,
+        "sample_mosaic_arcmin_assumed": 30.0,
+        "covariance_repairs": 0,
+        "energy_axis": "analytic conditional Gaussian (Rao-Blackwellised)",
+        "error_model": "Poisson sqrt(Detector)/Monitor after DAVE correction",
+        "sigma_floor": 3.3671751485073696e-05,
+        "sigma_floor_policy": "0.5 times the median finite positive Poisson sigma per scan",
+        "sigma_floored_point_count": 0
+      },
+      {
+        "qmc_sample_count_per_point": 64,
+        "sobol_seed": 20260624,
+        "fixed_ef_mev": 28.0,
+        "horizontal_collimation_arcmin": [
+          25.0,
+          40.0,
+          40.0,
+          240.0
+        ],
+        "horizontal_collimation_source": "legacy_local_analysis_assumption",
+        "resolution_configuration_complete": false,
+        "vertical_collimation_arcmin_assumed": [
+          120.0,
+          120.0,
+          120.0,
+          120.0
+        ],
+        "mono_analyzer_mosaic_arcmin_assumed": 30.0,
+        "sample_mosaic_arcmin_assumed": 30.0,
+        "covariance_repairs": 0,
+        "energy_axis": "analytic conditional Gaussian (Rao-Blackwellised)",
+        "error_model": "Poisson sqrt(Detector)/Monitor after DAVE correction",
+        "sigma_floor": 3.3671751485073696e-05,
+        "sigma_floor_policy": "0.5 times the median finite positive Poisson sigma per scan",
+        "sigma_floored_point_count": 0
+      },
+      {
+        "qmc_sample_count_per_point": 64,
+        "sobol_seed": 20260624,
+        "fixed_ef_mev": 28.0,
+        "horizontal_collimation_arcmin": [
+          25.0,
+          40.0,
+          40.0,
+          240.0
+        ],
+        "horizontal_collimation_source": "legacy_local_analysis_assumption",
+        "resolution_configuration_complete": false,
+        "vertical_collimation_arcmin_assumed": [
+          120.0,
+          120.0,
+          120.0,
+          120.0
+        ],
+        "mono_analyzer_mosaic_arcmin_assumed": 30.0,
+        "sample_mosaic_arcmin_assumed": 30.0,
+        "covariance_repairs": 0,
+        "energy_axis": "analytic conditional Gaussian (Rao-Blackwellised)",
+        "error_model": "Poisson sqrt(Detector)/Monitor after DAVE correction",
+        "sigma_floor": 3.3671751485073696e-05,
+        "sigma_floor_policy": "0.5 times the median finite positive Poisson sigma per scan",
+        "sigma_floored_point_count": 0
+      }
+    ],
+    "resolution_configuration_complete": false,
+    "scientific_scope": "Selected 20-scan resolution-convolved intensity fit reported in the paper."
+  },
+  "release_path_adaptation": {
+    "description": "Paths made relative; scientific values unchanged. Input CSV path column made relative to the public NCNR archive.",
+    "original_input_sha256": "010fd1760fcf9f7ad6dee110d824d31c6b8648a5991cc13078bf9363508e4075",
+    "portable_input_sha256": "eba0dfab58f82c463219f7b91cc4f7478d3e99eb1ad30ec1cbafc9b5c97a2bfb",
+    "non_path_fields_sha256": "17d78714e5aa577b7e45b0d00b4f1e6c8d0d3e8789364e0508a91cced8df45d3",
+    "row_count": 10522,
+    "archive_base_url": "https://ncnr.nist.gov/pub/ncnrdata/"
+  }
+}

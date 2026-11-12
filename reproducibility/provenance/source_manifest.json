@@ -1,0 +1,1685 @@
+{
+  "schema_version": 1,
+  "purpose": "Figure replay from saved results, not a full analysis rerun",
+  "archive": "https://ncnr.nist.gov/pub/ncnrdata/bt7/",
+  "source_revision": "b32443af509db9d21c8e3f25f5fce57b49bdf5de",
+  "runtime": {
+    "numpy": "2.4.6",
+    "pandas": "3.0.5",
+    "scipy": "1.17.1",
+    "matplotlib": "3.10.9",
+    "tasreduction": "0.1.0"
+  },
+  "sources": {
+    "tascopilot/scripts/plot_legacy_300k.py": {
+      "sha256": "06cf888b85b2fa038c2955f8a53aa3e35757d8b09243ec740425f0a60b4903ce",
+      "kind": "analysis_code"
+    },
+    "tascopilot/scripts/plot_legacy_vs_tasai.py": {
+      "sha256": "71d5d56cb553b2fe2643124e78259dd93daa347885e5b02a5f447e609f357577",
+      "kind": "analysis_code"
+    },
+    "tascopilot/packages/tas_copilot_core/src/tas_copilot_core/counting.py": {
+      "sha256": "6808360d72e307bcb676d517a3bc248afaa74002198ec0715f23870ab639d4eb",
+      "kind": "analysis_code"
+    },
+    "tascopilot/packages/tas_copilot_core/src/tas_copilot_core/workflows/live_experiment.py": {
+      "sha256": "5b6805eb37117cbb12361e9eef329ac091761f49b05ac36c37a6dd83443c4d13",
+      "kind": "analysis_code"
+    },
+    "external/uncertainty.py": {
+      "sha256": "4a603b63513594919106f1a0e844c5204671af78b733dc0ee870432b4ee30720",
+      "kind": "analysis_code"
+    },
+    "tascopilot/local_runs/srikar_gold_eval_ingest_20260708/full_set/review_labels.ingested.jsonl": {
+      "sha256": "e7cc320fdb9b913e136f38fce6952541485f16d6946141ddca6f36c54f48ac9e",
+      "kind": "private_review_source_hash_only"
+    },
+    "tascopilot/local_runs/srmn2sb2_alignment_reconstruction_20260706/peaks_e14p7/alignment_peak_table.csv": {
+      "sha256": "1489fd8f0e8e85e4ab0fd7f6b857ad9a930f6a62acb8042dc8480daeb16573f4",
+      "kind": "derived_artifact"
+    },
+    "NCNR_BT7_archive/201804/24858/data/fpx840982.bt7": {
+      "sha256": "48e3358d3c407f29e7937b8b241ee3aa5a89fa6cd9c45835d8adf0403cb01020",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/fpx841000.bt7": {
+      "sha256": "2c571933133e210fd1caab6e6a03b0bb9f0a51dc22ef235e07e9078d5d57fa1b",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/fpx840998.bt7": {
+      "sha256": "fc817d45551692ad8aa957d59687355df4dea5e204b2c9648f43acce6bba2e6c",
+      "kind": "raw_archive_file"
+    },
+    "tascopilot/local_runs/srmn2sb2_alignment_reconstruction_20260706/state_may/alignment_state_machine.json": {
+      "sha256": "3373e259838799924e413ff454d7bbd4618057b51643078af7669bc787ddeb24",
+      "kind": "derived_artifact"
+    },
+    "tascopilot/local_runs/srmn2sb2_alignment_reconstruction_20260706/state_july/alignment_state_machine.json": {
+      "sha256": "04e285f6aa1ab3c2ac194ecf4f7c0d6e1ea3dacfd0b22889a4f131f6cf866015",
+      "kind": "derived_artifact"
+    },
+    "tascopilot/local_runs/srmn2sb2_24858_day_by_day_summary_20260618/day_by_day_scan_summary.csv": {
+      "sha256": "44e20a9bdfc7d2995df8742bdd495f3172e8e8666c761091ee962052e9b26e64",
+      "kind": "derived_artifact"
+    },
+    "tascopilot/local_runs/srmn2sb2_24858_dispersion_maps_20260618/dispersion_points.csv": {
+      "sha256": "010fd1760fcf9f7ad6dee110d824d31c6b8648a5991cc13078bf9363508e4075",
+      "kind": "derived_artifact"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_E_Q002_ef14o7_841213.bt7": {
+      "sha256": "a4c143f763cd93a67a2ac57945dc1cd607dcdcf3931723ccf32211d070553e1a",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_E_Q0p502_ef14o7_841214.bt7": {
+      "sha256": "52805f4c6f437e89b30e8bab7f04ab80be3744cb70c73f53d6a97b7c78b88139",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q001_e10_841053.bt7": {
+      "sha256": "42d8b38493f8930e5fc0d249870a0da4b89e200f4e2d7b0a6fb369fab91037a2",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q001_e11_841054.bt7": {
+      "sha256": "f0bc0dcd48e5fbd8f88991c8e545d3517ab5bcf93e43ebb6655dea6dd986ab56",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q001_e12_841055.bt7": {
+      "sha256": "59e9c1fd89ac5c43379f290ce62af790b61f65f2ad45143e0763a11cb356f5e0",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q001_e13_841056.bt7": {
+      "sha256": "1a5e011bb0960adf42bba80052b773201788eb55092b9003f602a465762901d9",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q001_e14_841057.bt7": {
+      "sha256": "fb9a6b525221183d1bec2f86043e5583551253a96611bbe317441f9334e21479",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q001_e15_841058.bt7": {
+      "sha256": "c3a80dd2467222c6329620b3286b8a357654fd7a2dd5abdda74d06b02e211f37",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q001_e16_841059.bt7": {
+      "sha256": "fb273b45e7aee3a35bd44b8d886e814e03c2b569707dfbc1754d029879de4e88",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q001_e17_841060.bt7": {
+      "sha256": "7e55400cea99106a24d136817bfca6008faa11f7077faa53e6183e4356868abc",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q001_e18_841061.bt7": {
+      "sha256": "04628ba57b410db594fbfb5cc1107dd597045929108998e957e3332ab5e338f0",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q001_e19_841062.bt7": {
+      "sha256": "6cfddac7366c159d6495a328554780d8a9566092383f267145511e2238ae3bd7",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q001_e20_841063.bt7": {
+      "sha256": "8ac26d483d062a140a770aca6a23a4758cf6b06cf38705c2a7c3bd20eb5f7d4c",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q001_e21_841064.bt7": {
+      "sha256": "94bc8706d8b4fe8638b26b53ebaee723e751977b367a95574529eaf6250c7fc4",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q001_e23_841065.bt7": {
+      "sha256": "de552dfb7357609dcdf2b7223c38a1b2383ba4a6b833655e9bb4748f806d8500",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q001_e2_841045.bt7": {
+      "sha256": "3d7f8292bfcca12276a6c560c271d8ba7b969b79a50c7258d3e2dfc327de5266",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q001_e3_841046.bt7": {
+      "sha256": "6387f0aa073f41dcc63e4febc677580b951d9330f31c9e1c9645bc97910be8ea",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q001_e4_841047.bt7": {
+      "sha256": "c64e9496db4ad2c37683ded943e5a8ad00f0042f32a9a4b12346048cf8288ba7",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q001_e5_841001.bt7": {
+      "sha256": "98b786d1307fc46e9d4b283b1ee2409f8420eb78b3c9542c1bd03ed362e6cafb",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q001_e5_841002.bt7": {
+      "sha256": "397d54890f2bac86c7c0a6d661cb99d805adf8c30c681290ad52e0e78603feeb",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q001_e5_841048.bt7": {
+      "sha256": "47721df7b9b5a53d2ef0dd697a73fd9c255caac50e4e3042a73287e3cb420b4f",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q001_e6_841049.bt7": {
+      "sha256": "2c57cc63f1acca498805dfa21ad0e072e69bce2607162bec9d5602ebe7e6db33",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q001_e7_841050.bt7": {
+      "sha256": "469e1aaa5b4d277d2ff22cb1a283ae584c4b8b663d8f603b8732d46da7a48d00",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q001_e8_841051.bt7": {
+      "sha256": "871cf30f4a1f3d0e417ec464d24d3ba05abb62f561a5909530410b5351e4813d",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q001_e9_841052.bt7": {
+      "sha256": "22c5080042895192135ddfe862d8ef7248471eb820eb517039e559c1e663ff58",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e0_ef28841075.bt7": {
+      "sha256": "28b51fb395902cf5b2d5f75405c218dc2c777035a471d9c56d48b04594e1cb8b",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e0_ef28841125.bt7": {
+      "sha256": "0470cd9ec62fd08060ec1251c4896ece0b58984fe397318799bb8fba42059cb9",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e0ef14o7m_841223.bt7": {
+      "sha256": "0661303632d6f45a485ee9ab9b3732cc95748c95a1950c0515fa56599ac0e42f",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e10_841003.bt7": {
+      "sha256": "f60a58f8ed2efd9fdc4a2854837683bceada40d9e54491be27dee44db44b7f92",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e10_ef28841084.bt7": {
+      "sha256": "db628d1eb8ccd0f3f95265f560755baecc3d14b296dee81bb703f992933a9034",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e10_ef28841129.bt7": {
+      "sha256": "d158400bfc6958d7953e5a00b07ee7d8a5073bbdcfd55189f8bbe27642a80357",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e10ef14o7m_841228.bt7": {
+      "sha256": "391cf76509489370e9a910ab6d58c08d02150e78fb17c7d65a3d59bf35d632b6",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e11_841182.bt7": {
+      "sha256": "bcaeea7092396b680ad74d807bbd58d6900e57033a1f332bb922b2a22449f57a",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e12_ef28841085.bt7": {
+      "sha256": "7269f73b89bcc544af54516a3b596e67d5bc96aa89b96a97b5884fc61bdc3d37",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e12_ef28841130.bt7": {
+      "sha256": "a20e4d79e5d669d7703162d566b2b3db918e7184f8b4e8765e889584acf00e13",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e13_841183.bt7": {
+      "sha256": "58c943d1533e2913883d6f16c22ec04c2c76bbde74699d2a729794baed66da45",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e14_ef28841086.bt7": {
+      "sha256": "80d103ba95c83a2e967eab5ac53f16fc4ef946fc6e7450490dd30167c37940ec",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e14_ef28841131.bt7": {
+      "sha256": "1dc66d9afcc9a41ee7f308061e648f9a0642c25c7e27406e068b3d34ff95b8d3",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e15_841004.bt7": {
+      "sha256": "6e4f63119a7a532abceb48840c0812ec7fcee2f12dc5cfab63445a3e38a9c363",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e15_841184.bt7": {
+      "sha256": "90de83c06f08a7898b2c92442a118bd89c0a7b34a9f1eeee85073e6713bb10d2",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e16_ef28841087.bt7": {
+      "sha256": "f12794d5634e2a237a89a1876f45358f9fd0ba4a7d1458d792378b836e7dd956",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e16_ef28841132.bt7": {
+      "sha256": "d5d9e6eb3ad8fc04366c02381a46ec94b219af30ef536ba69730f83287a0b6b1",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e17_841185.bt7": {
+      "sha256": "55215341b778601d9e23120c69c971ae3c180fa00835da08241a5a80a69bfd85",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e18_ef28841088.bt7": {
+      "sha256": "4d2d8696762a1197ffbb18e8ddeed50752daa68f682534078f55ec799b50a967",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e18_ef28841133.bt7": {
+      "sha256": "9184451a4b2bd0248c652c2d6e23a883b2fb1e0a2a794de7ae04250647d2a9ec",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e19_841186.bt7": {
+      "sha256": "25075af7e85321e32287eabc4671173453c5caebce5380f8bcc116e5f7fe74cd",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e20_841005.bt7": {
+      "sha256": "866102b7f34a3f7cec18739292a57d67a7c73f402dfa6d66323bb4652dde03d4",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e20_ef28841089.bt7": {
+      "sha256": "77fdffed2d81236cd2d6dd1f3ab180df44755c9122546b13b509926dd57239ac",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e20_ef28841134.bt7": {
+      "sha256": "b385f54f5d74e946c2ef4991da467be00bbfaa152a5d9112c4171cfda4a8b94f",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e21_841187.bt7": {
+      "sha256": "5f76266afd5427472fb969161cc92bcde8e9649fd115abce896235c515355bc1",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e21_ef28841090.bt7": {
+      "sha256": "951e6b788ca2521387c7f6e95a90325a9cdc0c97be96fef2097ad1a667f80c28",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e21_ef28841135.bt7": {
+      "sha256": "89fee170f8bc2563b9576a2360797e911b8ebebad348136f999acb8384aa8ac1",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e21p5_841188.bt7": {
+      "sha256": "e38a64da5b24fb9258f18d415d67c7ed20c4656048a908ed5fa886e4f7ed20c2",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e22_ef28_841091.bt7": {
+      "sha256": "7fe2f9da74d901395a405edb000e36394ee18e09bfa4bd4625168b8c230a937d",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e22_ef28_841136.bt7": {
+      "sha256": "32030890f2857ad1505597bc8524638610c634f27776c7eea9ef272b54d38daf",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e22p5_841189.bt7": {
+      "sha256": "06190af34bbce7f03448078a637058c927055762f7b819e3bba007e705149997",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e23_ef28_841092.bt7": {
+      "sha256": "5364f1cff437ba20e34758a1c0787d318482c4e528e62e65d7b1c4bf536a95f4",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e23_ef28_841137.bt7": {
+      "sha256": "ac469eecd1560e1d75e5ed84b779dd58008b2ba3915d07a80718585be7664322",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e23p5_841190.bt7": {
+      "sha256": "8d2991353f775a5a12012981792712f69d64fa3d59c0eab637bef8a17e6eb3ae",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e24_ef28_841093.bt7": {
+      "sha256": "6bd94a987d0cd8a9902f19e5adaa33964eee04589d4e28b443f64a745bef13a7",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e24p5_841191.bt7": {
+      "sha256": "9cc04983563d60cd16f60be70ab58d5a6d3494d2c9bd9e7588dc28c61af7b81e",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e25_841192.bt7": {
+      "sha256": "a7ae83be7b8c46a9d19d7cb8e46b8461c3e3eb655238aae3ab86e9fd53556a26",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e25_ef28_841094.bt7": {
+      "sha256": "344b1536b272db2185594c012df01ec95134a09855688fe3d4478c9b6d937c3e",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e25p5_841193.bt7": {
+      "sha256": "9fea7c1097c38183dae58be567e3a8efe77734ca165b3ff06d5cc05980c31f62",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e26_841194.bt7": {
+      "sha256": "ba5a563059730397f7923e99acb1d25e25b4da6191608ceb390726b6ab5a1376",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e26_ef28_841095.bt7": {
+      "sha256": "e0e800e60cd6a8414f646ebc5e454074fee67ef059c827213939b0fd3217ea59",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e26p5_841195.bt7": {
+      "sha256": "8fd8ec6f38b4c31ef81be3b7c82e9e4dbcaa3585ff64e4d273221a8d3bf2f2b3",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e26p5_ef28_841105.bt7": {
+      "sha256": "e6d1e29783a1f07b8a7c90f67f22f93bfeb8e4e61a6e41e115aa164d853f9f18",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e27_841196.bt7": {
+      "sha256": "78149b9163b1e22b7a98bbb39bfbc47ad77e77964c99de96733a2dd6801ac9f0",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e27_ef28_841096.bt7": {
+      "sha256": "3fef05092f1e4f57600d364532a51fbf9e9c3dd1739249d3560a4a21f89d751d",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e27_ef28_841138.bt7": {
+      "sha256": "a5001caf611750dd0969d2d8a0130e2b31c30382a3bd09aa9d930651d8ec518e",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e27p5_841197.bt7": {
+      "sha256": "b0aee2784f95fba7d09d5728cc553334db70b9ff68d334506b233320767ef4d0",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e27p5_ef28_841104.bt7": {
+      "sha256": "69cb5e408f7835a06f1704be72f0c86042e0b8f0d000a49a6049483f31dc75e8",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e27p5_ef28_841139.bt7": {
+      "sha256": "c9c06495e32565a4ff064e0eaec8870cf7f7f9c55f98ce37c99001a24f059d1d",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e28841198.bt7": {
+      "sha256": "5c714117efada162c2b327b39dde1c1387b7049d62fd1bde384b4d96dc588c04",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e28_ef28_841097.bt7": {
+      "sha256": "bdeef2326ef2d03a0d86ad66d6a2b6f3fb87dbea9e78e06b1b45f0507e09d9bf",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e28_ef28_841140.bt7": {
+      "sha256": "9a951772d082d5eaeb3dc8a91cd610d7c102aa2be67eebcb8ee338bd71f456c6",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e28p5841199.bt7": {
+      "sha256": "57b7d156abfdcd33de51ec8ac53df32bd17a914626b6d1cd30305281ab5d864f",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e28p5_ef28_841141.bt7": {
+      "sha256": "b48e74bfb5c5246a95e94c5167b30de848be2be54fb351983432e52ac14207e6",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e29841200.bt7": {
+      "sha256": "553d932244867e40cd457046baeeb26d2a351f8fc0c4cdfc2864de4f17b26f5b",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e29_ef28_841098.bt7": {
+      "sha256": "1dc192105e50f086590147d5dac35f3a199e044c3ac83d4efd4bde39cd20a665",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e29_ef28_841142.bt7": {
+      "sha256": "1938765f2cc0dbff95a9e3d7a573a015afbc126687a55e817185de2b1ce42b2b",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e29p5841201.bt7": {
+      "sha256": "68a5a286318c850e10492bf4b350fb690a908361a8354b1726da09463522eaa5",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e29p5_ef28_841143.bt7": {
+      "sha256": "cfa62705dc8679711eec6abdca9e38e93bdc0a1eb6309157bf778db879ea6c3e",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e2_ef28841074.bt7": {
+      "sha256": "c7fb862574c2bf411eacc6a57e729db9f741c9f826035a27128960d00669263f",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e2_ef28841124.bt7": {
+      "sha256": "8c82ad3e6a680aed3137feae955aa52432208bd22e60fb9dbe7e042df4014b31",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e2ef14o7m_841224.bt7": {
+      "sha256": "9fe37da52ef50257374ee2bcd54dd572ed453e6ab92132e124e39d6f629bcba0",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e30841202.bt7": {
+      "sha256": "ecaea95d3ae485ce8c2b36d459845e261bdd640645d6c3845367798df73e36d8",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e30_ef28_841099.bt7": {
+      "sha256": "8d9061aeb093711c031186934e2004baaa83b49350d616033f47b83355177748",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e30_ef28_841144.bt7": {
+      "sha256": "a23a81e27538bc3d393b437bbfd2af82fca37635c86a02ab07f6e43394ea6844",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e30p5841203.bt7": {
+      "sha256": "e69606885733c2d223202fa8ca4cdd5846ac2baa44684343cab204bb98e2b759",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e30p5_ef28_841145.bt7": {
+      "sha256": "35007c87043feaa8d82630749c9fd8fbb9b7af6a439ee1cc21d9e3a3c1cff494",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e31841204.bt7": {
+      "sha256": "f2541a444c78e16ac618f3d94c9824f71be9090d81a70017ddf614b5a9661184",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e31_ef28_841103.bt7": {
+      "sha256": "65d9298979f5d8b74b119ba16f6a3d7420e955de86339694ba9dfb462b2401c1",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e31_ef28_841146.bt7": {
+      "sha256": "8cfad805435717bc17da84bc310690b3907cae669bcb76c7170bd818d0adbf7b",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e31p5_841205.bt7": {
+      "sha256": "affe50888b0744acc57adcf5370390572154caa852180e3ccccc3c8d325f8cc2",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e31p5_ef28_841147.bt7": {
+      "sha256": "d5986d06f8eecd9fb1f817d5e0b43efc527a93287f6474bccd32966c4b89c4f7",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e32_841206.bt7": {
+      "sha256": "cc31cfa7e47efbe1c2ccf1ecc0fadadd50dc6e49d95345a36595d8c7b82526c4",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e32_ef28_841100.bt7": {
+      "sha256": "c7f4a1f609a7498074d189d7708b5fb99c7f31e05bad47dce8fa3f89a36fac5a",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e32_ef28_841148.bt7": {
+      "sha256": "15e62cf1f0cfec08ad7ae279173e95375afd3d4c53fd6a60e56c2a78883a89f5",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e32p5_841207.bt7": {
+      "sha256": "2608967f6108991133c47a5172b36be3cb0f898586038605f21c4194a7b65284",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e33_841208.bt7": {
+      "sha256": "dc0c3871d05121c6930119d08391a1a08f3aca50426edf78ff8ca7163ab9be65",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e33_ef28_841101.bt7": {
+      "sha256": "779343398fa93d45d1afbcf257688fe09723f0448c7ebecc88cb6a2220165974",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e33_ef28_841149.bt7": {
+      "sha256": "bb2d81658eae65cc7eb8f637b580e02c75871b691466a0203dd56452a88a7757",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e33p5_841209.bt7": {
+      "sha256": "f54a800babfb9623405ae2151619252acc124fcc39e84d74bd1d145991437b42",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e34_841210.bt7": {
+      "sha256": "390543c22fef7d7b2415ac23deac10144fc159cc447f921c51a4e4d691411437",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e34_ef28_841102.bt7": {
+      "sha256": "9a9055aefca9ebaaf949340287dbc607fa3e103e165d059e9b5a28f7fa0a4339",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e34_ef28_841150.bt7": {
+      "sha256": "b3a2684fd436a804213af1d77da10ff89f7dad5c150c1bd1a014fb0c582b3f45",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e34p5_841211.bt7": {
+      "sha256": "0fae6a5173d7adbee691f30caaf5124932a652c978a55e298720ff95ef002342",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e4_ef28841076.bt7": {
+      "sha256": "2551c1ea994b89409f7395bc74a7810ca38fdcc3e2c3ebc21b0a458c777611c1",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e4_ef28841126.bt7": {
+      "sha256": "45246314b966a6f9da23018508e860df58ca906081dbd23a1d008fe220d5ec90",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e4ef14o7m_841225.bt7": {
+      "sha256": "340143479143c1cb4358bfdeff16b7d39c0966d7f07467aa95da92da25645ccb",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e6_ef28841077.bt7": {
+      "sha256": "9e30dbfdd33ffbf405f9245dd125fea51f9d2964803a006e4eaff55fd4565762",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e6_ef28841127.bt7": {
+      "sha256": "3d315edbb32b5e70169570e09bef924381fafc42a25dad73f590d777338ad78e",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e6ef14o7m_841226.bt7": {
+      "sha256": "8bcd6d9940370a4ff84b4db9f27806532a67255254051f2cdf89c7b40f99bb62",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e8_ef28841083.bt7": {
+      "sha256": "09306fbf107a65a83df6ba7c29a8558cfcb526728f4e8f39e1531939a6a8acad",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e8_ef28841128.bt7": {
+      "sha256": "8c0ef398dfce87c55b4ca982889c58e78fc4a9ec38cd86766b3154fd4d90aec2",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q002_e8ef14o7m_841227.bt7": {
+      "sha256": "41bd436f8b7bb3bd74bf868725a700f2251275dec0559c7cc57574ab2d3685e7",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q003_e10_841019.bt7": {
+      "sha256": "500efcb3a94b6961f0c0c2fbeaf498981ac0924f28a6051bb92e9b2865391566",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q003_e20_841020.bt7": {
+      "sha256": "a3d0b934491f88a3cd2b683ab4b8c36764ef0ec5506303534eb7ed797d159083",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q003_e22_841021.bt7": {
+      "sha256": "0c5fc3540408ceee1845dd62c09afd6e80f3b6612d88bde3506fcf9c0d80aa71",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q003_e24_841022.bt7": {
+      "sha256": "fea4dcf1ce3e6e0b0fcbfb6fc5fbc35f35c8fb2022c2e7a38201b54d3c49069a",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q003_e25_841006.bt7": {
+      "sha256": "e179feff2f094097bc1e736436ce4900aadf875f8fc6350a889f840a58b52e7a",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q003_e25_841007.bt7": {
+      "sha256": "6c173365d4c9808dbe7369e071a6d9d01f107ad512bfff856ed111b7adc295fc",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q003_e25_841009.bt7": {
+      "sha256": "c53ec9ec0577891ec3b5f3ffaf28bbe0471ef956adcff27a4eeb1e5fa2e28d18",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q003_e25_841010.bt7": {
+      "sha256": "2b7c0315aef8e364ca803cea212438a36ed2f4faef667ad474d7a617fab1e71b",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q003_e26_841023.bt7": {
+      "sha256": "3b167174dc1f2cb45018f3ca97341b93c4fabe8dfaf5eef6fbf0cbd0920c512c",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q003_e28_841024.bt7": {
+      "sha256": "8d6c3c521d629287ee89edd513e378ad251935022993da75b94859b1f3b2b959",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q003_e30_841008.bt7": {
+      "sha256": "c5d153e7d619027de8493af59248c0819a69728ff0bca65fa4f0fd14ca659308",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q003_e30_841025.bt7": {
+      "sha256": "979aea93b88036f34a73dc273d1359aad347df2f2094fd8803b8dee6e72899b0",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q003_e32_841026.bt7": {
+      "sha256": "a30d8757e59fa7423a557033504bec8e21ac3cf26551b792cca05dd2ecd809d8",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q003_e35_841027.bt7": {
+      "sha256": "d53e3c67da933db75434d4362dd1130cdff37ffe97e5cf738bda4b6c8a1bb7a4",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q003_e5_841017.bt7": {
+      "sha256": "def0f56a9be24b3d1bd6e04216311deb8b877952716da8dfd6b90502a37fbb0e",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q110_e10_ef28_841164.bt7": {
+      "sha256": "291c5ff92be954230cd5ae242ac6870fd016306e42461fec5db50e1bc9ce357b",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q110_e15_ef28_841165.bt7": {
+      "sha256": "84b7ff72dbf939fa82cf6ab7a27b778702d2d9bb70ab4152eb320b9cb76568d4",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q110_e20_ef28_841166.bt7": {
+      "sha256": "297d22d7c226bc76a9aab70212662737f8ba25b90fa9ce95cd9309ab1392e059",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q110_e25_ef28_841167.bt7": {
+      "sha256": "7142f9a21f2ca44e204e59e0c89cfcd29b340f8b14d373aac41115f536158d8a",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q110_e30_ef28_841168.bt7": {
+      "sha256": "30b550d3d98deeba8ebcc3a4d1ace8db6d3712cd8f01defb1cb961be4032174e",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_HH_Q110_e5_ef28_841163.bt7": {
+      "sha256": "d010854fb41f4fe9534ee7d7eb892c3f8d2d8020557b866a4e13d0593c04fa76",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_L_Q002_e0ef14o7m_841215.bt7": {
+      "sha256": "bec1ce164f2bf55ca1344fac624dde86fd3c348c75140820e03d41d0fa3c8cdf",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_L_Q002_e10ef14o7m_841222.bt7": {
+      "sha256": "de3062442bfa6a60dbe334b77921d7c025931850dab1e524d2b935c195e08c9a",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_L_Q002_e2_ef14o7m_841217.bt7": {
+      "sha256": "c3778490c792f03d3890dbcf44378a3a2d6343458b47e9900d9fffa576222329",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_L_Q002_e3_ef14o7m_841218.bt7": {
+      "sha256": "4b7d27b5c828ab494eb72efcdd0a8885b3f19118adb3a7f84d498fdc597b47ec",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_L_Q002_e4_ef14o7m_841219.bt7": {
+      "sha256": "5fbb076db340bd71b3f7e6dbcb520a138eaf4f9f96b05d8b4dd43c58ca676437",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_L_Q002_e6ef14o7m_841220.bt7": {
+      "sha256": "eec8d82f5b8a7b3cfd5a213a22c583335bbf47ac350157fd559daa009f489b0d",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_L_Q002_e8ef14o7m_841221.bt7": {
+      "sha256": "f7803ded2df9983fe428743d6266c0a3bcf5e2a0bd3ba99cdb5b826907883cfe",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_L_Q002_ef14o7_841216.bt7": {
+      "sha256": "f312b2b911dc3ef913f8355feb6e5b9954aac35cfb39c1d01dcdb78d0cae4526",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_L_Q003_e5_841018.bt7": {
+      "sha256": "3ad2634ffa681875b18ec886591f860fe842ad9673ca3c33c360cd961cc954e3",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_L_Q110_e10_ef28_841156.bt7": {
+      "sha256": "cbf0a43c175aacc7db3d0b2521c2a14e668d97d83a6088e27f19561894212bb5",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_L_Q110_e10_ef28_841158.bt7": {
+      "sha256": "714d85fa15d4222baa8ba7ff1c4253274a5c8b3f18c4fd4ae78357a5c6c033c3",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_L_Q110_e15_ef28_841159.bt7": {
+      "sha256": "b5b2529921a13fe90161990d61a89ef462919d68ca1a023bbd9acfd4efa91cd1",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_L_Q110_e20_ef28_841160.bt7": {
+      "sha256": "01b7f731db7cfd79b74c94a93a1b2786292b593750ac7d1102a0f1f7c48e4fa7",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_L_Q110_e25_ef28_841161.bt7": {
+      "sha256": "b82a4d8105ef83ba9bea363f8ee5e3ccb4a2edd1a8459638cee3d73a85d12bf5",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_L_Q110_e30_ef28_841162.bt7": {
+      "sha256": "b508fa545bc609f8e77eb63df9bdb186512e120dc6b51d4cf59212dfdd06462d",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_L_Q110_e5_ef28_841155.bt7": {
+      "sha256": "4ec726d9f48273b2f3f2ab21f820616e469ae48baa74fed1f51b9a04269fda2f",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_L_Q110_e5_ef28_841157.bt7": {
+      "sha256": "723c99617a6a4db95cd4263aa24102b93319a98542604063f44f2cf2dbdc01f4",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_L_Q_002_e0_ef28_841106.bt7": {
+      "sha256": "0b0140dd31c8a634ef5aeca645a28537dcb1b57730850cc2fa08617759d32850",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_L_Q_002_e10_ef28_841111.bt7": {
+      "sha256": "09ae01cd417aa9890b927b17ef13cca73b559b569114fbaefead6ef4e838bbb5",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_L_Q_002_e11_ef28_841174.bt7": {
+      "sha256": "8511c8b7e23df7670b7e6bf3966684dd57c31eacdecd592a4f939c02001971e4",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_L_Q_002_e12_ef28_841112.bt7": {
+      "sha256": "cad1a47e2b1006a5f44bb016756255fa5e82d599b210270a50fe784be0dd6320",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_L_Q_002_e13_ef28_841175.bt7": {
+      "sha256": "5cdfc16458641b9cdea2481ee7b3dd097246e1dee8f6e6315f3f939ca2b0a344",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_L_Q_002_e14_ef28_841113.bt7": {
+      "sha256": "2999a1c996c2737c1e4298ef78e9abc016fb9539d8e4814eb43419d9a3db2af1",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_L_Q_002_e15_ef28_841176.bt7": {
+      "sha256": "86c68d72bea22039f7dc1e80931d8e4e0ba8dd6a066b304a77db0a65a19ad849",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_L_Q_002_e16_ef28_841114.bt7": {
+      "sha256": "9535493394b2a0cdc0840a65c99d1f2e279bab807da30b42eb1af28aa7cb2fd2",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_L_Q_002_e17_ef28_841177.bt7": {
+      "sha256": "5b86fd36a0bee963ffb2a4a41435bc03d76c5b754086c30811ef3f3c3c95d5b8",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_L_Q_002_e18_ef28_841115.bt7": {
+      "sha256": "7a0a17878c1c291637989b5fa0297737098f4c8ef098778c373b0acab6474002",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_L_Q_002_e19_ef28_841178.bt7": {
+      "sha256": "2b2a6e56ca719751cbfe767716b0448ae02a9f5b8d0ee9cb731ecc4e000027d8",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_L_Q_002_e1_ef28_841169.bt7": {
+      "sha256": "2a0b9764d0cdc2e32f556cbfca841de9f2280d82b82aee8024ac6882884c4ba8",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_L_Q_002_e20_ef28_841116.bt7": {
+      "sha256": "e23ac95004249bfd85aaf810d5bab61ffc0616e325ea813883c672d058e2d5f9",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_L_Q_002_e21_ef28_841179.bt7": {
+      "sha256": "334f59db8d3d686acf6869f6f159e47593b74407c88d96d350d7e2a5c13d2bab",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_L_Q_002_e22_ef28_841117.bt7": {
+      "sha256": "ce3dbc02df754439c2916871e352cc0683bbc82fdcc36e105a0c13fc1c6d6332",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_L_Q_002_e23_ef28_841180.bt7": {
+      "sha256": "c630f1e8622a4f3d43dfa3a7b9482a74a10dba5902d08687ada2428a1abd26f4",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_L_Q_002_e24_ef28_841118.bt7": {
+      "sha256": "0e35175f5a9be3ab4f4f32f689829f3a8862483a20095585bfefa9bfbf3afe97",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_L_Q_002_e25_ef28_841181.bt7": {
+      "sha256": "e46c92c85bb0a494a38a93334daf61c8e22337a124b0b60e026f15b1b3ba99b6",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_L_Q_002_e26_ef28_841119.bt7": {
+      "sha256": "2bda3197ec636e8077aa217607d597fc739cb1616d4a0000918a4974fe2b4332",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_L_Q_002_e28_ef28_841120.bt7": {
+      "sha256": "468edd4ace2b3d38cb8af31390bfd6e1f0ea547649e914b787684e40c0474763",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_L_Q_002_e2_ef28_841107.bt7": {
+      "sha256": "d08ddd502c689ab1fa489b50f7ecd113d6204f3fe06294d7404cd0b0b93b0e1e",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_L_Q_002_e30_ef28_841121.bt7": {
+      "sha256": "3b12d01f34f49910fab43a2030b2dc2db40b34e37af600d5da5253ea1d7013d1",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_L_Q_002_e32_ef28_841122.bt7": {
+      "sha256": "b96dd739a12a8773f829ae8cfa8bc0aa03f9b91e510c633bb66c558b57e3b84c",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_L_Q_002_e33_ef28_841123.bt7": {
+      "sha256": "a74e8c86a42582e7cad26f0b8e6ccebabcd12c05b3584f7ccc9252c95a72ebf8",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_L_Q_002_e3_ef28_841170.bt7": {
+      "sha256": "12af70cc0bd19d19890f1ba3261280a1f5b01da9096e4be089d1f9b14051ad35",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_L_Q_002_e4_ef28_841108.bt7": {
+      "sha256": "f012c86b9c80974e6814d2bf8822b4bcff81cf2d2015817ba455f7d2208e8a11",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_L_Q_002_e5_ef28_841171.bt7": {
+      "sha256": "a814a91d99c05e71b1ce31a64ffdb3a5655571142de7fcdf2a9ec5a9cb3bb8bc",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_L_Q_002_e5_ef28meV_841212.bt7": {
+      "sha256": "bafae0720fafa92ab7565176f7c6d25026cf1089282fac4cb322af7a1ded2a67",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_L_Q_002_e6_ef28_841109.bt7": {
+      "sha256": "c7760032a12f7cc12e0b77148afa46f0547485f5d6e428bd82fec682a2d23dc4",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_L_Q_002_e7_ef28_841172.bt7": {
+      "sha256": "bfd29e77e86cb1070a6e8a93a08c68125942f9e3911ded9c0aeeeb07f0b5d733",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_L_Q_002_e8_ef28_841110.bt7": {
+      "sha256": "ab6806755411c58516daf05a28be32628dbefb7105c7dd1639c52178b7a871dc",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_L_Q_002_e9_ef28_841173.bt7": {
+      "sha256": "9f833166b05091aec304df75eeb59212128d8f0dfa10afeceecc7b47b6deeaf2",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_e_Q0O2502_841044.bt7": {
+      "sha256": "e07bad6a137bb05d7d6dd3de3fa454b72a488310ba7486166e8ab53b938b220f",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_e_Q0O303_841011.bt7": {
+      "sha256": "dd9468f776d3bdfdc10ba31f33800a110ff31974a5a5ef2bfd9aebfe1729a52e",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_e_Q0O3502_841043.bt7": {
+      "sha256": "d58bd1c3068ccc0c4eb00d99bb877eb78a3de852c409a315b3282138ce7350de",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_e_Q0O3503_841016.bt7": {
+      "sha256": "9ee04c63ceebe68a9298531860077f5f2af5599f7ca1d510ce0b187d3866db3a",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_e_Q0O402_841041.bt7": {
+      "sha256": "94e208ee936b1b018313ad4c9d232ad4a213be0a15228f84a8529062a5df5f98",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_e_Q0O403_841012.bt7": {
+      "sha256": "ad8c431437969f48db3c4b1c03a9b64a33fabc9c724490cee5f6e346d5fd047b",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_e_Q0O403_841013.bt7": {
+      "sha256": "28463cc424239f3536fddba104f1ca583278a9c7e9ac16c83d2590bd8b3404d8",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_e_Q0O4502_841042.bt7": {
+      "sha256": "ebdbde50f4a338ef1acb7b3b9b87e4c5f31e341374cc0eafad9f4c3adac98c9f",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_e_Q0O4503_841015.bt7": {
+      "sha256": "79fe3048857aeafd8a10bb2c24ab3a6ac91c2109891636706762883c057a7da2",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_e_Q0O503_841014.bt7": {
+      "sha256": "f2ee3772d085f82696f1db4cc31f8830193053ddeb03c7fdcde94eb863500b23",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_e_Q0o202_841037.bt7": {
+      "sha256": "2085478668050700c7c4e18bf2a213ab161f6ff4011b52bb239fd934b78f147f",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_e_Q0o202_841070.bt7": {
+      "sha256": "5a8e5492d9fe4e0e969efc23b149ef10b2c71511d5e508bc114037bb848fb890",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_e_Q0o203_841034.bt7": {
+      "sha256": "8fadadc3cd226f13e803cecae34199046155f8378f71e6ad01f21ea7b3439456",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_e_Q0o203_841036.bt7": {
+      "sha256": "123fad1a6ee1b9b2b1ab99e364e29360ab88c08da3c4b83ba3037e00accd4228",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_e_Q0o302_841038.bt7": {
+      "sha256": "10cbd6af678cf741c8603fa5b3a02ab694e29123af28e4b1ed30d8ea9c1511cf",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_e_Q0o302_ef28_841071.bt7": {
+      "sha256": "977ecc1d3f333699c686179b67a4abdecc1e0eac64365ecbbc9853e0912153e6",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_e_Q0o303_841032.bt7": {
+      "sha256": "6a62a0779ee892d2d9c935a59c84590135104a6ab3db86c90a3692cecd65664d",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_e_Q0o303_841033.bt7": {
+      "sha256": "b35b9034d7fbe60581a9bf6d01367f6a166f592baa5b290c49610900e7c5bfeb",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_e_Q0o304_841068.bt7": {
+      "sha256": "10a493a18276b00e5cceb553d2e2ed42e720393bb150f5f39f1ff2d6c18c8458",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_e_Q0o306_841066.bt7": {
+      "sha256": "6ae2477c6035838abc2807467a416555ff07b7f9ad983a215c7520eb7f775eda",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_e_Q0o306_841067.bt7": {
+      "sha256": "9d5015e532b2cf6aa60a152f7637d53ba18b5e3f58f66b328d6054da1bfcf93a",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_e_Q0o402_ef28_841072.bt7": {
+      "sha256": "0167cabf9073221cb55432d9484abeb364f86b1a8286f8e8ee1c76db70ff9163",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_e_Q0o403_841030.bt7": {
+      "sha256": "af8593534377c1be2712dfd3824e9cf0bb471b541a867135e9a660d13865a2ea",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_e_Q0o403_841031.bt7": {
+      "sha256": "adb876189e770efe3e2e64275c8a12d1807f4a0592ac130a69dc067417f98820",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_e_Q0o502_841039.bt7": {
+      "sha256": "d824d4d0e33938020ccd7270cfb002bc5b7dda06e62799a379ed6608e3f836d3",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_e_Q0o502_841040.bt7": {
+      "sha256": "942dd123280baa47576e3e40c6a1132f2e035f9c237015020785b4175be6a0f5",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_e_Q0o502_ef28_841073.bt7": {
+      "sha256": "e344f12bed38c5471a3c55aef259fe747bfa38ecdca488f766a7fcbc5ec43238",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_e_Q0o503_841028.bt7": {
+      "sha256": "61cff7c36a501c03e850ca0acc881081e59d9fb5b9fd0108bd27da97b7e75e6a",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_e_Q0o503_841029.bt7": {
+      "sha256": "5caccd610600274fb4bba641052b83b3d7fa4d29f89534f1e7d48f351a7d4ff6",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_e_Q_002p2_ef28_841153.bt7": {
+      "sha256": "94035e648b0a168e1ccf46bb8905cc29dafd7043e703177dfbddddebd2b280e4",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_e_Q_002p3_ef28_841154.bt7": {
+      "sha256": "b28728b04401e504e62dfbceefb6bbb941e77d03771cc0815ba0f6af795a4a10",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_e_Q_002p4_ef28_841152.bt7": {
+      "sha256": "e849976ee13cfd3c79ba686e1c5f0ecbbca9d45bbb3d6920e93accde71b3f238",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/SMS_e_Q_002p5_ef28_841151.bt7": {
+      "sha256": "592aaf0fdef4f96ebec381ef68526c3a764516b0d0d0bb5da01eb57e0e31d746",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/energy_sc_Q0o402_Ef_28_841231.bt7": {
+      "sha256": "567b8b694238ed0f9a3c2fdacb416cfc11f586cc0d71f05152788bc63b56c803",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/energy_sc_Q0o4502_Ef_28_841230.bt7": {
+      "sha256": "b2a288fac38f662b5c55275d565d81fb2f8a436e0d70aebe0bfbc053c7d6d806",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201804/24858/data/energy_sc_Q0o502_Ef_28_841229.bt7": {
+      "sha256": "a7fdc1c4754b6ecd397a049f17392dccf332e8ce9c8da07f25f214bbae2f1bdc",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/Checking_Gap_14p7_841867.bt7": {
+      "sha256": "f0eebbdc570924b883e3e62e0116b76459e3c4ada0a31ef3781b105665be7236",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/HH2_120K_e10_ef28841898.bt7": {
+      "sha256": "4feca3edf86abeb5149d1e56a35363b41bc4427edf32a0b8a124a27aeb4f503b",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/HH2_120K_e12_ef28841899.bt7": {
+      "sha256": "36c443118c031c54e4eb036102447bcba44ba0f2149a2058f49aa67e8b699e4f",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/HH2_120K_e14_ef28841900.bt7": {
+      "sha256": "80db67ae3a4a89537da1c8c51d92a4c64030dbe4dd474e13a17e4a3a9fce3e46",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/HH2_120K_e16_ef28841901.bt7": {
+      "sha256": "78e6a4bc8c5c8cee43d9695314dd64ff9e185e00c520da001ea3c3cc0d8325b5",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/HH2_120K_e18_ef28841902.bt7": {
+      "sha256": "2c112d2253dda76ac1b7d6a9ee8d7441725152cf44eaf9fd68ae3698bdefa4b8",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/HH2_120K_e20_ef28841903.bt7": {
+      "sha256": "c3592ec1cb782f3db4fd229fe29ee423b794f09a4e5d0a0921ad8330e104e3f3",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/HH2_120K_e22_ef28841904.bt7": {
+      "sha256": "a970280034aaf33d1f8d782e7e21a46e24eea3f9987022e2d41276bc5a6b7c13",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/HH2_120K_e24_ef28841905.bt7": {
+      "sha256": "ae2b23ab3b3c2e647fc377e8d66f1a17454bf2b41e2bda2f760ded636b151108",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/HH2_120K_e26_ef28841906.bt7": {
+      "sha256": "b2f36af6e11f1de324f9b28ca153b7b3954065cd9f26b8e52c7df8c5ccf34822",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/HH2_120K_e26_ef28841907.bt7": {
+      "sha256": "d1b48e9002ae2165566fd0026d54a1c300b61d116ac6de40c9b6a7f0646d36fa",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/HH2_120K_e2_ef28841894.bt7": {
+      "sha256": "84f528298c0f8c1b97563bf9d2c1a3cf79ad35ffebf4cf349d5c2101e3075e77",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/HH2_120K_e2_ef28841925.bt7": {
+      "sha256": "83f7d696288c55f01e2433ec72da898feab3a1718bcab2c5d39df481805a9598",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/HH2_120K_e30_ef28841908.bt7": {
+      "sha256": "74154d1b2c0fb666e71716da6303179fef2c3d366e2f120a9bce34a1e84e4495",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/HH2_120K_e32_ef28841909.bt7": {
+      "sha256": "fe1333f94da84219b9a235745c085db2df759c82383ee201a2244c96f993365c",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/HH2_120K_e4_ef28841895.bt7": {
+      "sha256": "cd870e6cad6c666474f948877a276b65487f43d97a0c7a6e3dbf67feba894751",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/HH2_120K_e4_ef28841926.bt7": {
+      "sha256": "1f0d46cb9636977f2881f08c733b8fc74847b2c217b9d6345b4f1ddd1caa6737",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/HH2_120K_e6_ef28841896.bt7": {
+      "sha256": "9108364203f30d689e7bf68ed45500bc91a1d295d4fbc2a0dba88da4ad7614e4",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/HH2_120K_e6_ef28841927.bt7": {
+      "sha256": "74d46ad85f953b5bfdef17976ed30d99222f0106d2a351cf6de59c0c4f4168b2",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/HH2_120K_e8_ef28841897.bt7": {
+      "sha256": "fddd2c18ab3bd18f648b2fbbf0a9d95272939079df83986298c6f8fb27bdd579",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/HH2_4K_10_ef28841982.bt7": {
+      "sha256": "c0e4b339292f658d7011d92cc314c8d3fc5c8d7571d85fb4b5b10dab355c26a3",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/HH2_4K_10p5_ef28841983.bt7": {
+      "sha256": "194bb464c20fc26b1f6ec0abda5aa994a08bcdf79adb8d8d42d48fbfb091e39e",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/HH2_4K_e2_ef28841966.bt7": {
+      "sha256": "e73b30c443a4dc82c7fecfa7cb27a618766c3c612d13f2603df7b0d3f92749e1",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/HH2_4K_e2p5_ef28841967.bt7": {
+      "sha256": "67cc1accf201282b4e3dc4a91d20c3444c7b7b4f3920c6a19844c2d3ff0b9953",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/HH2_4K_e3_ef28841968.bt7": {
+      "sha256": "dee7962209f236e8ba9386a5e7896e1e0dae21067fae354737568cd932f39015",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/HH2_4K_e3p5_ef28841969.bt7": {
+      "sha256": "beeb1fd8209386d272bcd9d56b4274d79bbbf15014ab2f8265a8e1ae8e53f485",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/HH2_4K_e4_ef28841970.bt7": {
+      "sha256": "4f12947646bafa08cebb02e3c837e92780d4f6085982ed932c8f57ac4167ef7f",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/HH2_4K_e4p5_ef28841971.bt7": {
+      "sha256": "3c0da405d28c8773d564721eff068e1e84026e3cc7d8a3a40ad62ba3e7b8da7f",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/HH2_4K_e5_ef28841972.bt7": {
+      "sha256": "d1aef6afd4f3c53bd080eab80469d5b1af812f37212dd8eb74e36d27b042b923",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/HH2_4K_e5p5_ef28841973.bt7": {
+      "sha256": "1600d35b0dd73b9126c39b4eca5522ddc9034fe5233307b445385e2b14627d34",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/HH2_4K_e6_ef28841974.bt7": {
+      "sha256": "02b6234684d90ef44dbd4139dc7ff4e7ebd86c612477380b359ec34ef811bb46",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/HH2_4K_e6p5_ef28841975.bt7": {
+      "sha256": "2a0c86969837a72fdd72d8d2af326507dc1e85dc75b41c69d23bda66c3f6cd15",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/HH2_4K_e7_ef28841976.bt7": {
+      "sha256": "a7b53aaf0d930e0cc80309e915189428025b10c981e089655772f89fd3ea1836",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/HH2_4K_e7p5_ef28841977.bt7": {
+      "sha256": "f2ffa35285cc20707c0f98129f2f34a10b6d8083d2278d67cda7f1977e650c54",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/HH2_4K_e8_ef28841978.bt7": {
+      "sha256": "803a784a0c767388648d88332df9fe34b439b6b2e2bcaf2c1176a0fd00c77e47",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/HH2_4K_e8p5_ef28841979.bt7": {
+      "sha256": "4f27ffe84cca9e14ca2e820da298d69b7734610ac72c047a4a1b71a90aba3919",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/HH2_4K_e9_ef28841980.bt7": {
+      "sha256": "26d02367f63ebc86df8527892ecf66755dd965c54cc2f80a224232ab291df89c",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/HH2_4K_e9p5_ef28841981.bt7": {
+      "sha256": "55ed591235962939c232d4a645b3aa4ac29f5c907a5d7b44f332a1df185414b5",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/HH7_e13_ef28_841872.bt7": {
+      "sha256": "aec9093a8acd3078756f45853bb92da749e0c6f191b19786432acd94bb4bbb4c",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/HH7_e15_ef28_841873.bt7": {
+      "sha256": "65c12948101827cad75d3a3c1c3ca596a08e3a1fc28cf36bf70f9dcd3794bfd4",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/HH7_e17_ef28_841874.bt7": {
+      "sha256": "3bd209f2cefa6c33b44f81e4da0280a020ecc240da5af68289b7df8f066a2735",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/HH7_e19_ef28_841875.bt7": {
+      "sha256": "f87f9634f8024112fbfd62f5ec800820259ddf3197b55a467f645b3035298ccd",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/HH7_e1_ef28_841869.bt7": {
+      "sha256": "28be5f838b1789a77f9d70a02b6097e2e0641dd78080ca5ba4ac623eda7ce22b",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/HH7_e21_ef28_841876.bt7": {
+      "sha256": "67fb331b2fc3602515dcca9f87daf6bfa9d01963cee7231d8155567efe9f3a1f",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/HH7_e23_ef28_841877.bt7": {
+      "sha256": "1f1435d2f6e3228882c040a5acdcd6a26f8a63f2b6e084808836b76984ae7520",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/HH7_e25_ef28_841878.bt7": {
+      "sha256": "54a45e95c0cee89ed8ec91cf0c0bdbf7504a7e9253451ab66c1be67d3c10cb57",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/HH7_e27_ef28_841879.bt7": {
+      "sha256": "f332c163f6aa12ce7c230709d32a3a57d45d7adffed2403d732c2ec0de4e8996",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/HH7_e29_ef28_841880.bt7": {
+      "sha256": "0683dbf15d33310ba51ad66522d35b580c2d7078639438cecf8bd30459014674",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/HH7_e33_ef28_841881.bt7": {
+      "sha256": "5fb1fe8bc19a3a299f78369ee39708a6ecbd04ff1478d44ecf2d500be32cc686",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/HH7_e5_ef28_841870.bt7": {
+      "sha256": "95f4d00128bc45ffcbde7afbc11cb9ecaec751a0f30f243d4402f38f533ede92",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/HH7_e9_ef28_841871.bt7": {
+      "sha256": "4b5d077089d620994c461593dabc1a892bab1d4fe2ea517d8f63534fe7e21c61",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/HH_002o5_e12_28ef_841948.bt7": {
+      "sha256": "85aa2630ca098097f1d349ec93ec81dee45052254b0e9faa601efa1f6daab33b",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/HH_002o5_e14_28ef_841952.bt7": {
+      "sha256": "ee23b336c54c12adcbf964375c4f0ca75b302ca070e5d15342fc01e0478226b4",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/HH_002o5_e16_28ef_841949.bt7": {
+      "sha256": "2d844a1c7e90c0bb61a0793fda9b13a56c79084abfe5f490addc4d550e372f9f",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/HH_002o5_e20_28ef_841950.bt7": {
+      "sha256": "f384d4f7216d089626a34d2e211444e27ed183e47d3f25979d5281124eaed2d3",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/HH_002o5_e24_28ef_841951.bt7": {
+      "sha256": "41ff1457d9ea26b522c8e28a603f1f306cea6477b0594d933771f67d57e35757",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/HH_002o5_e2_28ef_841945.bt7": {
+      "sha256": "9ad9db6288e2bb4e1035af811f76d122c411d8b473b65e522f8ba844e1dfb9ee",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/HH_002o5_e4_28ef_841946.bt7": {
+      "sha256": "c89c9bf69956fb41e6d038990970632eb17c78be21928904db8319ded8bd301f",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/HH_002o5_e8_28ef_841947.bt7": {
+      "sha256": "1b99257e7836359c7fba5ce7d4588348aaca95a92994cb458bb28cbe675d134d",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/L_Q002_120K_ef28_e10_841914.bt7": {
+      "sha256": "fd2c3a93c876690e93df5de963a7aaa12ca2e3c790497be887007d90f6b19196",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/L_Q002_120K_ef28_e10_841965.bt7": {
+      "sha256": "e477bce6d0af328f09548933367f19bd25896b73f64008c11ee46525610c9970",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/L_Q002_120K_ef28_e12_841915.bt7": {
+      "sha256": "1e471c7b6f086d3e0d4eda278dd612e719e78b5fee4417b553e26fe14edf3b3a",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/L_Q002_120K_ef28_e14_841916.bt7": {
+      "sha256": "939660fa9f91c5b2aafc3279960bfe4a3c892798a99dc469e8470fc2acdf482f",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/L_Q002_120K_ef28_e16_841917.bt7": {
+      "sha256": "42ec4c2f01133a003ccc376b7a20f9efb87d32dfb9aa3b7aa9a6d0c0e4173d62",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/L_Q002_120K_ef28_e18_841918.bt7": {
+      "sha256": "7c0bb5760506800d5ccf42dfeb5ce196e2bb4b4840238e8967493dc7d650756c",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/L_Q002_120K_ef28_e20_841919.bt7": {
+      "sha256": "db17fc45c7a79a12df5ef2a322120b63809cd104bd20d3dfc40257d5714a7a71",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/L_Q002_120K_ef28_e22_841920.bt7": {
+      "sha256": "ac42309c9556ad40ca254f73a9fd507fe06eb5ea89a157bae20c9858099f7806",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/L_Q002_120K_ef28_e24_841921.bt7": {
+      "sha256": "f59f62f497690669c03bf2bdb8456f413f64e4485ca100a0832f2d38251180a8",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/L_Q002_120K_ef28_e26_841922.bt7": {
+      "sha256": "d5e6a9be6a481f89c5804c4954094a7553f1f6dc6a5278e6793ab0dcccfb2f2a",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/L_Q002_120K_ef28_e2_841910.bt7": {
+      "sha256": "62a26fe24e6a3bbf137a58653d63d8d917a0e29a6181c8637295ab651d190fed",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/L_Q002_120K_ef28_e2_841953.bt7": {
+      "sha256": "b65ef1f5ae672bdc552316abac38022ba33fe090c50c0257074b466d2e2349cb",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/L_Q002_120K_ef28_e2p5_841954.bt7": {
+      "sha256": "2cdf885f0f9d6cd422fc9a898f3173a5145af8a6d164591f3ae65bf8d48a83b2",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/L_Q002_120K_ef28_e3_841955.bt7": {
+      "sha256": "b105ad1b7e5824d2dfae27ca59a2d6ff79dc55204dbb4839bf5d2221e26a8f45",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/L_Q002_120K_ef28_e3p5_841956.bt7": {
+      "sha256": "da63bb68c4fb9fb0b8e8646a69c92179fcc54cbc24ddc7cfa4056d42841b5d56",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/L_Q002_120K_ef28_e4_841911.bt7": {
+      "sha256": "1d2dfd66491037cd52214b6424c08c98fc8632e1ad7ca64e33104a67875bdf10",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/L_Q002_120K_ef28_e4_841957.bt7": {
+      "sha256": "4d81a9e0a9b907df2bf252b2650948705549aa3a7c434d048e39a802cfce8322",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/L_Q002_120K_ef28_e4p5_841958.bt7": {
+      "sha256": "d56f0f7abea49f6f14c96425eaac286af4c4e511fed37f33d78adbd15e90f8c8",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/L_Q002_120K_ef28_e5_841959.bt7": {
+      "sha256": "cd11d852a284532a6e299f92128fd1c75dd96f0187a559f4a8cb5c955ac8509b",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/L_Q002_120K_ef28_e5p5_841960.bt7": {
+      "sha256": "e081688846ab99268519b9dd64b5b9861aa343f37239ed3046445a456c83f335",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/L_Q002_120K_ef28_e6_841912.bt7": {
+      "sha256": "28a9e0993da7f3b593e8499706948e841486947132925e91b7e360afa622627d",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/L_Q002_120K_ef28_e6_841961.bt7": {
+      "sha256": "df512180932787177b5204ab64b9f001761063c68ad86f9db4a620c529f5f074",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/L_Q002_120K_ef28_e7_841962.bt7": {
+      "sha256": "2c3c5abdfc767b0eb760c28d3ac3d5b323659819f422c6cc5102e18f1090a076",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/L_Q002_120K_ef28_e8_841913.bt7": {
+      "sha256": "6ffeedf57150da82bce08220a6dc2c51fddd78cf1cf14da3e1f7e2d34cf64328",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/L_Q002_120K_ef28_e8_841963.bt7": {
+      "sha256": "3da387c0ea95e92a684689f1808b177c6a37166f2043b868bce2f18c46b99d38",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/L_Q002_120K_ef28_e9_841964.bt7": {
+      "sha256": "4926a55955ba11e299680a90b02637856385cd5616c41cb86c87b0e860200040",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/SMS_HH_Q002_e6_ef28841846.bt7": {
+      "sha256": "5a84a90a0e35c9a0f93a1df60c5afd9f67ba162da3bc4ac348a5f3764fbd8b62",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/SMS_HH_Q002_e6_ef28841847.bt7": {
+      "sha256": "dcad1984c4a0aaa9d47f0121a1a231045ac145594a6185e197280d0c217d47bb",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/SMS_HH_Q112_e10_ef28_841932.bt7": {
+      "sha256": "2b8411a6b7b0c3526f9f1d4402b9733ac8a4e7ff80cf6980dea697dac415d6d5",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/SMS_HH_Q112_e11_ef28841857.bt7": {
+      "sha256": "4c1428e45b89637dd2fd56eb92cdd1bd091debb77d6693702c2a0421a1a179fa",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/SMS_HH_Q112_e12_ef28_841933.bt7": {
+      "sha256": "2844f6faf070da2f7e44d116f9ce17e9e19dbbbb8e6b734fc4b577cba92f7915",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/SMS_HH_Q112_e13_ef28841858.bt7": {
+      "sha256": "e764e39d4c6dc5962a1c4699444e58febd120334179a42d2f14d5bf1d46a26b1",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/SMS_HH_Q112_e14_ef28_841934.bt7": {
+      "sha256": "9657ecbdc0ffed175fa8705bd2e0da1f4b23db713e056a79ada99995e8f6f094",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/SMS_HH_Q112_e15_ef28841859.bt7": {
+      "sha256": "cafabe8394fbbfd89d08d4f4f108ac973971ea7deab6e3bdff00a84719db716f",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/SMS_HH_Q112_e16_ef28_841935.bt7": {
+      "sha256": "23ea05a5cfcadee58f2f2aa044168c17fda959197a9378ef9ae3b3ce956d2d97",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/SMS_HH_Q112_e17_ef28841860.bt7": {
+      "sha256": "155e1a4e051fba460bfcd3517a39fadf23f8c5f2b5950f2aafd9dc01a3397097",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/SMS_HH_Q112_e18_ef28_841936.bt7": {
+      "sha256": "974eaca58700027d563968ab5eb8af688fd98bdfb508a3b602e1a6ea7ddba74c",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/SMS_HH_Q112_e19_ef28841861.bt7": {
+      "sha256": "b41211188f47cd1a4611330b8ec63ce9b20a658a8b356b768004ca20452b91f5",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/SMS_HH_Q112_e20_ef28_841937.bt7": {
+      "sha256": "5c960d99a3c2df7e778ecb3bb776c8aee85b1f0e72186ca43a8afa111993a946",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/SMS_HH_Q112_e21_ef28841862.bt7": {
+      "sha256": "2bda0ca8ddec4e8d139d4c1e1519b1dcb5f3e964b7e9417b26c080509d1e8706",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/SMS_HH_Q112_e22_ef28_841938.bt7": {
+      "sha256": "c66cdec4c5eaf2842d41387cd595a2fe64972bdd10d7771ac6ae00d286537d78",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/SMS_HH_Q112_e23_ef28841863.bt7": {
+      "sha256": "8fbc749553957537b8eaaba1c0ef52da45b16db13dbde35be9221b49df4e1e6f",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/SMS_HH_Q112_e24_ef28_841939.bt7": {
+      "sha256": "fc9bbb9452c6f9e963912d69c2fc9848f4bec1a6b800dfa339c74b3f2b1bc31a",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/SMS_HH_Q112_e25_ef28841864.bt7": {
+      "sha256": "edb94ad912f9f3d260a691d7cf7114a19700f5d4f7658199dc77162dbcede302",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/SMS_HH_Q112_e26_ef28_841940.bt7": {
+      "sha256": "43593d43534176ae2ca67cf8df2c2ecd7fb982bf5620a81bd51b3dd84f68b98a",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/SMS_HH_Q112_e27_ef28841865.bt7": {
+      "sha256": "dfaf19a7ff5f2ad77e13f0b99fe584303ab038905d615437b36ebdd1df5df384",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/SMS_HH_Q112_e28_ef28_841941.bt7": {
+      "sha256": "cee89b678f515a10e29cefdb7f7be1f9d1ee516c36aa0066206f06ba0eaeecc3",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/SMS_HH_Q112_e29_ef28841866.bt7": {
+      "sha256": "f1f76163f8c40ec5e1715f3d7c566c98760105577091b82161ca6f24925b17b8",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/SMS_HH_Q112_e30_ef28_841942.bt7": {
+      "sha256": "05a0a2dd0d133546f0b481f31c6bf546f562c45ad5b807ddebe9207d78d82ff9",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/SMS_HH_Q112_e32_ef28_841943.bt7": {
+      "sha256": "6f7010d3083c98539126c12621c010f073bb9aeaa442c1bd8cf06f3efb8b0eef",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/SMS_HH_Q112_e34_ef28_841944.bt7": {
+      "sha256": "02b390d561940f5da325e671ebbe7eca8f3bbcb4bf051590bd8d97d4041fd758",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/SMS_HH_Q112_e3_ef28841853.bt7": {
+      "sha256": "2378b33bb743ed958af149bd628ca748f4014357dec2583ca149aa7c2303ddbe",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/SMS_HH_Q112_e4_ef28_841928.bt7": {
+      "sha256": "2d9a02b78524420490d9e556538280b1b8f331d2f6d5834792a4dfe04b8b708f",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/SMS_HH_Q112_e4_ef28_841929.bt7": {
+      "sha256": "381c5b65922936fefb29c87feae57650c2ee57df9027ff8f9e8ab5f80922117c",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/SMS_HH_Q112_e5_ef28841854.bt7": {
+      "sha256": "2412f1c59f45684b1f0ac93e8abc1a22f8e27f75eda8ae1034b6469999ccd3a9",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/SMS_HH_Q112_e6_ef28_841930.bt7": {
+      "sha256": "967db5ffbe4556719ef87d9d0003396f046fd1597175a07af81c09808b7c12c0",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/SMS_HH_Q112_e7_ef28841855.bt7": {
+      "sha256": "41a770c1d3962d230353c251e89621fbd49e26123fbf618c3ef083ce6a032a73",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/SMS_HH_Q112_e8_ef28_841931.bt7": {
+      "sha256": "40661f0d871d7ef28e20420053b26b2fe2a8454f63726ed4d96a45a0fe47d3c9",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/SMS_HH_Q112_e9_ef28841856.bt7": {
+      "sha256": "43883d946504182609909786a28101ecf2d4d6e35d416da7c25e0d826597add9",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/SMS_e_Q0o302_ef28_841849.bt7": {
+      "sha256": "18cdb9ac071c51d9fe71713050aaa359d6a6b0f045f4585fbdecab2a966d2134",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/SMS_e_Q0o402_ef28_841850.bt7": {
+      "sha256": "5fb8bff19fbc4294bacadaaaf0b22c5311aeb34d9f83b4fe776ff80f8db3bf75",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/SMS_e_Q0o502_ef28_841848.bt7": {
+      "sha256": "77512ee9156e6fdbb0556f4790bd4e4ae2504c3ac63dec47bbc959d47aab3caa",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/SMS_e_Q0o602_ef28_841851.bt7": {
+      "sha256": "77056726a2d5cdb88a515edcfd20196303cadea813f34f3e299be4afb294de7d",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/SMS_e_Q0o802_ef28_841852.bt7": {
+      "sha256": "eac48c2a2ea3ec8edbd040fd45d38a209f993549a57d07414883c8161364cf2b",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/e_007_120K_841923.bt7": {
+      "sha256": "7ff82925e1ea36d94518cf7f56c4961070d10abd4ff0616ff201645274a2c230",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/e_007_5K_841924.bt7": {
+      "sha256": "4892629add3aa14d29f27cc7672e3d956c22f0dea2f87a3b55ca024f7cd12918",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201806/24858/data/e_007_emptyholder841987.bt7": {
+      "sha256": "9ab1bd48e4deffaaa7d4a258e3332d557da4ca4466093dbe3cbb274772886329",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/202608/14/data/data/rapid_sampleTheta.softPosition863.dat.bt7": {
+      "sha256": "0afa5edf7af2c1d58740ead31e6fb67ca93339d825707e779d8535d3f16cfd92",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/202608/14/data/data/align010_fp_A3_868.dat.bt7": {
+      "sha256": "21c756988569c4fcd0974a0f68b950cbaa0a29726881a849d32eee18793d6faf",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/202608/14/data/data/align010_theta_two_theta_A4_877.dat.bt7": {
+      "sha256": "0067cc2be4de8f734c20f6d926c764967674552660c1a09502aa6f576991bfe1",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/202608/14/data/data/align010_a3_A3_878.dat.bt7": {
+      "sha256": "c18ab33cf3fe305f2f5062fd2bf8dff718cf6541f30b33aa47050f830bb11714",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/202608/14/data/data/align010_lower_tilt_wide_sampleLTilt_879.dat.bt7": {
+      "sha256": "21d3f9e108df44f7eb5b38c994d6a54a01157b81cf5f7d62fc0a0ae7ea2da2d1",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/202608/14/data/data/align010_a3_again_A3_880.dat.bt7": {
+      "sha256": "f296bf71117610446ac04b340cdeb54c42119e954c0df3f24ed0d8f0d0bce2d2",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201706/23816/data/GROUP2_constantQ_1p05_0_0_835112.bt7": {
+      "sha256": "3931b4d4aa8419193d03fe7e911c39e660024e229dab881878ce98d8aa6ea960",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201706/23816/data/GROUP2_constantQ_1p15_0_0_835114.bt7": {
+      "sha256": "cb96869a4e81e2dbc4365f9c37b8d1181996313df7a56053daabce0be99506a5",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201706/23816/data/GROUP2_constantQ_1p1_0_0_835113.bt7": {
+      "sha256": "d91482f2653bfa46727d31d555254c45d7cd37bf02cb1bc74c156e615e64fd4b",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201706/23816/data/GROUP2_constantQ_1p25_0_0_835116.bt7": {
+      "sha256": "19e613377b1a3b3724a0750659cd285216fdd8bf9ff1aba88dee1c15007198b6",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201706/23816/data/GROUP2_constantQ_1p2_0_0_835115.bt7": {
+      "sha256": "59259844e0046b0050d57415505b19668115eb12f68dc0c79d82ad285824a441",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/201706/23816/data/GROUP2_constantQ_1p3_0_0_835117.bt7": {
+      "sha256": "29717aab3ace3211b54af67378e8538fd6d94469f55d2d34b9c6c2fcc0910e7a",
+      "kind": "raw_archive_file"
+    },
+    "tascopilot/local_runs/lsmo_tasai_live/trace_from_archive.jsonl": {
+      "sha256": "47236878d4d70990eda484347b830cb0176bc9c57122af4bcf792260e4b47c6d",
+      "kind": "adaptive_trace"
+    },
+    "NCNR_BT7_archive/202608/14/data/data/tasai_live_20260911_202614000_H0p000_K1p180_L0p000_E10p000772.dat.bt7": {
+      "sha256": "3a32dd3bb221434067a7a873512c3fcb6cedbd7707f7225ba1505e66d424005f",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/202608/14/data/data/tasai_live_20260911_202614001_H0p000_K1p300_L0p000_Em2p000773.dat.bt7": {
+      "sha256": "ffa5edcbc57616b22ef3921c5743e5b3b3c6841e1ac3701292ee6152359b212f",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/202608/14/data/data/tasai_live_20260911_202614002_H0p000_K1p300_L0p000_E22p000774.dat.bt7": {
+      "sha256": "72fbbb8b981973b8f3730e9bd65c7a27100e7be66b4535486b97d17997442e34",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/202608/14/data/data/tasai_live_20260911_202614003_H0p000_K1p080_L0p000_E22p000775.dat.bt7": {
+      "sha256": "a3006bc0b59e8a8c7261a493c61ab7bd9aed36214c1ddf040990a46566619eb5",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/202608/14/data/data/tasai_live_20260911_202614004_H0p000_K1p080_L0p000_Em2p000776.dat.bt7": {
+      "sha256": "f91d76a327c7aec567c78dd6453d4443606e2ec1c194c1380dbc7758bdd08109",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/202608/14/data/data/tasai_live_20260911_202614005_H0p000_K1p180_L0p000_Em1p000777.dat.bt7": {
+      "sha256": "691876deda671917e11d288aab6060b770532c3b6b1002a561bf65bf73c74882",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/202608/14/data/data/tasai_live_20260911_202614006_H0p000_K1p300_L0p000_E10p000778.dat.bt7": {
+      "sha256": "585de66c073cdf075dbaf628f86ae05815a38eddaf0289f3623bf559fd441aa0",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/202608/14/data/data/tasai_live_20260911_202614007_H0p000_K1p200_L0p000_E21p000779.dat.bt7": {
+      "sha256": "25f2381f43deb2fcbe31287b8292d3f8c11601f2f927ccde93ed6f5dbe6afdb3",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/202608/14/data/data/tasai_live_20260911_202614008_H0p000_K1p080_L0p000_E11p000780.dat.bt7": {
+      "sha256": "66b89245733e7ef3f981fec2c1bfcb305f7d504af611243e715b42d6173b7d85",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/202608/14/data/data/tasai_live_20260911_202614009_H0p000_K1p140_L0p000_E17p000781.dat.bt7": {
+      "sha256": "ca9822c8bac6c0be8369720502f758328044e0261fcaf7eb0f31fd0ed9345513",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/202608/14/data/data/tasai_live_20260911_202614010_H0p000_K1p080_L0p000_E0p000782.dat.bt7": {
+      "sha256": "8aa59ff1056b5ffdbf6e454e7d6d5992b8bc52deea818d8b8c244f1a2997f638",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/202608/14/data/data/tasai_live_20260911_202614011_H0p000_K1p100_L0p000_Em2p000783.dat.bt7": {
+      "sha256": "d9742daf7c7725bd6abf5aabc8cfb7c313f8d63b3704ac7b015c6cac6de17394",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/202608/14/data/data/tasai_live_20260911_202614012_H0p000_K1p080_L0p000_Em1p000784.dat.bt7": {
+      "sha256": "fd8fd8aec71b7c4f81088e22a45fc3b63ac55edfc7592cad94351f35d1dc87ba",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/202608/14/data/data/tasai_live_20260911_202614013_H0p000_K1p080_L0p000_E1p000785.dat.bt7": {
+      "sha256": "4bba81bd6b3c2f9ec7612d990aa9b44141c96c371159586245fa01a713397a6d",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/202608/14/data/data/tasai_live_20260911_202614014_H0p000_K1p080_L0p000_E2p000786.dat.bt7": {
+      "sha256": "dfb2a79ad97a68ec44c4e8ee7bc98a0ac381528953ed86dd3f6439e52497920d",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/202608/14/data/data/tasai_live_20260911_202614015_H0p000_K1p080_L0p000_E3p000787.dat.bt7": {
+      "sha256": "8869bd0c3f60b4d4fbb8a39016b6377ae0eb760e81cdd4303b59c3b3cc08524e",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/202608/14/data/data/tasai_live_20260911_202614016_H0p000_K1p100_L0p000_E2p000788.dat.bt7": {
+      "sha256": "e6193703eb407ae1d66e61a167507bc5dba7cecad106567f74105b09b4f0c39d",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/202608/14/data/data/tasai_live_20260911_202614017_H0p000_K1p100_L0p000_E3p000789.dat.bt7": {
+      "sha256": "e526eccce281d9e693dbc95625c44ab5975f938a3f94e68c553503a9e9597465",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/202608/14/data/data/tasai_live_20260911_202614018_H0p000_K1p080_L0p000_E4p000790.dat.bt7": {
+      "sha256": "826f5db38db8c60dc23058749684c22f2b386e08066ad42b072398c3a0269e18",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/202608/14/data/data/tasai_live_20260911_202614019_H0p000_K1p100_L0p000_E1p000791.dat.bt7": {
+      "sha256": "7b2c0190e954c2d6b311ba1206eb1ad7ce053a034030056fd96b329cce7cdbc0",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/202608/14/data/data/tasai_live_20260911_202614020_H0p000_K1p100_L0p000_E0p000792.dat.bt7": {
+      "sha256": "57aede3517e07d6a4ee3cbee2c1bed08e42da23617da5c01aea85b3f4e24a772",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/202608/14/data/data/tasai_live_20260911_202614021_H0p000_K1p100_L0p000_Em1p000793.dat.bt7": {
+      "sha256": "ddd116a33d1350720e4dc68e352c0b085a2e5a4b394dcc45c783da573fab0fea",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/202608/14/data/data/tasai_live_20260911_202614022_H0p000_K1p100_L0p000_E4p000794.dat.bt7": {
+      "sha256": "61902b9dc81abd99a1f35c655ca7b6dd4b174edebf2c967f99733ae431863474",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/202608/14/data/data/tasai_live_20260911_202614023_H0p000_K1p120_L0p000_E3p000795.dat.bt7": {
+      "sha256": "d90445c02411f9894366d2b221a2e778c13073ca293cd5b58fed324efd5f8d58",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/202608/14/data/data/tasai_live_20260911_202614024_H0p000_K1p120_L0p000_E2p000796.dat.bt7": {
+      "sha256": "99de203095a5fdcaa9e6e42bdbd48f80643732e8b01fc60570be72fdc24d3cf5",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/202608/14/data/data/tasai_live_20260911_202614025_H0p000_K1p080_L0p000_E5p000797.dat.bt7": {
+      "sha256": "b08ed7cb90ee60c276a8c8b5312258cb6f82982daed6aee6795bcef827b79cbb",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/202608/14/data/data/tasai_live_20260911_202614026_H0p000_K1p120_L0p000_E1p000798.dat.bt7": {
+      "sha256": "36802b8ce0f54ae73f5ceda80d5becf01841c1632c24252b65d6c39afeb7bad5",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/202608/14/data/data/tasai_live_20260911_202614027_H0p000_K1p120_L0p000_E4p000799.dat.bt7": {
+      "sha256": "e794b6d6ed02bf2e2deca5282cdd2c98a1f90c798386aec0015f47e61a411475",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/202608/14/data/data/tasai_live_20260911_202614028_H0p000_K1p100_L0p000_E5p000800.dat.bt7": {
+      "sha256": "a09d2c8a3b726d2833def20e213ccacf8fed2d47e6815d2277ca493868818b94",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/202608/14/data/data/tasai_live_20260911_202614029_H0p000_K1p120_L0p000_E5p000801.dat.bt7": {
+      "sha256": "9262b22bf9dc7f3a2ae8f7d7fda138fcbe7d16d1b8abb3c02642b7dce746ffac",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/202608/14/data/data/tasai_live_20260911_202614030_H0p000_K1p160_L0p000_E5p000802.dat.bt7": {
+      "sha256": "717b668da99a0760478a2578febcbe8b13885bed5b2a69cae8785d1ef7cfe634",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/202608/14/data/data/tasai_live_20260911_202614031_H0p000_K1p140_L0p000_E4p000803.dat.bt7": {
+      "sha256": "945369e0d46454a954c7579b803db7b1da42a1a54d38a88fe115ba321b39deb6",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/202608/14/data/data/tasai_live_20260911_202614032_H0p000_K1p140_L0p000_E3p000804.dat.bt7": {
+      "sha256": "3d569a740926a54614c96f39f302c85b26a4e8dab736acb69e242433a1c49568",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/202608/14/data/data/tasai_live_20260911_202614033_H0p000_K1p120_L0p000_E6p000805.dat.bt7": {
+      "sha256": "58dfb4e0ceecf9c93bc47ff6198ba9e230daa7cc8db534fc931ea69aebf94205",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/202608/14/data/data/tasai_live_20260911_202614034_H0p000_K1p280_L0p000_E22p000806.dat.bt7": {
+      "sha256": "b8224a6a8cceb37c1196ed9a32843d98d25ef929b7e1950f047322af088d3154",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/202608/14/data/data/tasai_live_20260911_202614035_H0p000_K1p140_L0p000_E6p000807.dat.bt7": {
+      "sha256": "ff72fb99a6ab314463735ec94837092efddcd062da2aaa0117fc94a0a3ca6e50",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/202608/14/data/data/tasai_live_20260911_202614036_H0p000_K1p140_L0p000_E5p000808.dat.bt7": {
+      "sha256": "5a29569d7e65a74c064fa1afdff9e8e4c348912ebd7ebf8ee201a5d5bfa24e4b",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/202608/14/data/data/tasai_live_20260911_202614037_H0p000_K1p140_L0p000_E7p000809.dat.bt7": {
+      "sha256": "523235e1c95be1aef9b7827d51d389f22786f0091dc0a24dec1dbec2f64f7087",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/202608/14/data/data/tasai_live_20260911_202614038_H0p000_K1p160_L0p000_E6p000810.dat.bt7": {
+      "sha256": "56a2f65ad40253eb3a8e5529290f78fc250377484ac15f733711c42908a30283",
+      "kind": "raw_archive_file"
+    },
+    "NCNR_BT7_archive/202608/14/data/data/tasai_live_20260911_202614039_H0p000_K1p200_L0p000_E7p000811.dat.bt7": {
+      "sha256": "6fc932944572d4de8e0db79f9791cc3ae8e528557ee6b80a823d4a77382b1263",
+      "kind": "raw_archive_file"
+    }
+  },
+  "uncertainty": "One-sigma errors propagated through tasreduction by tas_copilot_core.counting; denominators exact; count floor one.",
+  "exporter_sha256": "c09462a80b192f8ca1f07cf8fd6cc89addc4d72f2f87ff989db8e19f34074c1a"
+}

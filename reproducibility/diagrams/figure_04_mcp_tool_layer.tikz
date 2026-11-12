@@ -1,0 +1,34 @@
+\begin{tikzpicture}[scale=0.86, transform shape,
+  node distance=7mm and 10mm,
+  layer/.style={draw, rounded corners=2pt, fill=blue!7, align=center, font=\footnotesize, inner sep=5pt, minimum width=38mm, minimum height=9mm},
+  mcp/.style={draw, rounded corners=2pt, fill=purple!10, align=center, font=\footnotesize, inner sep=5pt, minimum width=44mm, minimum height=12mm},
+  tool/.style={draw, rounded corners=1.5pt, fill=gray!9, align=center, font=\scriptsize, inner sep=3pt, minimum width=29mm, minimum height=7mm},
+  record/.style={draw, rounded corners=1.5pt, fill=green!8, align=center, font=\scriptsize, inner sep=3pt, minimum width=33mm, minimum height=7mm},
+  arrow/.style={-{Latex[length=2mm]}, thick}
+]
+\node[mcp, minimum width=54mm] (mcp) {MCP / tool-service layer\\capability inventory, schema validation,\\runtime selection, provenance capture};
+\node[layer, above=7mm of mcp] (workflow) {Workflow orchestrator\\selects capabilities, not implementations};
+\node[layer, above=6mm of workflow] (surface) {Browser, CLI, bounded copilot router};
+
+\node[tool, below=10mm of mcp] (physics) {Resolution, pySpinW,\\GSAS-II, spurions};
+\node[tool] (readers) at (-5.2,0 |- physics) {Readers and\\scan grouping};
+\node[tool] (adaptive) at (5.2,0 |- physics) {NICE simulation,\\TAS-AI, ANDiE};
+
+\node[record, left=10mm of mcp] (contracts) {ToolSpec, ToolCall,\\ToolResult contracts};
+\node[record, right=10mm of mcp] (runtime) {Runtime profiles:\\conda, container, TACC, service};
+\node[record, minimum width=54mm, below=10mm of physics] (audit) {Audit, lineage, review labels,\\derived-artifact provenance};
+
+\draw[arrow] (surface.south) -- (workflow.north);
+\draw[arrow] ([xshift=-5mm]workflow.south) -- ([xshift=-5mm]mcp.north);
+\draw[arrow] ([xshift=5mm]mcp.north) -- ([xshift=5mm]workflow.south);
+\draw[arrow] (mcp.south west) -- (readers.north);
+\draw[arrow] (mcp.south) -- (physics.north);
+\draw[arrow] (mcp.south east) -- (adaptive.north);
+\draw[arrow] (contracts.east) -- (mcp.west);
+\draw[arrow] (runtime.west) -- (mcp.east);
+% Keep the direct audit path in the gap between the tool boxes.
+\draw[arrow] ([xshift=-23mm]mcp.south) -- ([xshift=-23mm]audit.north);
+\draw[arrow] (readers.south) -- (audit.west);
+\draw[arrow] (physics.south) -- (audit.north);
+\draw[arrow] (adaptive.south) -- (audit.east);
+\end{tikzpicture}

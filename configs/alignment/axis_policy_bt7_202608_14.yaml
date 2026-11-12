@@ -1,0 +1,16 @@
+# Axis policy for the live alignment on BT-7 exp 14 (LSMO, inelastic, 2026-09-12).
+# Frozen axes are never scanned or recommended; skipped steps are reported with the reason.
+mode: reversible_only
+frozen_axes:
+  - axis: preSampleWidth
+    reason: readback reset to ~0 by the motor-computer power cycle (2026-09-12); a scan would report the reset coordinate, not the opening
+  - axis: preSampleHeight
+    reason: same readback reset as preSampleWidth
+  - axis: postSampleSlitWidth
+    reason: inelastic run; post-sample slits are not optimized
+  - axis: postSampleSlitHeight
+    reason: inelastic run; post-sample slits are not optimized
+  - axis: sampleLTrans
+    reason: sample translation is not reversible without someone at the instrument
+  - axis: sampleUTrans
+    reason: sample translation is not reversible without someone at the instrument

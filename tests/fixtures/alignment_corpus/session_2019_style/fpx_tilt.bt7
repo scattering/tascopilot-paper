@@ -1,0 +1,15 @@
+#ICE           0.4.0
+#Filename    fpx_tilt
+#Date        2019-11-06 17:10:00 EDT
+#ExptID      alignment_fixture
+#ExptName    Sanitized alignment fixture
+#ScanType   Find Peak Scan
+#Scan        13 SmplLTilt
+#Lattice     3.9 3.9 3.9 90 90 90
+#Orient      1 0 0 0 1 0
+#AnalyzerDetectorMode 2 SingDetFlat
+#ScanDescr   Scan:Type=6:Fixed=0:FixedE=1:CountType=Time:Counts=1.0:Range=SmplLTilt=-1 1:Npts=21:DetectorType=Detector:Filename=fpx:Title=FindPeak
+#Columns SmplLTilt Detector Monitor Time
+-0.2 10 100 1
+0.0 25 100 1
+0.2 11 100 1

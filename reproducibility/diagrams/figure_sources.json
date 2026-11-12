@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "source_revision": "a9173895c687129310797ec93b44e6e7b5f89dc0",
+  "scope": "Exact TikZ blocks only. No figure floats, captions, manuscript body, bibliography, or document class copied.",
+  "extraction": "Inclusive begin/end tikzpicture blocks and their final newline; source line numbers are one-based inclusive.",
+  "style": {
+    "packages": [
+      "fontenc[T1]",
+      "stix2",
+      "anyfontsize",
+      "xcolor",
+      "tikz"
+    ],
+    "tikz_libraries": [
+      "arrows.meta",
+      "positioning",
+      "shapes.geometric",
+      "angles",
+      "quotes",
+      "calc"
+    ],
+    "font_sizes_pt": {
+      "normalsize": [
+        9,
+        11.5
+      ],
+      "footnotesize": [
+        7,
+        9
+      ],
+      "scriptsize": [
+        9,
+        9
+      ]
+    },
+    "border_pt": 2,
+    "provenance": [
+      {
+        "source_file": "main.tex",
+        "source_file_sha256": "3fb5daaac3d075686f349bcfc03690553cb331b41dc77d7e077ea13548bd4afc",
+        "source_lines": [
+          3,
+          7
+        ],
+        "role": "anyfontsize, xcolor, TikZ and library declarations"
+      },
+      {
+        "source_file": "USG.cls",
+        "source_file_sha256": "b9aa4b5d43c6c444f2876000952fa03439972c8e573d67212123647cbbfa4e08",
+        "source_lines": [
+          336,
+          337
+        ],
+        "role": "T1 encoding and STIX2 font package"
+      },
+      {
+        "source_file": "USG.cls",
+        "source_file_sha256": "b9aa4b5d43c6c444f2876000952fa03439972c8e573d67212123647cbbfa4e08",
+        "source_lines": [
+          716,
+          726
+        ],
+        "role": "Two-column normal font size and baseline"
+      },
+      {
+        "source_file": "USG.cls",
+        "source_file_sha256": "b9aa4b5d43c6c444f2876000952fa03439972c8e573d67212123647cbbfa4e08",
+        "source_lines": [
+          749,
+          761
+        ],
+        "role": "Two-column footnotesize and scriptsize settings"
+      }
+    ],
+    "adaptation": "The standalone wrapper supplies the required font settings without copying USG.cls. Diagram coordinates, text, styles, and scale factors are unchanged."
+  },
+  "figures": [
+    {
+      "figure": 1,
+      "name": "triple_axis_schematic",
+      "source_file": "figures/triple_axis_schematic_jeff_review_20261103.tex",
+      "source_file_sha256": "e6e0cff506132da16c9b8eb66692bbd926d8d6c7803720142fd3a4ccd8305064",
+      "source_lines": [
+        3,
+        53
+      ],
+      "graphic_sha256": "cc6681095c4da0ecfe880403a06ddf986095f0669217e1c880858466434589ae",
+      "graphic_file": "diagrams/figure_01_triple_axis_schematic.tikz"
+    },
+    {
+      "figure": 2,
+      "name": "semantic_decision_stack",
+      "source_file": "figures/semantic_decision_stack.tex",
+      "source_file_sha256": "89f8d3ca7ebd1c1d93d305f134bb456bd1d8c506187593ddebea0054b6fd4b27",
+      "source_lines": [
+        3,
+        31
+      ],
+      "graphic_sha256": "b5edb390c619c0a668b9a0610e1e70b1af0c97827d1731509767899f9e31afd7",
+      "graphic_file": "diagrams/figure_02_semantic_decision_stack.tikz"
+    },
+    {
+      "figure": 3,
+      "name": "federated_architecture",
+      "source_file": "figures/federated_architecture.tex",
+      "source_file_sha256": "37512c7994b0fadf8d247acefd8b1f3b34def27587a4fb08570a7b1f1fc77b39",
+      "source_lines": [
+        3,
+        33
+      ],
+      "graphic_sha256": "0a922dba335084ab08883d4873529d0b47d64a51ab6f6eb79b814d4057b89887",
+      "graphic_file": "diagrams/figure_03_federated_architecture.tikz"
+    },
+    {
+      "figure": 4,
+      "name": "mcp_tool_layer",
+      "source_file": "figures/mcp_tool_layer.tex",
+      "source_file_sha256": "974d2b63082121da8b78d8f80cbd2b80b26419535d512d60a5dac751e5b85117",
+      "source_lines": [
+        3,
+        36
+      ],
+      "graphic_sha256": "e5ef31c1f8184da9495c54fe779ba060b83af23d89c3268d7c68b88c3e73da16",
+      "graphic_file": "diagrams/figure_04_mcp_tool_layer.tikz"
+    },
+    {
+      "figure": 5,
+      "name": "claim_lifecycle",
+      "source_file": "figures/claim_lifecycle.tex",
+      "source_file_sha256": "2c978cb1900e6efd72cdcb4a256ae7a52e526369301fc0a001d914b1e9c5cabe",
+      "source_lines": [
+        3,
+        35
+      ],
+      "graphic_sha256": "3519d2c0ee241491765151eea714f612bd1f2c96dfcf10be51aeb0cc933c6f96",
+      "graphic_file": "diagrams/figure_05_claim_lifecycle.tikz"
+    },
+    {
+      "figure": 6,
+      "name": "paper_source_linkage",
+      "source_file": "sections/03_workflows.tex",
+      "source_file_sha256": "40abf1ffaef85d3425e88e68aab81787ac77b5e856adcc87259d2510cf413ed7",
+      "source_lines": [
+        23,
+        52
+      ],
+      "graphic_sha256": "c2a3614be3d1ab3037b25f22d39e196f77716aa53c4b132010811970e64db4d8",
+      "graphic_file": "diagrams/figure_06_paper_source_linkage.tikz"
+    },
+    {
+      "figure": 7,
+      "name": "reduction_dag",
+      "source_file": "sections/03_workflows.tex",
+      "source_file_sha256": "40abf1ffaef85d3425e88e68aab81787ac77b5e856adcc87259d2510cf413ed7",
+      "source_lines": [
+        86,
+        108
+      ],
+      "graphic_sha256": "3e1750af48b1a5cd280c5578d069919a6279a4179509fbf237271bfddd3f6b7c",
+      "graphic_file": "diagrams/figure_07_reduction_dag.tikz"
+    }
+  ]
+}

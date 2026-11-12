@@ -1,0 +1,16 @@
+{
+  "alignment_peaks": [
+    {
+      "hkl": [0, 0, 1],
+      "rank": 1,
+      "reason": "Synthetic strong first reflection"
+    },
+    {
+      "hkl": [1, 0, 0],
+      "rank": 2,
+      "reason": "Synthetic orthogonal second reflection"
+    }
+  ],
+  "formula": "La0.7Sr0.3MnO3",
+  "scattering_plane": "[0,0,1];[1,0,0]"
+}

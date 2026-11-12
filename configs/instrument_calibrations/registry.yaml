@@ -1,0 +1,64 @@
+# General instrument-calibration registry (parallel to configs/psd_calibration/).
+# Records are typed by `kind`; unknown kinds or malformed payloads fail validation
+# (fail-closed). Candidate records may only feed candidate-language evidence;
+# accepted records require reviewed_by.
+#
+# Wavelength naming discipline: nominal_incident_wavelength (from the Ei setpoint),
+# selector_passband_center_wavelength (from selector speed via this calibration),
+# and harmonics as harmonic_order n of the nominal incident wavelength
+# (lambda_half == harmonic_order=2). Never a bare `lambda`/`wavelength` field.
+instrument_calibrations:
+  - id: bt7-velocity-selector-speed-to-passband-center-2018-srmn2sb2
+    kind: velocity_selector_speed_to_passband_center
+    instrument: BT-7
+    scope:
+      valid_from: "2018-01-01"
+      valid_to: null
+    payload:
+      # selector_passband_center_wavelength [Angstrom] = constant / Velsel [selector speed units]
+      constant_velsel_units_angstrom: 29713
+      passband_width_fwhm_fraction: null
+    status: candidate
+    reviewed_by: null
+    evidence:
+      - "fpx840982.bt7: Velsel=12594 at Ei=14.7 meV, nominal_incident_wavelength=2.3594 A -> Velsel x wavelength = 29715"
+      - "fpx841082.bt7 (201804 root, 2018-05-25): Velsel=17382 at Ei=28.0 meV, nominal_incident_wavelength=1.7093 A -> Velsel x wavelength = 29711"
+      - "fpx841882.bt7 (201806 root, 2018-07-09): Velsel=17382 at Ei=28.0 meV, same speed across sessions and a sample remount"
+      - "Derived 2026-07-06 from BT-7 experiment 24858 (SrMn2Sb2) alignment scans; the two-point ratio is consistent to 0.02%."
+      - "Independent confirmation 2026-07-06 from experiment 22646 (BaFe2(S,Se)3, 2017-02): Velsel=12594 at Ei=14.7 meV -> product 29709 (0.01% from the seeded constant), extending the evidence a year earlier and across experiments."
+    notes:
+      - "Candidate only: an instrument scientist must review the constant and supply passband_width_fwhm_fraction before any selector_tuned_suppressed verdict is possible."
+      - "Alignment scans in experiment 24858 ran with the PG filter OUT (Filtran=OUT) while the velocity selector tracked the Ei setpoint; this record lets the harmonic-suppression scorer treat that state as typed evidence instead of 'filter state missing'."
+      - "With the repo energy-wavelength constant (81.804209 meV*A^2) the two evidence points give 29709 and 29710; the difference from the seeded 29713 is ~0.01% and is immaterial at the 2% tuning threshold."
+
+  - id: bt7-monitor-higher-order-correction-dave-pg002
+    kind: monitor_higher_order_correction_polynomial
+    instrument: BT-7
+    scope:
+      valid_from: null
+      valid_to: null
+    payload:
+      # CF(Ei) = 6.123 - 0.5963 Ei + 0.026244 Ei^2 - 0.0004843 Ei^3 + 2.881e-6 Ei^4, Ei in meV.
+      # Counts per monitor are MULTIPLIED by CF. DAVE applies it only for fixed Ef with a
+      # PG(002) monochromator (d = 3.354 A), for 5 <= Ei <= 34 meV; above 34 meV the factor is 1,
+      # below 5 meV DAVE refuses ("Monitor correction not possible for incident energy values below 5 meV").
+      variable: incident_energy_mev
+      coefficients: [6.1230, -0.59630, 0.026244, -0.00048430, 0.0000028810]
+      valid_incident_energy_mev: [5.0, 34.0]
+      factor_above_window: 1.0
+      operation: multiply_counts_per_monitor
+      applies_when:
+        fixed_energy: Ef
+        monochromator_dspacing_angstrom: 3.354
+    status: candidate
+    reviewed_by: null
+    evidence:
+      - "DAVE source, programs/modules/TAS/dave_tas/dtas_data__define.pro, function dtas_data::monitor_correction_factor: the BT4/BT7/BT9 branch sets M0..M4 to these values and multiplies the counts and errors by M0 + M1 Ei + ... + M4 Ei^4 with Ei = Ef + E."
+      - "Same source: correction is skipped unless fixedEType is EF and the monochromator d-spacing formats as 3.354; Ei > 34 meV gets factor 1.0; Ei < 5 meV aborts."
+      - "Copied into this registry 2026-09-12 from the DAVE checkout at ~/Downloads/dave 2/programs (IDL source shipped with DAVE)."
+    notes:
+      - "Candidate: the calibration date, the monitor and the in-pile filter state behind these numbers are not recorded in the DAVE source; an instrument scientist should confirm they still describe the BT-7 monitor."
+      - "This is an end-to-end empirical factor (whatever makes counts-per-monitor from a flat scatterer vary with Ei: lambda/2 in the monitor, monitor efficiency, and possibly the monochromator take-off dependence). Do not stack it with a separate cot(theta_M) or lambda/2-monitor term without checking against vanadium."
+      - "Cross-check 2026-09-11 (BT-7 exp 202608/16, Ei = 13.5 meV): removing the PG filter upstream of the monitor changed the per-monitor height of a Bragg tail by a factor 0.71, i.e. the unfiltered monitor over-counts by 1.41; CF(13.5) here is 1.76. Same sign and order, not the same number; the monitor or source spectrum may have changed since the DAVE calibration."
+      - "The same coefficients serve BT-4 and BT-9 in DAVE; NG-5 (SPINS) has its own set (1.2776, -0.078968, 0.0099952, -0.00060495, 1.4203e-5) and MACS uses 1/(1 + 0.5 poly(Ei)) with an 8-term polynomial; neither is entered here."
+      - "tasreduction.TripleAxisScan.monitor_correction evaluates its coefficients in the energy transfer E, not Ei: use monitor_correction_coefficients_in_energy_transfer(record, Ef) to convert, and restrict to points with 5 <= Ef + E <= 34."

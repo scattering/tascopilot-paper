@@ -1,0 +1,265 @@
+{
+  "schema_version": 1,
+  "purpose": "Offline code/data reproduction of all main-paper Figures 1-11; Table 4 LSMO fit replay; optional SrMn2Sb2 saved-endpoint recalculation without full optimization rerun.",
+  "lsmo_fit": {
+    "configuration": "lsmo_fit_config.json",
+    "reference_result": "results/lsmo_live_fit.json",
+    "replay": "scripts/replay_lsmo_fit.py",
+    "instructions": "LSMO_FIT.md",
+    "input": "data/figure_inputs/lsmo_comparison.json",
+    "input_changed": false
+  },
+  "overleaf_ref": "overleaf/main",
+  "overleaf_commit": "796bfa5add6a93f0eb5407db809332c063989535",
+  "plotting_preservation_commit": "68d329a93aa935191e71187df4bea405505befa8",
+  "figure11_asset_spelling_update_commit": "e5ff92f",
+  "figure10_heading_update_commit": "a9173895c687129310797ec93b44e6e7b5f89dc0",
+  "archives": {
+    "supporting_information_S2_20261031.zip": {
+      "sha256": "11b94aa89190dd6b7225b25fbb677e7b4e5de5b67579a2b02c9821f7921a04a9"
+    },
+    "TAS_Copilot_plotting_code_68d329a.zip": {
+      "sha256": "dc6bb140f1a2a5287d507fbea9c39a9277ee0bd8445476f09a935be1e59d4e5b"
+    }
+  },
+  "copied_sources": {
+    "LICENSE": {
+      "source": "supporting_information_S2_20261031.zip!/TAS_Copilot_S2/LICENSE",
+      "sha256": "239bbf43e6d8ba9e628104212444f4fe8f6608cf20cb88f6f51466e0a00bf9d4"
+    },
+    "data/figure_inputs/lsmo_alignment.json": {
+      "source": "supporting_information_S2_20261031.zip!/TAS_Copilot_S2/data/figure_inputs/lsmo_alignment.json",
+      "sha256": "6b3e3232ef8e7d0253e1ef84351a5d35005be715c6171917faf6337a6462f50a"
+    },
+    "data/figure_inputs/lsmo_comparison.json": {
+      "source": "supporting_information_S2_20261031.zip!/TAS_Copilot_S2/data/figure_inputs/lsmo_comparison.json",
+      "sha256": "1f400b518e645644c52d1a38155dd39d7c80946dbabd79a6db4e424e7ad688af"
+    },
+    "data/figure_inputs/srmn2sb2_dispersion.csv.gz": {
+      "source": "supporting_information_S2_20261031.zip!/TAS_Copilot_S2/data/figure_inputs/srmn2sb2_dispersion.csv.gz",
+      "sha256": "b333edfca490ac1e4851ffc6708e50ef9a21d7ace2a0b822e2da7319b070e5ab"
+    },
+    "data/figure_inputs/srmn2sb2_evidence.json": {
+      "source": "supporting_information_S2_20261031.zip!/TAS_Copilot_S2/data/figure_inputs/srmn2sb2_evidence.json",
+      "sha256": "1665dd3494c9e8c7be195eb625b7999e592cbf9ef687789390bd392f61cf7ce8"
+    },
+    "data/srmn2sb2_fit_endpoint/README.md": {
+      "source": "supporting_information_S2_20261031.zip!/TAS_Copilot_S2/data/srmn2sb2_fit_endpoint/README.md",
+      "sha256": "22c20c3d217822628eba1ad271b17cd6036af82cda108a3fc6f4110fcde064c9"
+    },
+    "data/srmn2sb2_fit_endpoint/RESULTS_stampede_qmc64.md": {
+      "source": "supporting_information_S2_20261031.zip!/TAS_Copilot_S2/data/srmn2sb2_fit_endpoint/RESULTS_stampede_qmc64.md",
+      "sha256": "783f67190fc0a8e429eb45fca3ac1128b78714f0060ddc6f611a9b7c111a045f"
+    },
+    "data/srmn2sb2_fit_endpoint/dispersion_paths.csv": {
+      "source": "supporting_information_S2_20261031.zip!/TAS_Copilot_S2/data/srmn2sb2_fit_endpoint/dispersion_paths.csv",
+      "sha256": "0119484c998104cae0ab89782dec0c1720d6bddea3a733c5190299d75d968115"
+    },
+    "data/srmn2sb2_fit_endpoint/dispersion_points_input.csv.gz": {
+      "source": "supporting_information_S2_20261031.zip!/TAS_Copilot_S2/data/srmn2sb2_fit_endpoint/dispersion_points_input.csv.gz",
+      "sha256": "406cc9d56a2809b6a720a21ed93dd336346193a8356c3246fb731dc98215adc3"
+    },
+    "data/srmn2sb2_fit_endpoint/endpoint_center005_per_scan_qmc64.par": {
+      "source": "supporting_information_S2_20261031.zip!/TAS_Copilot_S2/data/srmn2sb2_fit_endpoint/endpoint_center005_per_scan_qmc64.par",
+      "sha256": "48232645444ac35b81862a0ba1d4594f5d8a2bd3a2af4c38ab696dd71cc3ce5f"
+    },
+    "data/srmn2sb2_fit_endpoint/endpoint_fit_provenance.json": {
+      "source": "supporting_information_S2_20261031.zip!/TAS_Copilot_S2/data/srmn2sb2_fit_endpoint/endpoint_fit_provenance.json",
+      "sha256": "386991ea5340c468acdf64812b6a9ead42e9c0851a9c7862137c515b441a5aa9"
+    },
+    "data/srmn2sb2_fit_endpoint/export_provenance.json": {
+      "source": "supporting_information_S2_20261031.zip!/TAS_Copilot_S2/data/srmn2sb2_fit_endpoint/export_provenance.json",
+      "sha256": "bcbdb2a636f2d0c7c08ef07aad9da052c7506090e945a5659237def27466cbb3"
+    },
+    "data/srmn2sb2_fit_endpoint/export_srmn2sb2_scan_predictions.py": {
+      "source": "supporting_information_S2_20261031.zip!/TAS_Copilot_S2/data/srmn2sb2_fit_endpoint/export_srmn2sb2_scan_predictions.py",
+      "sha256": "48a0f9d37f98065c0541da0fdc2df43c9685ac7677ef9e63ec66cc66a6126242"
+    },
+    "data/srmn2sb2_fit_endpoint/resolution_samples.csv.gz": {
+      "source": "supporting_information_S2_20261031.zip!/TAS_Copilot_S2/data/srmn2sb2_fit_endpoint/resolution_samples.csv.gz",
+      "sha256": "6fd385bd1fa40b744a13a8f26ec9a124bf44ba92e510e617d00980d4d4629660"
+    },
+    "data/srmn2sb2_fit_endpoint/result_sha256.txt": {
+      "source": "supporting_information_S2_20261031.zip!/TAS_Copilot_S2/data/srmn2sb2_fit_endpoint/result_sha256.txt",
+      "sha256": "b9c60406058725c0831b49545cd4deeecec1b1bfcbb9b8af8f6ca420be592b6d"
+    },
+    "data/srmn2sb2_fit_endpoint/scan_peak_fits_backgrounds.json": {
+      "source": "supporting_information_S2_20261031.zip!/TAS_Copilot_S2/data/srmn2sb2_fit_endpoint/scan_peak_fits_backgrounds.json",
+      "sha256": "5cf4da7f6c2abc9ef32e58215782e52a15842ca0fe1a0a51bf6cf0bef570511d"
+    },
+    "data/srmn2sb2_fit_endpoint/scan_predictions.csv": {
+      "source": "supporting_information_S2_20261031.zip!/TAS_Copilot_S2/data/srmn2sb2_fit_endpoint/scan_predictions.csv",
+      "sha256": "5f6447822fd1b1e508414da50a416295be1920b9d1eaa00f6799a4d4011b1cf4"
+    },
+    "requirements.txt": {
+      "source": "supporting_information_S2_20261031.zip!/TAS_Copilot_S2/requirements.txt",
+      "sha256": "c39086953460ef3c9d542f99977834cf7e949eed35828babaf5f70d938bffb84"
+    },
+    "provenance/source_manifest.json": {
+      "source": "supporting_information_S2_20261031.zip!/TAS_Copilot_S2/source_manifest.json",
+      "sha256": "2b30d734385bb23c7434a10013a7b76c56d0995ad14bb3f277591b850da59ce3"
+    },
+    "provenance/S2_SHA256SUMS": {
+      "source": "supporting_information_S2_20261031.zip!/TAS_Copilot_S2/SHA256SUMS",
+      "sha256": "877fc214b35ce0410336ee463510eae558460bdce970f68ba18561dadf03fc7d"
+    },
+    "provenance/plotting_code_PRESERVATION.json": {
+      "source": "TAS_Copilot_plotting_code_68d329a.zip!/PRESERVATION.json",
+      "sha256": "43f68c95b8fe953822456669740d5cc5f87e8abea17d566dd14841ba48c4c9a8"
+    },
+    "scripts/plot_srmn2sb2_evidence_to_analysis_jeff_review_20261103.py": {
+      "source": "tascopilot/scripts/paper_figures/plot_srmn2sb2_evidence_to_analysis_jeff_review_20261103.py",
+      "sha256": "5496e0ee4dc534d1955b43caeb87407cb9f7a0c7aa523fecec05ef036d8388c9"
+    },
+    "scripts/plot_srmn2sb2_resolution_fit.py": {
+      "source": "tascopilot/scripts/paper_figures/plot_srmn2sb2_resolution_fit.py",
+      "sha256": "a3ea7730f45f7213178bcbe7a5a4b31bec2e610d7ceea7fa2700018eca3eb2c0"
+    },
+    "scripts/plot_lsmo_live_alignment_chain_jeff_review_20261103.py": {
+      "source": "tascopilot/scripts/paper_figures/plot_lsmo_live_alignment_chain_jeff_review_20261103.py",
+      "sha256": "1b65b362f6e7cba5d1c44efd845d6a46ff4cb4f6d7b82d535494c82a888c7f5d"
+    },
+    "scripts/plot_lsmo_sampling_comparison_jeff_review_20261103.py": {
+      "source": "tascopilot/scripts/paper_figures/plot_lsmo_sampling_comparison_jeff_review_20261103.py",
+      "sha256": "0c54ef721bbe56a49c894603140ff1689501d67efef678e445c910efe7cb30fd"
+    },
+    "scripts/figure_inputs.py": {
+      "source": "tascopilot-paper/scripts/figure_inputs.py (S2 helper before local path adaptation)",
+      "sha256": "1ec0f539a4fa876b69f48251a4980bcf48e779c51c12b913804740924743aa39"
+    },
+    "provenance/upstream_figure_PROVENANCE.json": {
+      "source": "tascopilot/scripts/paper_figures/PROVENANCE.json",
+      "sha256": "7993c3d004292083e9766e191d81ef8832dfd4a2fa2d778ad9d143ff13e0cb59"
+    },
+    "tests/test_resolution_figure.py": {
+      "source": "tascopilot-paper/tests/test_resolution_figure.py (before local path adaptation)",
+      "sha256": "2f7d3a16c897c85b3e3208f4f5abd7bb18f27b62adf9c9b3dcbb0c7944628ce3"
+    },
+    "reference_figures/srmn2sb2_evidence_to_analysis_jeff_review_20261103.pdf": {
+      "source": "tascopilot-paper@796bfa5add6a93f0eb5407db809332c063989535:images/srmn2sb2_evidence_to_analysis_jeff_review_20261103.pdf",
+      "sha256": "7f4af68bc81d7e7e6737b9f66b5a47d33194835bca97e7528af0e81d8dcaccba"
+    },
+    "reference_figures/srmn2sb2_resolution_fit.pdf": {
+      "source": "tascopilot-paper@796bfa5add6a93f0eb5407db809332c063989535:images/srmn2sb2_resolution_fit.pdf",
+      "sha256": "fcd9bb05d9de0b6ea01102f6b7c18ac1ae873104c5777709321e3cf0723ba4af"
+    },
+    "reference_figures/lsmo_live_alignment_chain_jeff_review_20261103.pdf": {
+      "source": "tascopilot-paper@a9173895c687129310797ec93b44e6e7b5f89dc0:images/lsmo_live_alignment_chain_jeff_review_20261103.pdf",
+      "sha256": "492cd14b3fddffda297c8e1a9127d83fdc86857eed5259a340d20615018127b9"
+    },
+    "reference_figures/lsmo_tasai_sampling_vs_2017_map_jeff_review_20261103.pdf": {
+      "source": "tascopilot-paper@796bfa5add6a93f0eb5407db809332c063989535:images/lsmo_tasai_sampling_vs_2017_map_jeff_review_20261103.pdf",
+      "sha256": "e9d410a69fb7385af9198088ba49e292a5206ccacdf46edfe0b9b0104149bc7b"
+    },
+    "provenance/dispersion_map_summary.csv": {
+      "source": "tascopilot/local_runs/srmn2sb2_24858_dispersion_maps_20260618/dispersion_map_summary.csv",
+      "sha256": "7bdc79e45a0847457a3dce4e6618ccb1461f9d021a2c08531eee6188e287dde8"
+    },
+    "reference_figures/s1/srmn2sb2_order_parameter_lynn.jpg": {
+      "source": "tascopilot-paper@796bfa5add6a93f0eb5407db809332c063989535:images/srmn2sb2_order_parameter_lynn.jpg",
+      "sha256": "652544156ed81c46c55658d21cfb03aab8545f6f70e7dbf7b188c05cafe237b2"
+    },
+    "reference_figures/s1/srmn2sb2_temperature_contour_lynn.jpg": {
+      "source": "tascopilot-paper@796bfa5add6a93f0eb5407db809332c063989535:images/srmn2sb2_temperature_contour_lynn.jpg",
+      "sha256": "96f6fc6800c3cc6fea7131f5b3ebb0fb57ed72257a7560de3246a3e6b20d97d8"
+    },
+    "diagrams/figure_01_triple_axis_schematic.tikz": {
+      "source": "tascopilot-paper@a9173895c687129310797ec93b44e6e7b5f89dc0:figures/triple_axis_schematic_jeff_review_20261103.tex:3-53",
+      "sha256": "cc6681095c4da0ecfe880403a06ddf986095f0669217e1c880858466434589ae"
+    },
+    "diagrams/figure_02_semantic_decision_stack.tikz": {
+      "source": "tascopilot-paper@a9173895c687129310797ec93b44e6e7b5f89dc0:figures/semantic_decision_stack.tex:3-31",
+      "sha256": "b5edb390c619c0a668b9a0610e1e70b1af0c97827d1731509767899f9e31afd7"
+    },
+    "diagrams/figure_03_federated_architecture.tikz": {
+      "source": "tascopilot-paper@a9173895c687129310797ec93b44e6e7b5f89dc0:figures/federated_architecture.tex:3-33",
+      "sha256": "0a922dba335084ab08883d4873529d0b47d64a51ab6f6eb79b814d4057b89887"
+    },
+    "diagrams/figure_04_mcp_tool_layer.tikz": {
+      "source": "tascopilot-paper@a9173895c687129310797ec93b44e6e7b5f89dc0:figures/mcp_tool_layer.tex:3-36",
+      "sha256": "e5ef31c1f8184da9495c54fe779ba060b83af23d89c3268d7c68b88c3e73da16"
+    },
+    "diagrams/figure_05_claim_lifecycle.tikz": {
+      "source": "tascopilot-paper@a9173895c687129310797ec93b44e6e7b5f89dc0:figures/claim_lifecycle.tex:3-35",
+      "sha256": "3519d2c0ee241491765151eea714f612bd1f2c96dfcf10be51aeb0cc933c6f96"
+    },
+    "diagrams/figure_06_paper_source_linkage.tikz": {
+      "source": "tascopilot-paper@a9173895c687129310797ec93b44e6e7b5f89dc0:sections/03_workflows.tex:23-52",
+      "sha256": "c2a3614be3d1ab3037b25f22d39e196f77716aa53c4b132010811970e64db4d8"
+    },
+    "diagrams/figure_07_reduction_dag.tikz": {
+      "source": "tascopilot-paper@a9173895c687129310797ec93b44e6e7b5f89dc0:sections/03_workflows.tex:86-108",
+      "sha256": "3e1750af48b1a5cd280c5578d069919a6279a4179509fbf237271bfddd3f6b7c"
+    }
+  },
+  "adaptations": {
+    "scripts/figure_inputs.py": "Use package data/ and ignored outputs/; adapt missing-input diagnostic. No numerical or rendering changes.",
+    "tests/test_resolution_figure.py": "Use packaged data/ instead of manuscript supplemental/data/.",
+    "scripts/plot_lsmo_sampling_comparison_jeff_review_20261103.py": "Already updated upstream to American English on November 4; numerical code and layout unchanged from preserved ZIP.",
+    "provenance/s1_temperature.json": "Allowlisted author/date, scientific context, source filenames and asset hashes from Overleaf temperature provenance; no email subjects or transport IDs.",
+    "scripts/build_diagrams.py": "New standalone renderer for exact preserved TikZ blocks; portable wrapper/font settings only, no changes to graphic code.",
+    "scripts/plot_lsmo_live_alignment_chain_jeff_review_20261103.py": "Figure heading names the system TASCopilot, as in the manuscript; one display string. Data handling, display fits and layout are unchanged from the source script.",
+    "reference_figures/lsmo_live_alignment_chain_jeff_review_20261103.pdf": "The manuscript's regenerated Figure 10 at the heading-update commit; at 120 dpi only the heading line differs from the earlier reference.",
+    "LICENSE": "Copyright line names the system TASCopilot, as in the manuscript; license terms unchanged."
+  },
+  "data_integrity": "Scientific values, predictions, samples, and figure inputs retain their source content. Six documented data-directory members have prose or path-only release adaptations; original hashes are retained.",
+  "privacy": "No raw private corpus, extracted paper text, full papers, review comments, or private fact values copied. Aggregate review counts and source hashes only.",
+  "optional_endpoint_recalculation": {
+    "recipe": "ENDPOINT_RECALCULATION.md",
+    "executed": true,
+    "pyspinw_commit": "82c14f35579d309c1a1a816940920a25d3254897",
+    "root_model_sha256": "2bc05206b30fdf77cd86d967e6efd0fa85f010cf096a56aa656b9c1e77b47e0f",
+    "root_core_sha256": "310f2a0ec514ccef7428539c621169fd241779e7c441047a613170cd2f4721bb",
+    "objective_relative_tolerance": 0.001,
+    "recorded_run": "VERIFICATION.json, endpoint_recalculation"
+  },
+  "diagrams": {
+    "source_revision": "a9173895c687129310797ec93b44e6e7b5f89dc0",
+    "metadata": "diagrams/figure_sources.json",
+    "source_format": "Seven plain drawing-only .tikz files",
+    "extraction": "Exact inclusive begin/end tikzpicture blocks including final newline; no figure floats, captions, body, bibliography or journal class copied.",
+    "rendering_adapter": "Standalone wrapper reproduces required STIX2/T1 fonts, 9/11.5pt normal, 7/9pt footnotesize and 9/9pt scriptsize; 2pt border.",
+    "source_count": 7,
+    "source_root_required_for_build": false,
+    "numeric_reference_assets_revalidated_at_revision": "a9173895c687129310797ec93b44e6e7b5f89dc0"
+  },
+  "release_data_adaptations": {
+    "data/srmn2sb2_fit_endpoint/README.md": {
+      "source_sha256": "22c20c3d217822628eba1ad271b17cd6036af82cda108a3fc6f4110fcde064c9",
+      "released_sha256": "9999d5c0ae7a92f67a7718018d9c569138b04bb9a3bc9f191f355a744bc35cde",
+      "reason": "Reviewer-facing endpoint guide replaces historical layout instructions."
+    },
+    "data/srmn2sb2_fit_endpoint/RESULTS_stampede_qmc64.md": {
+      "source_sha256": "783f67190fc0a8e429eb45fca3ac1128b78714f0060ddc6f611a9b7c111a045f",
+      "released_sha256": "930b12fdb0201489a113b3907c7155a57cdabe4d4d9c03a5ceb99c8358566eea",
+      "reason": "Retain the numerical comparison; remove internal job notes and absent diagnostic links."
+    },
+    "data/srmn2sb2_fit_endpoint/dispersion_points_input.csv.gz": {
+      "source_sha256": "406cc9d56a2809b6a720a21ed93dd336346193a8356c3246fb731dc98215adc3",
+      "released_sha256": "053ad179172ac9480fb518c31d15d5bee152727e52373ecab38aec5226683121",
+      "reason": "Only the path column is migrated to NCNR archive-relative paths; all other field strings and row order are identical."
+    },
+    "data/srmn2sb2_fit_endpoint/endpoint_fit_provenance.json": {
+      "source_sha256": "386991ea5340c468acdf64812b6a9ead42e9c0851a9c7862137c515b441a5aa9",
+      "released_sha256": "0c66ddba926d409ff12663c753820362bf05fd46f342a168ed7b66bfaad7adaa",
+      "reason": "Portable paths, updated input hash, original hash and path-migration record; current study scope replaces historical working label."
+    },
+    "data/srmn2sb2_fit_endpoint/export_provenance.json": {
+      "source_sha256": "bcbdb2a636f2d0c7c08ef07aad9da052c7506090e945a5659237def27466cbb3",
+      "released_sha256": "2813df4d4d65f862030e8b3be6c8d3413222b6f468fc5600407152d528773d6b",
+      "reason": "Portable paths, updated input hash, original hash and path-migration record; all scientific results retained."
+    },
+    "data/srmn2sb2_fit_endpoint/result_sha256.txt": {
+      "source_sha256": "b9c60406058725c0831b49545cd4deeecec1b1bfcbb9b8af8f6ca420be592b6d",
+      "released_sha256": "6f01c4b5d37215e77802cb6adaae49a4e0f5905b98ece7a10004286c0c67bb10",
+      "reason": "Relative file names and checksum for the adapted export provenance."
+    }
+  },
+  "release_figure_adaptations": {
+    "scripts/plot_lsmo_live_alignment_chain_jeff_review_20261103.py": {
+      "source_sha256": "1b65b362f6e7cba5d1c44efd845d6a46ff4cb4f6d7b82d535494c82a888c7f5d",
+      "released_sha256": "d0f2a8a8063113a4fbd542e0ff133e537e2d0a26287923c07425dadf65c2c9d5",
+      "reason": "Heading string only: 'TAS Co-pilot as the orchestrator' became 'TASCopilot as the orchestrator' to match the manuscript."
+    }
+  }
+}

@@ -1,0 +1,23 @@
+\begin{tikzpicture}[scale=0.95, transform shape,
+  node distance=8mm and 5mm,
+  box/.style={draw, rounded corners=1.5pt, align=center, font=\footnotesize, inner sep=4pt, minimum width=23mm, minimum height=8mm},
+  affected/.style={box, fill=yellow!15},
+  cache/.style={box, fill=blue!8},
+  arrow/.style={-{Latex[length=2mm]}, thick}
+]
+\node[box] (raw) {Input\\scans};
+\node[box, right=of raw] (combine) {Scan\\addition};
+\node[box, right=of combine] (norm) {Monitor\\normalization};
+\node[affected, right=of norm] (subtract) {Background\\subtraction};
+\node[affected, right=of subtract] (balance) {Detailed-balance\\correction};
+\node[cache, right=of balance] (result) {Reduced scan\\and provenance};
+\node[box, above=of norm] (parameters) {Normalization\\parameters};
+\node[box, above=of subtract] (background) {Background\\scan};
+\draw[arrow] (raw) -- (combine);
+\draw[arrow] (combine) -- (norm);
+\draw[arrow] (parameters) -- (norm);
+\draw[arrow] (norm) -- (subtract);
+\draw[arrow] (background) -- (subtract);
+\draw[arrow] (subtract) -- (balance);
+\draw[arrow] (balance) -- (result);
+\end{tikzpicture}

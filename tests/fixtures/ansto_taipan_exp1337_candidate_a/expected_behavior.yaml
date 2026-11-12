@@ -1,0 +1,27 @@
+fixture_id: ansto_taipan_exp1337_candidate_a
+source_scope: data_directory_only
+expected:
+  facility: ANSTO
+  instrument: TAIPAN
+  native_experiment_id: "1337"
+  known_answer_family: dy2ti2o7_003_longitudinal_temperature_series
+  known_answer_scan_ids:
+    - taipan-1337-115529
+    - taipan-1337-115544
+    - taipan-1337-115546
+    - taipan-1337-115552
+  temperatures_K:
+    - 0.045
+    - 0.8
+  control_scan_ids:
+    - taipan-1337-115553
+    - taipan-1337-115511
+  material_policy:
+    folder_hint: Ho2Ti2O7
+    scan_title_hint: DyTiO
+    expected_candidate_material: Dy2Ti2O7
+    rule: do_not_override_scan_title_material_with_parent_folder_name
+  paper_linkage:
+    accepted_link_expected: false
+    reason: only data-side exp1337 fixture is in scope
+
